@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 
 export const Header: React.FC = () => {
-  const { darkMode, toggleDarkMode, openInvoiceDrawer, openClientDrawer, openProjectModal, setCurrentRoute } = useApp();
+  const { metrics, darkMode, toggleDarkMode, openInvoiceDrawer, openClientDrawer, openProjectModal, setCurrentRoute } = useApp();
   const [isNewMenuOpen, setIsNewMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -66,9 +66,11 @@ export const Header: React.FC = () => {
             title="Notifications"
           >
             <span className="material-symbols-outlined text-[20px]">notifications</span>
-            <span className="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-error text-on-error font-label-sm text-[10px] font-bold shadow-sm">
-              3
-            </span>
+            {metrics.overdueInvoicesCount > 0 && (
+              <span className="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-error text-on-error font-label-sm text-[10px] font-bold shadow-sm">
+                {metrics.overdueInvoicesCount}
+              </span>
+            )}
           </button>
         </div>
 

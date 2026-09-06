@@ -47,10 +47,10 @@ export const AnalyticsView: React.FC = () => {
           </span>
           <div className="mt-2 flex items-baseline justify-between">
             <span className="font-numeric-lg text-numeric-lg font-bold text-on-surface dark:text-text-high">
-              14.2 days
+              {invoices.length > 0 ? '14.0 days' : '0.0 days'}
             </span>
             <span className="text-secondary dark:text-status-emerald-text font-label-sm text-label-sm font-semibold">
-              Net 15 standard
+              {invoices.length > 0 ? 'Net 15 standard' : 'Awaiting records'}
             </span>
           </div>
         </div>
@@ -78,32 +78,41 @@ export const AnalyticsView: React.FC = () => {
         <h3 className="font-headline-sm text-headline-sm text-on-surface dark:text-text-high font-bold mb-space-md">
           Client Revenue Attribution
         </h3>
-        <div className="flex flex-col gap-space-sm">
-          {clients.slice(0, 6).map(cli => {
-            const cliInvoices = invoices.filter(i => i.clientId === cli.id);
-            const total = cliInvoices.reduce((acc, i) => acc + i.totalAmount, 0);
-            const percent = metrics.totalRevenueYTD > 0 ? Math.round((total / metrics.totalRevenueYTD) * 100) : 0;
+        {clients.length === 0 ? (
+          <div className="py-8 text-center flex flex-col items-center justify-center">
+            <span className="material-symbols-outlined text-outline dark:text-text-muted text-[28px] mb-2">bar_chart</span>
+            <p className="font-body-sm text-body-sm text-on-surface-variant dark:text-text-muted">
+              No clients onboarded yet. Once you add clients and issue invoices, revenue attribution breakdown will display here.
+            </p>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-space-sm">
+            {clients.slice(0, 6).map(cli => {
+              const cliInvoices = invoices.filter(i => i.clientId === cli.id);
+              const total = cliInvoices.reduce((acc, i) => acc + i.totalAmount, 0);
+              const percent = metrics.totalRevenueYTD > 0 ? Math.round((total / metrics.totalRevenueYTD) * 100) : 0;
 
-            return (
-              <div key={cli.id} className="flex flex-col gap-1">
-                <div className="flex items-center justify-between font-body-sm text-body-sm">
-                  <span className="font-semibold text-on-surface dark:text-text-high">
-                    {cli.name} ({cli.company})
-                  </span>
-                  <span className="font-numeric-md font-bold text-on-surface dark:text-text-high">
-                    ${total.toLocaleString()} ({percent}%)
-                  </span>
+              return (
+                <div key={cli.id} className="flex flex-col gap-1">
+                  <div className="flex items-center justify-between font-body-sm text-body-sm">
+                    <span className="font-semibold text-on-surface dark:text-text-high">
+                      {cli.name} ({cli.company})
+                    </span>
+                    <span className="font-numeric-md font-bold text-on-surface dark:text-text-high">
+                      ${total.toLocaleString()} ({percent}%)
+                    </span>
+                  </div>
+                  <div className="w-full bg-surface-container-high dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                    <div
+                      className="bg-primary dark:bg-brand-primary h-full rounded-full"
+                      style={{ width: `${Math.min(100, percent)}%` }}
+                    ></div>
+                  </div>
                 </div>
-                <div className="w-full bg-surface-container-high dark:bg-slate-800 h-2 rounded-full overflow-hidden">
-                  <div
-                    className="bg-primary dark:bg-brand-primary h-full rounded-full"
-                    style={{ width: `${Math.min(100, percent)}%` }}
-                  ></div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

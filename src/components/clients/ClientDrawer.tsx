@@ -268,7 +268,7 @@ export const ClientDrawer: React.FC = () => {
                       className={`h-10 px-3 rounded-lg bg-surface-container-low dark:bg-canvas-card-elevated text-on-surface dark:text-text-high font-body-md text-body-md border focus:outline-none focus:ring-2 focus:ring-primary/20 ${
                         errors.name ? 'border-error' : 'border-outline-variant/30 dark:border-card-border'
                       }`}
-                      placeholder="e.g. Sarah Jenkins"
+                      placeholder="e.g. John Doe"
                       type="text"
                       value={name}
                       onChange={e => setName(e.target.value)}
@@ -289,7 +289,7 @@ export const ClientDrawer: React.FC = () => {
                       className={`h-10 px-3 rounded-lg bg-surface-container-low dark:bg-canvas-card-elevated text-on-surface dark:text-text-high font-body-md text-body-md border focus:outline-none focus:ring-2 focus:ring-primary/20 ${
                         errors.company ? 'border-error' : 'border-outline-variant/30 dark:border-card-border'
                       }`}
-                      placeholder="e.g. Apex Design Studio"
+                      placeholder="e.g. Acme Corp"
                       type="text"
                       value={company}
                       onChange={e => setCompany(e.target.value)}
@@ -313,7 +313,7 @@ export const ClientDrawer: React.FC = () => {
                       className={`h-10 px-3 rounded-lg bg-surface-container-low dark:bg-canvas-card-elevated text-on-surface dark:text-text-high font-body-md text-body-md border focus:outline-none focus:ring-2 focus:ring-primary/20 ${
                         errors.email ? 'border-error' : 'border-outline-variant/30 dark:border-card-border'
                       }`}
-                      placeholder="sarah@apexstudio.io"
+                      placeholder="client@company.com"
                       type="email"
                       value={email}
                       onChange={e => setEmail(e.target.value)}

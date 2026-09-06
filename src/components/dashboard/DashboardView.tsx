@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
+import { useAuth } from '../../context/AuthContext';
 import { MetricCard } from './MetricCard';
 import { RevenueChart } from './RevenueChart';
 import { PriorityInvoices } from './PriorityInvoices';
@@ -7,10 +8,12 @@ import { ActivityFeed } from './ActivityFeed';
 
 export const DashboardView: React.FC = () => {
   const { metrics, openInvoiceDrawer, openClientDrawer, showToast } = useApp();
+  const { user } = useAuth();
   const [dateRange, setDateRange] = useState('Last 30 Days');
   const [isDateMenuOpen, setIsDateMenuOpen] = useState(false);
 
   const dateOptions = ['Today', 'Last 7 Days', 'Last 30 Days', 'This Quarter'];
+  const userName = user?.displayName || (user?.email ? user.email.split('@')[0] : 'Workspace Owner');
 
   const handleExportSummary = () => {
     showToast({
@@ -53,7 +56,7 @@ export const DashboardView: React.FC = () => {
             </span>
           </div>
           <p className="font-body-md text-body-md text-on-surface-variant dark:text-text-medium mt-1">
-            Welcome back, Alex! Here is what is happening across your {metrics.totalClients} active accounts today.
+            Welcome back, {userName}! Here is what is happening across your {metrics.totalClients} active accounts today.
           </p>
         </div>
 
@@ -126,10 +129,11 @@ export const DashboardView: React.FC = () => {
         <MetricCard
           title="Total Clients"
           value={metrics.totalClients.toString()}
-          trend="+12%"
-          trendUp={true}
-          subtextLeft={`${metrics.onboardingClients} onboarding this week`}
-          subtextRight="Cap: 50"
+          trend={metrics.totalClients > 0 ? `${metrics.activeClients} Active` : 'Clean Slate'}
+          trendNeutral={metrics.totalClients === 0}
+          trendUp={metrics.totalClients > 0}
+          subtextLeft={`${metrics.onboardingClients} onboarding`}
+          subtextRight={`Active: ${metrics.activeClients}`}
           icon="group"
           iconColor="text-primary dark:text-brand-primary"
         />
@@ -138,11 +142,11 @@ export const DashboardView: React.FC = () => {
         <MetricCard
           title="Active Projects"
           value={metrics.activeProjects.toString()}
-          trend="2 on hold"
+          trend={metrics.activeProjects > 0 ? `${metrics.activeProjects} In Progress` : 'Ready'}
           trendNeutral={true}
-          subtextLeft={`${metrics.projectsNearingDeadline} reaching deadline soon`}
+          subtextLeft={`${metrics.projectsNearingDeadline} deadline soon`}
           subtextLeftHighlight="tertiary"
-          subtextRight="87% on-track"
+          subtextRight={metrics.activeProjects > 0 ? 'In flight' : 'No backlog'}
           icon="business_center"
           iconColor="text-surface-tint dark:text-brand-primary-light"
         />
@@ -151,25 +155,27 @@ export const DashboardView: React.FC = () => {
         <MetricCard
           title="Pending Invoices"
           value={`$${metrics.pendingInvoicesTotal.toLocaleString()}`}
-          trend={`${metrics.overdueInvoicesCount} Overdue`}
-          trendNegative={true}
+          trend={metrics.overdueInvoicesCount > 0 ? `${metrics.overdueInvoicesCount} Overdue` : 'All Clear'}
+          trendNegative={metrics.overdueInvoicesCount > 0}
+          trendNeutral={metrics.overdueInvoicesCount === 0}
           subtextLeft={`$${metrics.overdueInvoicesTotal.toLocaleString()} overdue`}
-          subtextLeftHighlight="error"
+          subtextLeftHighlight={metrics.overdueInvoicesCount > 0 ? 'error' : undefined}
           subtextRight={`${metrics.pendingInvoicesCount} due soon`}
-          icon="warning"
-          iconBgColor="bg-error-container/40 dark:bg-status-red-bg"
-          iconColor="text-error dark:text-status-red-text"
+          icon="receipt_long"
+          iconBgColor={metrics.overdueInvoicesCount > 0 ? "bg-error-container/40 dark:bg-status-red-bg" : "bg-surface-container dark:bg-canvas-card-elevated"}
+          iconColor={metrics.overdueInvoicesCount > 0 ? "text-error dark:text-status-red-text" : "text-primary dark:text-brand-primary"}
         />
 
         {/* KPI 4: Total Revenue (YTD) */}
         <MetricCard
           title="Revenue (YTD)"
           value={`$${metrics.totalRevenueYTD.toLocaleString()}`}
-          trend="+18.4% YoY"
-          trendUp={true}
+          trend={metrics.totalRevenueYTD > 0 ? `+$${metrics.realizedInflowMonth.toLocaleString()}` : '$0.00'}
+          trendUp={metrics.totalRevenueYTD > 0}
+          trendNeutral={metrics.totalRevenueYTD === 0}
           subtextLeft={`+$${metrics.realizedInflowMonth.toLocaleString()} this month`}
-          subtextLeftHighlight="secondary"
-          subtextRight="Target: $180k"
+          subtextLeftHighlight={metrics.totalRevenueYTD > 0 ? "secondary" : undefined}
+          subtextRight={`${metrics.paidThisMonthCount} settled`}
           icon="payments"
           iconBgColor="bg-secondary-container/50 dark:bg-status-emerald-bg"
           iconColor="text-secondary dark:text-status-emerald-text"
