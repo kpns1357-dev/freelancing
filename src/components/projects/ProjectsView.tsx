@@ -71,7 +71,8 @@ export const ProjectsView: React.FC = () => {
       });
   }, [projects, statusFilter, searchQuery, sortBy]);
 
-  // KPI Metrics
+  // KPI Metrics - dynamically calculated
+  const totalProjectsCount = projects.length;
   const activeProjectsCount = projects.filter(p => p.status !== 'Completed').length;
   const inFlightValue = projects
     .filter(p => p.status !== 'Completed')
@@ -84,13 +85,17 @@ export const ProjectsView: React.FC = () => {
   }).length;
 
   const completedCount = projects.filter(p => p.status === 'Completed').length;
-  const onTimePercentage = projects.length > 0 ? Math.round((completedCount / projects.length) * 100) : 92;
+  // Progress ratios
+  const activeRatio = totalProjectsCount > 0 ? Math.round((activeProjectsCount / totalProjectsCount) * 100) : 0;
+  const nearingDeadlineRatio = activeProjectsCount > 0 ? Math.round((nearingDeadlineCount / activeProjectsCount) * 100) : 0;
+  const inFlightRatio = inFlightValue > 0 ? Math.min(100, Math.round((inFlightValue / (inFlightValue + 10000)) * 100)) : 0;
+  const onTimePercentage = totalProjectsCount > 0 ? Math.round((completedCount / totalProjectsCount) * 100) : 0;
 
   const handleOptionsClick = () => {
     showToast({
       type: 'success',
       title: 'Portfolio Filters Active',
-      message: 'Viewing Q4 enterprise deliverables schedule.'
+      message: 'Viewing enterprise deliverables schedule.'
     });
   };
 
@@ -110,7 +115,7 @@ export const ProjectsView: React.FC = () => {
               </span>
               <span className="w-1.5 h-1.5 rounded-full bg-secondary"></span>
               <span className="font-label-sm text-label-sm text-on-surface-variant dark:text-text-muted">
-                Q4 Operations
+                Operations
               </span>
             </div>
             <h1 className="font-headline-lg text-headline-lg text-on-surface dark:text-text-high tracking-tight font-bold mt-1">
@@ -157,12 +162,15 @@ export const ProjectsView: React.FC = () => {
               <span className="font-headline-lg text-headline-lg font-bold text-on-surface dark:text-text-high">
                 {activeProjectsCount}
               </span>
-              <span className="font-label-sm text-label-sm text-secondary dark:text-status-emerald-text bg-secondary-container/40 dark:bg-status-emerald-bg px-2 py-0.5 rounded-full font-semibold">
-                +2 this month
+              <span className="font-label-sm text-label-sm text-on-surface-variant dark:text-text-muted bg-surface-container-high dark:bg-canvas-card-elevated px-2 py-0.5 rounded-full font-semibold">
+                {totalProjectsCount > 0 ? `${activeRatio}% active` : 'No projects'}
               </span>
             </div>
             <div className="w-full bg-surface-container-high dark:bg-slate-800 h-1 rounded-full mt-3 overflow-hidden">
-              <div className="bg-primary dark:bg-brand-primary h-full rounded-full w-[78%]"></div>
+              <div
+                className="bg-primary dark:bg-brand-primary h-full rounded-full transition-all duration-500"
+                style={{ width: `${activeRatio}%` }}
+              ></div>
             </div>
           </div>
 
@@ -177,15 +185,18 @@ export const ProjectsView: React.FC = () => {
               </div>
             </div>
             <div className="mt-space-sm flex items-baseline justify-between">
-              <span className="font-headline-lg text-headline-lg font-bold text-error dark:text-status-red-text">
+              <span className={`font-headline-lg text-headline-lg font-bold ${nearingDeadlineCount > 0 ? 'text-error dark:text-status-red-text' : 'text-on-surface dark:text-text-high'}`}>
                 {nearingDeadlineCount}
               </span>
-              <span className="font-label-sm text-label-sm text-error dark:text-status-red-text font-medium">
-                &lt; 5 days left
+              <span className="font-label-sm text-label-sm text-on-surface-variant dark:text-text-muted font-medium">
+                {nearingDeadlineCount > 0 ? `${nearingDeadlineCount} urgent` : '< 5 days left'}
               </span>
             </div>
             <div className="w-full bg-surface-container-high dark:bg-slate-800 h-1 rounded-full mt-3 overflow-hidden">
-              <div className="bg-error dark:bg-status-red h-full rounded-full w-[42%]"></div>
+              <div
+                className="bg-error dark:bg-status-red h-full rounded-full transition-all duration-500"
+                style={{ width: `${nearingDeadlineRatio}%` }}
+              ></div>
             </div>
           </div>
 
@@ -203,12 +214,15 @@ export const ProjectsView: React.FC = () => {
               <span className="font-headline-lg text-headline-lg font-bold text-on-surface dark:text-text-high">
                 ${inFlightValue.toLocaleString()}
               </span>
-              <span className="font-label-sm text-label-sm text-secondary dark:text-status-emerald-text bg-secondary-container/40 dark:bg-status-emerald-bg px-2 py-0.5 rounded-full font-semibold">
-                ↑ 18.2%
+              <span className="font-label-sm text-label-sm text-on-surface-variant dark:text-text-muted bg-surface-container-high dark:bg-canvas-card-elevated px-2 py-0.5 rounded-full font-semibold">
+                {inFlightValue > 0 ? 'Active' : '$0.00'}
               </span>
             </div>
             <div className="w-full bg-surface-container-high dark:bg-slate-800 h-1 rounded-full mt-3 overflow-hidden">
-              <div className="bg-secondary dark:bg-status-emerald h-full rounded-full w-[85%]"></div>
+              <div
+                className="bg-secondary dark:bg-status-emerald h-full rounded-full transition-all duration-500"
+                style={{ width: `${inFlightRatio}%` }}
+              ></div>
             </div>
           </div>
 
@@ -227,11 +241,14 @@ export const ProjectsView: React.FC = () => {
                 {onTimePercentage}%
               </span>
               <span className="font-label-sm text-label-sm text-on-surface-variant dark:text-text-muted">
-                Target 90%
+                {completedCount} of {totalProjectsCount} done
               </span>
             </div>
             <div className="w-full bg-surface-container-high dark:bg-slate-800 h-1 rounded-full mt-3 overflow-hidden">
-              <div className="bg-secondary dark:bg-status-emerald h-full rounded-full w-[92%]"></div>
+              <div
+                className="bg-secondary dark:bg-status-emerald h-full rounded-full transition-all duration-500"
+                style={{ width: `${onTimePercentage}%` }}
+              ></div>
             </div>
           </div>
         </div>
