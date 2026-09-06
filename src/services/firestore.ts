@@ -14,7 +14,6 @@ import {
 } from 'firebase/firestore';
 import { db } from './firebase';
 import { Client, Project, Invoice, ActivityItem } from '../types';
-import { initialClients, initialProjects, initialInvoices, initialActivities } from './mockData';
 
 export const firestoreService = {
   // ----------------------------------------------------

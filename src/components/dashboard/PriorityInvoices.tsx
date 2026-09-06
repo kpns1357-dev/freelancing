@@ -166,6 +166,7 @@ export const PriorityInvoices: React.FC = () => {
           </tbody>
         </table>
       </div>
+      )}
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import { Client, Project, Invoice, ActivityItem } from '../types';
-import { initialClients, initialProjects, initialInvoices, initialActivities } from './mockData';
 
 const CLIENTS_KEY = 'clientflow_clients_v1';
 const PROJECTS_KEY = 'clientflow_projects_v1';
