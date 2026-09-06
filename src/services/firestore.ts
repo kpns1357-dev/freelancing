@@ -213,48 +213,32 @@ export const firestoreService = {
   },
 
   // ----------------------------------------------------
-  // SEED INITIAL DATA (runs once for newly registered users)
+  // USER WORKSPACE MANAGEMENT
   // ----------------------------------------------------
   seedInitialUserData: async (uid: string): Promise<void> => {
-    const clientsRef = collection(db, 'users', uid, 'clients');
-    const existing = await getDocs(clientsRef);
-    if (!existing.empty) return; // Already initialized
-
-    const batch = writeBatch(db);
-
-    // Seed Clients
-    initialClients.forEach(client => {
-      const docRef = doc(db, 'users', uid, 'clients', client.id);
-      batch.set(docRef, client);
-    });
-
-    // Seed Projects
-    initialProjects.forEach(project => {
-      const docRef = doc(db, 'users', uid, 'projects', project.id);
-      batch.set(docRef, project);
-    });
-
-    // Seed Invoices
-    initialInvoices.forEach(invoice => {
-      const docRef = doc(db, 'users', uid, 'invoices', invoice.id);
-      batch.set(docRef, invoice);
-    });
-
-    // Seed Activities
-    initialActivities.forEach(activity => {
-      const docRef = doc(db, 'users', uid, 'activities', activity.id);
-      batch.set(docRef, activity);
-    });
-
-    // Seed Profile
+    // Only initialize the user settings document, keep collections clean and empty for real work
     const userRef = doc(db, 'users', uid);
-    batch.set(userRef, {
-      darkMode: false,
-      agencyName: 'Studio Craft & Flow LLC',
-      currency: 'USD',
-      initializedAt: serverTimestamp()
-    }, { merge: true });
+    await setDoc(
+      userRef,
+      {
+        darkMode: false,
+        currency: 'USD',
+        initializedAt: serverTimestamp()
+      },
+      { merge: true }
+    );
+  },
 
+  clearAllUserData: async (uid: string): Promise<void> => {
+    const collections = ['clients', 'projects', 'invoices', 'activities'];
+    const batch = writeBatch(db);
+    for (const col of collections) {
+      const colRef = collection(db, 'users', uid, col);
+      const snap = await getDocs(colRef);
+      snap.forEach(docSnap => {
+        batch.delete(docSnap.ref);
+      });
+    }
     await batch.commit();
   }
 };

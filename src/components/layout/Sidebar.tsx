@@ -4,7 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 import { NavPath } from '../../types';
 
 export const Sidebar: React.FC = () => {
-  const { currentRoute, setCurrentRoute, metrics, resetDemoData, showToast } = useApp();
+  const { currentRoute, setCurrentRoute, metrics, clearWorkspace, showToast } = useApp();
   const { user, logOut } = useAuth();
 
   const handleSignOut = async () => {
@@ -110,12 +110,16 @@ export const Sidebar: React.FC = () => {
           </div>
           <div className="flex items-center gap-0.5">
             <button
-              onClick={resetDemoData}
-              className="p-1 text-on-surface-variant dark:text-text-muted hover:text-amber-500 hover:bg-surface-container-high dark:hover:bg-slate-800 rounded-lg transition-colors"
-              title="Reset Showcase Data"
+              onClick={() => {
+                if (window.confirm('Clear all prototype data and start with a fresh, empty workspace?')) {
+                  clearWorkspace();
+                }
+              }}
+              className="p-1 text-on-surface-variant dark:text-text-muted hover:text-rose-500 hover:bg-surface-container-high dark:hover:bg-slate-800 rounded-lg transition-colors"
+              title="Clear Workspace (Start Fresh)"
               type="button"
             >
-              <span className="material-symbols-outlined text-[17px]">restart_alt</span>
+              <span className="material-symbols-outlined text-[17px]">delete_sweep</span>
             </button>
             {user && (
               <button

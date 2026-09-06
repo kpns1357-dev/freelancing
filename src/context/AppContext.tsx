@@ -77,8 +77,9 @@ interface AppContextType {
   showToast: (toast: Omit<ToastNotification, 'id'>) => void;
   dismissToast: (id: string) => void;
 
-  // Reset demo data
+  // Reset demo data & clear workspace
   resetDemoData: () => void;
+  clearWorkspace: () => Promise<void>;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -618,33 +619,30 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     };
   }, [clients, projects, invoices]);
 
-  const resetDemoData = () => {
+  const clearWorkspace = async () => {
+    storage.resetAll();
+    setClients([]);
+    setProjects([]);
+    setInvoices([]);
+    setActivities([]);
+
     if (user) {
-      firestoreService
-        .seedInitialUserData(user.uid)
-        .then(() => {
-          showToast({
-            type: 'warning',
-            title: 'Workspace Reset',
-            message: 'Starter showcase data has been reloaded into your account.'
-          });
-        })
-        .catch(err => {
-          console.error('Failed to reset user data in Firestore:', err);
-        });
-      return;
+      try {
+        await firestoreService.clearAllUserData(user.uid);
+      } catch (err) {
+        console.error('Failed to clear Firestore user data:', err);
+      }
     }
 
-    storage.resetAll();
-    setClients(initialClients);
-    setProjects(initialProjects);
-    setInvoices(initialInvoices);
-    setActivities(initialActivities);
     showToast({
-      type: 'warning',
-      title: 'Demo Data Reset',
-      message: 'All clients, projects, and invoices have been restored to initial state.'
+      type: 'info',
+      title: 'Workspace Cleared',
+      message: 'Your workspace is fresh, clean, and ready for your real clients!'
     });
+  };
+
+  const resetDemoData = () => {
+    clearWorkspace();
   };
 
   return (
@@ -697,7 +695,8 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         showToast,
         dismissToast,
 
-        resetDemoData
+        resetDemoData,
+        clearWorkspace
       }}
     >
       {children}

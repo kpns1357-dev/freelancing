@@ -15,7 +15,7 @@ export const storage = {
     } catch (e) {
       console.error('Failed to load clients from localStorage', e);
     }
-    return initialClients;
+    return [];
   },
 
   saveClients: (clients: Client[]): void => {
@@ -33,7 +33,7 @@ export const storage = {
     } catch (e) {
       console.error('Failed to load projects from localStorage', e);
     }
-    return initialProjects;
+    return [];
   },
 
   saveProjects: (projects: Project[]): void => {
@@ -51,7 +51,7 @@ export const storage = {
     } catch (e) {
       console.error('Failed to load invoices from localStorage', e);
     }
-    return initialInvoices;
+    return [];
   },
 
   saveInvoices: (invoices: Invoice[]): void => {
@@ -69,7 +69,7 @@ export const storage = {
     } catch (e) {
       console.error('Failed to load activities from localStorage', e);
     }
-    return initialActivities;
+    return [];
   },
 
   saveActivities: (activities: ActivityItem[]): void => {

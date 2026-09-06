@@ -52,18 +52,31 @@ export const PriorityInvoices: React.FC = () => {
         </button>
       </div>
 
-      <div className="overflow-x-auto -mx-space-lg px-space-lg">
-        <table className="w-full min-w-[560px] text-left">
-          <thead>
-            <tr className="bg-surface-container-low dark:bg-canvas-card-elevated text-on-surface-variant dark:text-text-muted font-label-sm text-label-sm uppercase tracking-wider h-9">
-              <th className="px-space-sm rounded-l-lg font-semibold">Client & Invoice</th>
-              <th className="px-space-sm font-semibold">Due Date</th>
-              <th className="px-space-sm text-right font-semibold">Amount</th>
-              <th className="px-space-sm text-center font-semibold">Status</th>
-              <th className="px-space-sm text-right rounded-r-lg font-semibold">Remind Action</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-surface-container-low dark:divide-card-border/40">
+      {priorityList.length === 0 ? (
+        <div className="py-12 flex flex-col items-center justify-center text-center">
+          <div className="w-12 h-12 rounded-xl bg-surface-container dark:bg-canvas-card-elevated flex items-center justify-center text-outline dark:text-text-muted mb-2">
+            <span className="material-symbols-outlined text-[24px]">task_alt</span>
+          </div>
+          <p className="font-title-md text-title-md text-on-surface dark:text-text-high font-semibold">
+            All Invoices Settled
+          </p>
+          <p className="font-body-sm text-body-sm text-on-surface-variant dark:text-text-muted mt-1 max-w-sm">
+            No overdue or pending invoices requiring immediate action. Your ledger is completely clear!
+          </p>
+        </div>
+      ) : (
+        <div className="overflow-x-auto -mx-space-lg px-space-lg">
+          <table className="w-full min-w-[560px] text-left">
+            <thead>
+              <tr className="bg-surface-container-low dark:bg-canvas-card-elevated text-on-surface-variant dark:text-text-muted font-label-sm text-label-sm uppercase tracking-wider h-9">
+                <th className="px-space-sm rounded-l-lg font-semibold">Client & Invoice</th>
+                <th className="px-space-sm font-semibold">Due Date</th>
+                <th className="px-space-sm text-right font-semibold">Amount</th>
+                <th className="px-space-sm text-center font-semibold">Status</th>
+                <th className="px-space-sm text-right rounded-r-lg font-semibold">Remind Action</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-surface-container-low dark:divide-card-border/40">
             {priorityList.map(inv => {
               const isOverdue = inv.status === 'overdue';
               const remaining = Math.max(0, inv.totalAmount - (inv.paidAmount || 0));

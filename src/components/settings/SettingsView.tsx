@@ -3,7 +3,7 @@ import { useApp } from '../../context/AppContext';
 import { useAuth } from '../../context/AuthContext';
 
 export const SettingsView: React.FC = () => {
-  const { darkMode, toggleDarkMode, resetDemoData, showToast } = useApp();
+  const { darkMode, toggleDarkMode, clearWorkspace, showToast } = useApp();
   const { user, logOut, updateDisplayName } = useAuth();
   const [profileName, setProfileName] = useState(user?.displayName || '');
   const [isUpdatingProfile, setIsUpdatingProfile] = useState(false);
@@ -217,21 +217,26 @@ export const SettingsView: React.FC = () => {
 
       {/* Data Management Card */}
       <div className="bg-surface-container-lowest dark:bg-canvas-card border border-outline-variant/20 dark:border-card-border rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
-        <h3 className="font-title-md text-title-md font-bold text-on-surface dark:text-text-high">
-          Data Management & LocalStorage Persistence
+        <h3 className="font-title-md text-title-md font-bold text-on-surface dark:text-text-high flex items-center gap-2">
+          <span className="material-symbols-outlined text-rose-500 text-[20px]">cleaning_services</span>
+          <span>Workspace Data Controls</span>
         </h3>
         <p className="font-body-sm text-body-sm text-on-surface-variant dark:text-text-medium">
-          All client files, invoices, and deliverables are persisted safely in your local browser storage. You can restore the authentic initial showcase data at any time.
+          Start fresh by clearing all prototype and sample data from your account. All changes sync immediately to your Cloud Firestore workspace.
         </p>
 
-        <div className="flex items-center gap-space-sm pt-2">
+        <div className="flex flex-wrap items-center gap-space-sm pt-2">
           <button
-            onClick={resetDemoData}
+            onClick={() => {
+              if (window.confirm('Are you sure you want to clear all data in your workspace to start fresh?')) {
+                clearWorkspace();
+              }
+            }}
             className="px-4 py-2 rounded-xl bg-error-container/40 dark:bg-status-red-bg text-error dark:text-status-red-text font-label-md text-label-md font-semibold hover:bg-error-container transition-colors flex items-center gap-1.5"
             type="button"
           >
-            <span className="material-symbols-outlined text-[18px]">restart_alt</span>
-            <span>Reset to Authentic Seed Data</span>
+            <span className="material-symbols-outlined text-[18px]">delete_sweep</span>
+            <span>Clear Workspace & Start Fresh</span>
           </button>
 
           <button
