@@ -54,11 +54,11 @@ export const InvoicePreviewModal: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-surface/90 dark:bg-canvas/90 backdrop-blur-md flex flex-col p-4 sm:p-6">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-surface/90 dark:bg-canvas/90 backdrop-blur-md flex flex-col p-2 sm:p-6">
       {/* Top Utility / Control Bar */}
-      <div className="w-full max-w-[860px] mx-auto bg-surface-container-lowest dark:bg-canvas-card rounded-2xl shadow-sm px-space-lg py-space-sm mb-space-lg flex flex-wrap items-center justify-between gap-space-md border border-outline-variant/30 dark:border-card-border print:hidden">
+      <div className="w-full max-w-[860px] mx-auto bg-surface-container-lowest dark:bg-canvas-card rounded-2xl shadow-sm px-3 sm:px-space-lg py-space-sm mb-space-md sm:mb-space-lg flex flex-wrap items-center justify-between gap-space-sm sm:gap-space-md border border-outline-variant/30 dark:border-card-border print:hidden">
         {/* Left: Navigation & Status */}
-        <div className="flex items-center gap-space-md">
+        <div className="flex items-center gap-2 sm:gap-space-md">
           <button
             onClick={closeInvoicePreview}
             className="flex items-center gap-1.5 text-on-surface-variant dark:text-text-medium hover:text-primary dark:hover:text-brand-primary transition-colors font-label-md text-label-md group"

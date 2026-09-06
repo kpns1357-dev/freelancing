@@ -150,10 +150,10 @@ export const ClientDrawer: React.FC = () => {
         className="absolute inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity"
       ></div>
 
-      <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-2xl bg-surface-container-lowest dark:bg-canvas-card shadow-2xl flex flex-col border-l border-outline-variant/30 dark:border-card-border transform transition-all duration-300">
+      <div className="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
+        <div className="w-screen max-w-full sm:max-w-2xl bg-surface-container-lowest dark:bg-canvas-card shadow-2xl flex flex-col border-l border-outline-variant/30 dark:border-card-border transform transition-all duration-300">
           {/* Drawer Top Header */}
-          <div className="p-space-lg bg-surface-container-low dark:bg-canvas-card-elevated border-b border-outline-variant/20 dark:border-card-border/60 flex items-start justify-between">
+          <div className="p-space-md sm:p-space-lg bg-surface-container-low dark:bg-canvas-card-elevated border-b border-outline-variant/20 dark:border-card-border/60 flex items-start justify-between">
             <div className="flex items-center gap-space-md">
               <div className="w-12 h-12 rounded-full bg-primary/10 dark:bg-brand-primary/20 text-primary dark:text-brand-primary flex items-center justify-center font-bold text-[16px] shrink-0 border border-outline-variant/30 dark:border-card-border">
                 {name

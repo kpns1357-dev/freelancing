@@ -56,7 +56,7 @@ export const App: React.FC = () => {
       <div className="md:pl-[240px] flex flex-col flex-1 min-h-screen">
         <Header />
 
-        <main className="relative pt-16 bg-surface dark:bg-canvas w-full min-h-screen px-space-md md:px-space-lg py-space-md">
+        <main className="relative pt-16 bg-surface dark:bg-canvas w-full min-h-screen px-3 sm:px-space-md md:px-space-lg py-space-md pb-24 md:pb-8">
           {currentRoute === 'dashboard' && <DashboardView />}
           {currentRoute === 'clients' && <ClientsView />}
           {currentRoute === 'projects' && <ProjectsView />}

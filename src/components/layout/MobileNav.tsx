@@ -9,7 +9,8 @@ export const MobileNav: React.FC = () => {
     { path: 'dashboard', label: 'Home', icon: 'dashboard' },
     { path: 'clients', label: 'Clients', icon: 'group' },
     { path: 'projects', label: 'Projects', icon: 'folder_open' },
-    { path: 'invoices', label: 'Invoices', icon: 'receipt_long', badgeCount: metrics.overdueInvoicesCount }
+    { path: 'invoices', label: 'Invoices', icon: 'receipt_long', badgeCount: metrics.overdueInvoicesCount },
+    { path: 'settings', label: 'Settings', icon: 'settings' }
   ];
 
   return (

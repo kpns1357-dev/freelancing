@@ -19,10 +19,28 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 md:left-[240px] right-0 h-16 bg-surface/80 dark:bg-canvas/80 backdrop-blur-xl border-b border-outline-variant/30 dark:border-card-border/50 z-40 px-space-md md:px-space-lg flex items-center justify-between">
+    <header className="fixed top-0 left-0 md:left-[240px] right-0 h-16 bg-surface/90 dark:bg-canvas/90 backdrop-blur-xl border-b border-outline-variant/30 dark:border-card-border/50 z-40 px-3 sm:px-space-md md:px-space-lg flex items-center justify-between gap-2">
       {/* Mobile Brand Title or Search input on desktop */}
-      <div className="flex items-center gap-space-md flex-1 max-w-md">
-        <div className="flex items-center gap-space-xs w-full bg-surface-container-lowest dark:bg-canvas-card border border-outline-variant/50 dark:border-card-border rounded-xl px-space-sm py-1.5 shadow-[0_1px_3px_0_rgba(15,23,42,0.04)] focus-within:border-primary dark:focus-within:border-brand-primary focus-within:ring-2 focus-within:ring-primary/15 transition-all">
+      <div className="flex items-center gap-2 flex-1 max-w-md">
+        {/* Mobile brand mark */}
+        <button
+          onClick={() => setCurrentRoute('dashboard')}
+          className="flex md:hidden items-center gap-1.5 shrink-0 focus:outline-none"
+          type="button"
+          title="Go to Dashboard"
+        >
+          <img
+            alt="ClientFlow"
+            className="h-7 w-auto object-contain dark:brightness-110"
+            src="https://lh3.googleusercontent.com/aida/AEtjO1UETwRPRp58A4vVLhzHnN3Nk9ltLwmx7Eof901EVivgdSv4Ik7IM5KjfI_-MGJYaLou0T2YGb0V-1alyQWlElKRx_Um74zTeHWFKCjNnNrfxN8kRsjhZx6PBFVaV8HuZPY21uZX2C78xdsDsySTAGfYsykpX8zOEqolvV7SAQ80khfl1PtDOLWWCZITsveGQhqzJeXgR2MBIN_XDEG5bz0A4ZfqcStr_0i5rPddKouM7QeY-tL3RfU"
+          />
+          <span className="font-headline-sm text-base text-on-surface dark:text-text-high font-bold tracking-tight">
+            ClientFlow
+          </span>
+        </button>
+
+        {/* Global Search Bar (compact on mobile) */}
+        <div className="hidden sm:flex items-center gap-space-xs w-full bg-surface-container-lowest dark:bg-canvas-card border border-outline-variant/50 dark:border-card-border rounded-xl px-space-sm py-1.5 shadow-[0_1px_3px_0_rgba(15,23,42,0.04)] focus-within:border-primary dark:focus-within:border-brand-primary focus-within:ring-2 focus-within:ring-primary/15 transition-all">
           <span className="material-symbols-outlined text-outline dark:text-text-muted text-[18px]">search</span>
           <input
             className="w-full bg-transparent font-body-sm text-body-sm text-on-surface dark:text-text-high placeholder:text-outline dark:placeholder:text-text-muted focus:outline-none"
@@ -39,7 +57,7 @@ export const Header: React.FC = () => {
       </div>
 
       {/* Right Controls */}
-      <div className="flex items-center gap-space-xs sm:gap-space-md">
+      <div className="flex items-center gap-1 sm:gap-space-md shrink-0">
         {/* Today's Date */}
         <div className="hidden lg:flex items-center gap-space-2xs text-on-surface-variant dark:text-text-medium font-numeric-md text-numeric-md">
           <span className="material-symbols-outlined text-[18px]">calendar_today</span>
@@ -78,11 +96,11 @@ export const Header: React.FC = () => {
         <div className="relative">
           <button
             onClick={() => setIsNewMenuOpen(prev => !prev)}
-            className="flex items-center gap-1.5 bg-primary dark:bg-brand-primary hover:bg-primary-container dark:hover:bg-brand-primary-hover text-on-primary px-space-sm py-1.5 rounded-xl font-label-md text-label-md shadow-[0_1px_2px_rgba(0,0,0,0.05)] dark:shadow-[0_0_12px_rgba(59,130,246,0.35)] transition-colors font-medium"
+            className="flex items-center gap-1 bg-primary dark:bg-brand-primary hover:bg-primary-container dark:hover:bg-brand-primary-hover text-on-primary px-2.5 sm:px-space-sm py-1.5 rounded-xl font-label-md text-label-md shadow-[0_1px_2px_rgba(0,0,0,0.05)] dark:shadow-[0_0_12px_rgba(59,130,246,0.35)] transition-colors font-medium"
             type="button"
           >
             <span className="material-symbols-outlined text-[18px]">add</span>
-            <span>New</span>
+            <span className="hidden xs:inline sm:inline">New</span>
           </button>
 
           {isNewMenuOpen && (
