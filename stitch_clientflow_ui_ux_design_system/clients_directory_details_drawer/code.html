@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"outline-variant":"#c3c6d7","surface-tint":"#0053db","error-container":"#ffdad6","on-tertiary":"#ffffff","surface-container":"#e5eeff","secondary":"#006c49","secondary-container":"#6cf8bb","inverse-primary":"#b4c5ff","on-error-container":"#93000a","on-tertiary-fixed-variant":"#653e00","inverse-on-surface":"#eaf1ff","error":"#ba1a1a","on-secondary-fixed":"#002113","on-background":"#0b1c30","tertiary-fixed":"#ffddb8","tertiary-fixed-dim":"#ffb95f","primary-fixed":"#dbe1ff","tertiary":"#784b00","on-tertiary-fixed":"#2a1700","primary-fixed-dim":"#b4c5ff","on-error":"#ffffff","surface":"#f8f9ff","on-primary-container":"#eeefff","secondary-fixed-dim":"#4edea3","on-tertiary-container":"#ffeedd","surface-container-lowest":"#ffffff","surface-container-high":"#dce9ff","on-secondary-container":"#00714d","secondary-fixed":"#6ffbbe","outline":"#737686","on-primary-fixed":"#00174b","on-primary":"#ffffff","surface-container-highest":"#d3e4fe","on-secondary-fixed-variant":"#005236","on-secondary":"#ffffff","primary-container":"#2563eb","surface-container-low":"#eff4ff","surface-variant":"#d3e4fe","on-primary-fixed-variant":"#003ea8","inverse-surface":"#213145","on-surface-variant":"#434655","on-surface":"#0b1c30","background":"#f8f9ff","surface-bright":"#f8f9ff","surface-dim":"#cbdbf5","primary":"#004ac6","tertiary-container":"#996100"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"gutter-desktop":"1.5rem","space-lg":"1.5rem","space-xs":"0.5rem","space-md":"1rem","gutter-mobile":"1rem","space-sm":"0.75rem","margin-tablet":"2rem","margin-mobile":"1rem","space-xl":"2rem","space-2xs":"0.25rem","margin-desktop":"3rem","space-2xl":"3rem","space-3xl":"4rem"},fontFamily:{"body-sm":["Inter"],"display-lg":["Plus Jakarta Sans"],"numeric-lg":["Inter"],"label-md":["Inter"],"label-sm":["Inter"],"title-md":["Inter"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"numeric-md":["Inter"],"body-lg":["Inter"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Inter"]},fontSize:{"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"400"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"numeric-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"600"}],"display-lg-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"600"}],"numeric-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"500"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-screen w-[240px] bg-surface-container-low border-r border-outline-variant/30 z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-xs border-b border-outline-variant/20"><img alt="ClientFlow Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UETwRPRp58A4vVLhzHnN3Nk9ltLwmx7Eof901EVivgdSv4Ik7IM5KjfI_-MGJYaLou0T2YGb0V-1alyQWlElKRx_Um74zTeHWFKCjNnNrfxN8kRsjhZx6PBFVaV8HuZPY21uZX2C78xdsDsySTAGfYsykpX8zOEqolvV7SAQ80khfl1PtDOLWWCZITsveGQhqzJeXgR2MBIN_XDEG5bz0A4ZfqcStr_0i5rPddKouM7QeY-tL3RfU"/><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-bold">ClientFlow</span></div><nav class="flex flex-col gap-1 p-space-xs mt-space-xs" data-active-classes="bg-primary text-on-primary font-title-md"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span>Dashboard</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 rounded-xl transition-colors bg-primary text-on-primary font-title-md" data-path="clients" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span>Clients</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-colors" data-path="projects" href="#"><span class="material-symbols-outlined text-[20px]">folder_open</span><span>Projects</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-colors" data-path="invoices" href="#"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span>Invoices</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-colors" data-path="analytics" href="#"><span class="material-symbols-outlined text-[20px]">bar_chart</span><span>Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span>Settings</span></a></nav></div><div class="flex flex-col p-space-xs gap-space-xs border-t border-outline-variant/20 bg-surface-container-low"><div class="bg-surface-container-lowest p-space-xs rounded-xl border border-outline-variant/30 flex flex-col gap-1"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider">Agency Plan</span><span class="font-numeric-md text-numeric-md text-on-surface-variant">24/50</span></div><div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden"><div class="bg-primary h-full rounded-full w-[48%]"></div></div><span class="font-body-sm text-body-sm text-on-surface-variant">Active clients</span></div><div class="flex items-center justify-between p-space-xs rounded-xl hover:bg-surface-container-high/60 transition-colors"><div class="flex items-center gap-space-xs min-w-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdLK2wuUUw6mwzpKH4oyZeZlR936PJ0KdIvhXABjqT90A56APK2pwmnjnbpn2XnMka9cavlJiMQw71IeTRwv5w8m9p9Rfm9TxakMaA8M5SWr4Y6_ibAQVrnMm2qTHGWpZIwmk0IpvZZx4YvPk6u1Pl71XOyntB9ESh-kdD3zeCq7jofOYArO9OL2C8VLxEHhAUv-F70vjKmSkFvUeilfdPw4kAET9AOkvLxDQV3sfxGF1Jfwurhw"/><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface truncate leading-tight">Alex Morgan</span><span class="font-body-sm text-body-sm text-on-surface-variant truncate leading-tight">Agency Owner</span></div></div><button class="p-1 text-on-surface-variant hover:text-error hover:bg-surface-container-high rounded-lg transition-colors" title="Logout" type="button"><span class="material-symbols-outlined text-[18px]">logout</span></button></div></div></aside><div class="pl-[240px]"><header class="fixed top-0 left-[240px] right-0 h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 z-40 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-md flex-1 max-w-md"><div class="flex items-center gap-space-xs w-full bg-surface-container-lowest border border-outline-variant/50 rounded-xl px-space-sm py-1.5 shadow-[0_1px_3px_0_rgba(15,23,42,0.04)] focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/15 transition-all"><span class="material-symbols-outlined text-outline text-[18px]">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="Search clients, invoices..." type="text"/><kbd class="font-label-sm text-label-sm bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant border border-outline-variant/40 shrink-0">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-2xs text-on-surface-variant font-numeric-md text-numeric-md"><span class="material-symbols-outlined text-[18px]">calendar_today</span><span>Today, Oct 24</span></div><div class="relative"><button class="p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded-xl transition-colors relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-error text-on-error font-label-sm text-[10px] font-bold">3</span></button></div><button class="flex items-center gap-1.5 bg-primary hover:bg-primary-container text-on-primary px-space-sm py-1.5 rounded-xl font-label-md text-label-md shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">add</span><span>New</span></button></div></header><main class="relative pt-16 bg-surface w-full min-h-screen px-space-lg py-space-md"><div class="flex flex-col w-full gap-space-lg pb-space-3xl">
+<!-- Top Stat Highlights & Page Control Header -->
+<div class="flex flex-col gap-space-md">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">Clients</h1>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">28 Total Clients</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Manage partner relationships, invoicing lifecycles, and direct touchpoints.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-surface-container-lowest text-on-surface-variant hover:text-on-surface hover:bg-surface-container shadow-sm transition-all font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span>Export CSV</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-on-primary hover:bg-primary-container shadow-md hover:shadow-lg transition-all font-label-md text-label-md font-semibold" id="open-new-client-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+<span>+ Add New Client</span>
+</button>
+</div>
+</div>
+<!-- Quick Metrics Strip -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-sm">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Active Engagements</span>
+<span class="font-numeric-lg text-numeric-lg text-on-surface font-bold mt-1">22 <span class="font-body-sm text-body-sm text-secondary font-medium">(78.5%)</span></span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Pipeline Invoiced</span>
+<span class="font-numeric-lg text-numeric-lg text-on-surface font-bold mt-1">$126,000</span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Overdue Exposure</span>
+<span class="font-numeric-lg text-numeric-lg text-error font-bold mt-1">$10,700</span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-error-container/40 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Onboarding Queue</span>
+<span class="font-numeric-lg text-numeric-lg text-tertiary font-bold mt-1">3 Accounts</span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-tertiary-container/30 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[20px]">pending_actions</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Filter & Search Command Bar -->
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-sm">
+<!-- Search Bar -->
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-2 rounded-xl flex-1 max-w-xl">
+<span class="material-symbols-outlined text-outline text-[18px]">search</span>
+<input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="Search by client name, company, email, or tag..." type="text"/>
+<kbd class="hidden sm:inline-block font-label-sm text-label-sm bg-surface-container-highest px-1.5 py-0.5 rounded text-on-surface-variant">ESC</kbd>
+</div>
+<!-- Status Filters & Sorting -->
+<div class="flex items-center flex-wrap gap-space-xs">
+<div class="flex items-center bg-surface-container-low p-1 rounded-xl">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md font-semibold shadow-sm transition-all" type="button">All (28)</button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" type="button">Active (22)</button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" type="button">Onboarding (3)</button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" type="button">Archived (3)</button>
+</div>
+<div class="h-6 w-px bg-outline-variant/30 hidden md:block"></div>
+<div class="flex items-center gap-1.5 bg-surface-container-low px-3 py-1.5 rounded-xl">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">sort</span>
+<select class="bg-transparent font-label-md text-label-md text-on-surface font-medium focus:outline-none cursor-pointer">
+<option value="last_active">Last Active</option>
+<option value="revenue_desc">Highest Revenue</option>
+<option value="name_asc">Name (A-Z)</option>
+<option value="overdue">Most Overdue</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Client Data Table Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider h-11 select-none">
+<th class="px-space-md py-2 font-semibold">Client / Company</th>
+<th class="px-space-md py-2 font-semibold">Contact Details</th>
+<th class="px-space-md py-2 font-semibold">Active Projects</th>
+<th class="px-space-md py-2 font-semibold text-right">Invoiced / Paid</th>
+<th class="px-space-md py-2 font-semibold text-right">Outstanding</th>
+<th class="px-space-md py-2 font-semibold text-center">Status</th>
+<th class="px-space-md py-2 font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 font-body-md text-body-md text-on-surface">
+<!-- Row 1: Sarah Jenkins -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group cursor-pointer" onclick="openDrawer('Sarah Jenkins', 'Apex Design Studio', 'sarah@apexstudio.io', '+1 (555) 234-5678', 'Active', '$24,500', '$0.00', '2 Projects', 'Brand identity revamp and web portal UI.')">
+<td class="px-space-md py-3.5">
+<div class="flex items-center gap-space-sm">
+<img class="w-9 h-9 rounded-full object-cover shrink-0 shadow-sm" data-alt="Close up professional corporate headshot of Sarah Jenkins smiling in modern architectural office setting, cool tone lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUv-Cn25LuZbDnngy1P5OR954GS5LKV7qYSr8ao6rrfbcf72Ellczj6Npv-SeaMHukf2rAhVvFBmwsgTzRTyCbKk6jgkBGtAE0YFICCD5oaWsXwsyIzfrU-7dC4p4xnDsW1pBQ-144mZr7PuS0zrWisa0Gbv1mwi3HjpXm3LROXHKoWf3rx5ize5ihrdanirJToKhg9g1Pbk2thmPyziEOKJSi6jlQh9sl3J4BnbanP2zrWCazUQ"/>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold group-hover:text-primary transition-colors">Sarah Jenkins</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Apex Design Studio</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-3.5" onclick="event.stopPropagation()">
+<div class="flex flex-col text-on-surface-variant">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-outline">mail</span>
+                  sarah@apexstudio.io
+                </span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-numeric-md text-numeric-md">+1 (555) 234-5678</span>
+<a class="text-secondary hover:text-secondary-fixed-variant p-0.5 rounded transition-colors inline-flex" href="https://wa.me/15552345678" target="_blank" title="WhatsApp Ping">
+<span class="material-symbols-outlined text-[15px]">chat</span>
+</a>
+</div>
+</div>
+</td>
+<td class="px-space-md py-3.5">
+<div class="flex items-center gap-1.5">
+<span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-medium">Brand Sys</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-medium">+1 more</span>
+</div>
+</td>
+<td class="px-space-md py-3.5 text-right font-numeric-md text-numeric-md font-semibold text-on-surface">
+              $24,500
+            </td>
+<td class="px-space-md py-3.5 text-right font-numeric-md text-numeric-md">
+<span class="text-secondary font-medium">$0.00</span>
+</td>
+<td class="px-space-md py-3.5 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Active
+              </span>
+</td>
+<td class="px-space-md py-3.5 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-secondary hover:bg-secondary/10 transition-colors" title="Quick WhatsApp" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-primary/10 transition-colors" onclick="openDrawer('Sarah Jenkins', 'Apex Design Studio', 'sarah@apexstudio.io', '+1 (555) 234-5678', 'Active', '$24,500', '$0.00', '2 Projects', 'Brand identity revamp and web portal UI.')" title="View Profile" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="More Options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Marcus Vance -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group cursor-pointer" onclick="openDrawer('Marcus Vance', 'Vance Digital Media', 'marcus@vancedigital.com', '+1 (555) 876-5432', 'Active', '$18,200', '$4,200', '1 Project', 'Retainer for Q4 digital acquisition campaigns.')">
+<td class="px-space-md py-3.5">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-primary/15 text-primary flex items-center justify-center font-bold text-label-md shrink-0">
+                  MV
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold group-hover:text-primary transition-colors">Marcus Vance</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Vance Digital Media</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-3.5" onclick="event.stopPropagation()">
+<div class="flex flex-col text-on-surface-variant">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-outline">mail</span>
+                  marcus@vancedigital.com
+                </span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-numeric-md text-numeric-md">+1 (555) 876-5432</span>
+<a class="text-secondary hover:text-secondary-fixed-variant p-0.5 rounded transition-colors inline-flex" href="https://wa.me/15558765432" target="_blank" title="WhatsApp Ping">
+<span class="material-symbols-outlined text-[15px]">chat</span>
+</a>
+</div>
+</div>
+</td>
+<td class="px-space-md py-3.5">
+<span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-medium">Growth Engine</span>
+</td>
+<td class="px-space-md py-3.5 text-right font-numeric-md text-numeric-md font-semibold text-on-surface">
+              $18,200
+            </td>
+<td class="px-space-md py-3.5 text-right font-numeric-md text-numeric-md">
+<span class="text-tertiary font-semibold">$4,200</span>
+</td>
+<td class="px-space-md py-3.5 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Active
+              </span>
+</td>
+<td class="px-space-md py-3.5 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-secondary hover:bg-secondary/10 transition-colors" title="Quick WhatsApp" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-primary/10 transition-colors" onclick="openDrawer('Marcus Vance', 'Vance Digital Media', 'marcus@vancedigital.com', '+1 (555) 876-5432', 'Active', '$18,200', '$4,200', '1 Project', 'Retainer for Q4 digital acquisition campaigns.')" title="View Profile" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="More Options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Elena Rostova (Highlighted Target) -->
+<tr class="bg-primary/5 hover:bg-primary/10 transition-colors group cursor-pointer" onclick="openDrawer('Elena Rostova', 'Nova HealthTech', 'elena@novahealth.ai', '+1 (555) 432-1098', 'Active', '$42,000', '$1,500', '3 Projects', 'Graduated from WhatsApp group in Feb; prefers billing on the 1st of every month. Needs Net 15 terms.')">
+<td class="px-space-md py-3.5">
+<div class="flex items-center gap-space-sm">
+<img class="w-9 h-9 rounded-full object-cover shrink-0 shadow-sm ring-2 ring-primary/40" data-alt="Portrait photo of Elena Rostova in smart business casual attire with minimal glass office backdrop and blue tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGt39xpyBBf--3XhKxR-5gX907Ehc-ydB_CPslIPCT9jouASHfkssRhqv9ayYDkIuF93ixcr0nTzTxEl9XqTpuF6oybOyeSsABQPBQwen5rb6Ldjubd4BUQhL0yVqfIN8vE0_MGkVlLRlBpUpBU1odBAwN1nSbOXiZp-3pphW6EMIqA-x1JFjGyTowTSBlcJQ7OjhikHwiQuj7hnH3i51ksPxLd4DIoGhO9iX9VZAcfyHjDg6qUw"/>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface font-bold text-primary">Elena Rostova</span>
+<span class="px-1.5 py-0.2 bg-primary/20 text-primary font-label-sm text-[10px] rounded uppercase font-bold">Key Client</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Nova HealthTech</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-3.5" onclick="event.stopPropagation()">
+<div class="flex flex-col text-on-surface-variant">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-outline">mail</span>
+                  elena@novahealth.ai
+                </span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-numeric-md text-numeric-md">+1 (555) 432-1098</span>
+<a class="text-secondary hover:text-secondary-fixed-variant p-0.5 rounded transition-colors inline-flex" href="https://wa.me/15554321098" target="_blank" title="WhatsApp Ping">
+<span class="material-symbols-outlined text-[15px]">chat</span>
+</a>
+</div>
+</div>
+</td>
+<td class="px-space-md py-3.5">
+<div class="flex items-center gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold">3 Projects</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Active</span>
+</div>
+</td>
+<td class="px-space-md py-3.5 text-right font-numeric-md text-numeric-md font-bold text-on-surface">
+              $42,000
+            </td>
+<td class="px-space-md py-3.5 text-right font-numeric-md text-numeric-md">
+<span class="text-error font-bold flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-[14px]">error</span>
+                $1,500
+              </span>
+</td>
+<td class="px-space-md py-3.5 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Active
+              </span>
+</td>
+<td class="px-space-md py-3.5 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-secondary hover:bg-secondary/10 transition-colors" title="Quick WhatsApp" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+<button class="p-1.5 rounded-lg text-primary bg-primary/10 hover:bg-primary hover:text-on-primary transition-all" onclick="openDrawer('Elena Rostova', 'Nova HealthTech', 'elena@novahealth.ai', '+1 (555) 432-1098', 'Active', '$42,000', '$1,500', '3 Projects', 'Graduated from WhatsApp group in Feb; prefers billing on the 1st of every month. Needs Net 15 terms.')" title="Open Drawer" type="button">
+<span class="material-symbols-outlined text-[18px]">dock_to_left</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="More Options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: David Kim -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group cursor-pointer" onclick="openDrawer('David Kim', 'Solstice Apparel', 'david@solstice.co', '+1 (555) 901-2345', 'Active', '$9,800', '$0.00', '1 Project', 'Shopify Plus theme maintenance and conversion audits.')">
+<td class="px-space-md py-3.5">
+<div class="flex items-center gap-space-sm">
+<img class="w-9 h-9 rounded-full object-cover shrink-0 shadow-sm" data-alt="Corporate headshot of David Kim, casual modern creative with clean architectural studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSBfTWT7P1CjDujXS8YTC-1IJFVz4anPgOl3d9FqMRPxsXOlUoepZZ3AqImkJNJfGff_66L3_mXxfX7PRk2moVJo9o3Mg6aBpcFGUHC13UfEZOsnNwzudZ2P0da2hGowPr-xtWEQZmCkDIQbNcncFhKINDV7aoYxZDz8bXnNRc2bHZE9Mq8xvrW8ZMbqwiYTB-nDuw939M6wT_0m3WvEkiZDEE-HDYLkKswKsUVxMRUEv4JVT1VQ"/>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold group-hover:text-primary transition-colors">David Kim</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Solstice Apparel</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-3.5" onclick="event.stopPropagation()">
+<div class="flex flex-col text-on-surface-variant">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-outline">mail</span>
+                  david@solstice.co
+                </span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-numeric-md text-numeric-md">+1 (555) 901-2345</span>
+<a class="text-secondary hover:text-secondary-fixed-variant p-0.5 rounded transition-colors inline-flex" href="https://wa.me/15559012345" target="_blank" title="WhatsApp Ping">
+<span class="material-symbols-outlined text-[15px]">chat</span>
+</a>
+</div>
+</div>
+</td>
+<td class="px-space-md py-3.5">
+<span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-medium">Shopify Store</span>
+</td>
+<td class="px-space-md py-3.5 text-right font-numeric-md text-numeric-md font-semibold text-on-surface">
+              $9,800
+            </td>
+<td class="px-space-md py-3.5 text-right font-numeric-md text-numeric-md">
+<span class="text-secondary font-medium">$0.00</span>
+</td>
+<td class="px-space-md py-3.5 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Active
+              </span>
+</td>
+<td class="px-space-md py-3.5 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-secondary hover:bg-secondary/10 transition-colors" title="Quick WhatsApp" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-primary/10 transition-colors" onclick="openDrawer('David Kim', 'Solstice Apparel', 'david@solstice.co', '+1 (555) 901-2345', 'Active', '$9,800', '$0.00', '1 Project', 'Shopify Plus theme maintenance and conversion audits.')" title="View Profile" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="More Options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Liam O'Connor (Onboarding) -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group cursor-pointer" onclick="openDrawer('Liam O\'Connor', 'Beacon FinTech', 'liam@beaconft.io', '+1 (555) 345-6789', 'Pending Onboarding', '$0.00', '$0.00', '0 Projects', 'Contract signed Oct 20. Pending payment method validation and workspace handover.')">
+<td class="px-space-md py-3.5">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-tertiary/15 text-tertiary flex items-center justify-center font-bold text-label-md shrink-0">
+                  LO
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold group-hover:text-primary transition-colors">Liam O'Connor</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Beacon FinTech</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-3.5" onclick="event.stopPropagation()">
+<div class="flex flex-col text-on-surface-variant">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-outline">mail</span>
+                  liam@beaconft.io
+                </span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-numeric-md text-numeric-md">+1 (555) 345-6789</span>
+<a class="text-secondary hover:text-secondary-fixed-variant p-0.5 rounded transition-colors inline-flex" href="https://wa.me/15553456789" target="_blank" title="WhatsApp Ping">
+<span class="material-symbols-outlined text-[15px]">chat</span>
+</a>
+</div>
+</div>
+</td>
+<td class="px-space-md py-3.5">
+<span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-medium">0 Projects</span>
+</td>
+<td class="px-space-md py-3.5 text-right font-numeric-md text-numeric-md text-on-surface-variant">
+              $0.00
+            </td>
+<td class="px-space-md py-3.5 text-right font-numeric-md text-numeric-md text-on-surface-variant">
+              $0.00
+            </td>
+<td class="px-space-md py-3.5 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-tertiary-container/40 text-tertiary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Onboarding
+              </span>
+</td>
+<td class="px-space-md py-3.5 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-secondary hover:bg-secondary/10 transition-colors" title="Quick WhatsApp" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-primary/10 transition-colors" onclick="openDrawer('Liam O\'Connor', 'Beacon FinTech', 'liam@beaconft.io', '+1 (555) 345-6789', 'Pending Onboarding', '$0.00', '$0.00', '0 Projects', 'Contract signed Oct 20. Pending payment method validation and workspace handover.')" title="View Profile" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="More Options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: Chloe Bennett -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group cursor-pointer" onclick="openDrawer('Chloe Bennett', 'Aura Cosmetics', 'chloe@aurabeauty.com', '+1 (555) 678-9012', 'Active', '$31,500', '$5,000', '2 Projects', 'Packaging design sprint and influencer affiliate checkout flow.')">
+<td class="px-space-md py-3.5">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-secondary/15 text-secondary flex items-center justify-center font-bold text-label-md shrink-0">
+                  CB
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold group-hover:text-primary transition-colors">Chloe Bennett</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Aura Cosmetics</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-3.5" onclick="event.stopPropagation()">
+<div class="flex flex-col text-on-surface-variant">
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-outline">mail</span>
+                  chloe@aurabeauty.com
+                </span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-numeric-md text-numeric-md">+1 (555) 678-9012</span>
+<a class="text-secondary hover:text-secondary-fixed-variant p-0.5 rounded transition-colors inline-flex" href="https://wa.me/15556789012" target="_blank" title="WhatsApp Ping">
+<span class="material-symbols-outlined text-[15px]">chat</span>
+</a>
+</div>
+</div>
+</td>
+<td class="px-space-md py-3.5">
+<div class="flex items-center gap-1.5">
+<span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-medium">Beauty Kit UI</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-medium">+1 more</span>
+</div>
+</td>
+<td class="px-space-md py-3.5 text-right font-numeric-md text-numeric-md font-semibold text-on-surface">
+              $31,500
+            </td>
+<td class="px-space-md py-3.5 text-right font-numeric-md text-numeric-md">
+<span class="text-error font-bold flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-[14px]">priority_high</span>
+                $5,000
+              </span>
+</td>
+<td class="px-space-md py-3.5 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Active
+              </span>
+</td>
+<td class="px-space-md py-3.5 text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-secondary hover:bg-secondary/10 transition-colors" title="Quick WhatsApp" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-primary/10 transition-colors" onclick="openDrawer('Chloe Bennett', 'Aura Cosmetics', 'chloe@aurabeauty.com', '+1 (555) 678-9012', 'Active', '$31,500', '$5,000', '2 Projects', 'Packaging design sprint and influencer affiliate checkout flow.')" title="View Profile" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="More Options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Data Table Pagination Bar -->
+<div class="px-space-md py-3 bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-xs text-on-surface-variant">
+<span class="font-body-sm text-body-sm">Showing <span class="font-semibold text-on-surface">1 - 6</span> of <span class="font-semibold text-on-surface">28</span> total client accounts</span>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-outline-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-7 h-7 rounded-lg bg-primary text-on-primary font-numeric-md text-numeric-md font-bold flex items-center justify-center" type="button">1</button>
+<button class="w-7 h-7 rounded-lg hover:bg-surface-container text-on-surface font-numeric-md text-numeric-md flex items-center justify-center transition-colors" type="button">2</button>
+<button class="w-7 h-7 rounded-lg hover:bg-surface-container text-on-surface font-numeric-md text-numeric-md flex items-center justify-center transition-colors" type="button">3</button>
+<button class="w-7 h-7 rounded-lg hover:bg-surface-container text-on-surface font-numeric-md text-numeric-md flex items-center justify-center transition-colors" type="button">4</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- SLIDE-OVER DRAWER MODAL (Interactive Component) -->
+<div class="fixed inset-0 bg-inverse-surface/40 backdrop-blur-sm z-50 transition-opacity duration-300 opacity-100 pointer-events-auto flex justify-end" id="drawer-backdrop">
+<!-- Slide-over Card -->
+<div class="w-full max-w-2xl bg-surface-container-lowest h-screen shadow-2xl flex flex-col transform transition-transform duration-300 translate-x-0 overflow-hidden" id="drawer-panel">
+<!-- Drawer Top Bar -->
+<div class="p-space-md bg-surface-container-low flex items-center justify-between border-b border-outline-variant/20">
+<div class="flex items-center gap-space-sm min-w-0">
+<button class="p-1.5 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" id="close-drawer-btn" type="button">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate" id="drawer-client-name">Elena Rostova</h2>
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold" id="drawer-status-chip">Active</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate" id="drawer-company-name">Nova HealthTech</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-surface-container-highest hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">receipt</span>
+<span>+ Invoice</span>
+</button>
+<button class="p-1.5 rounded-xl text-on-surface-variant hover:text-error hover:bg-error-container/20 transition-colors" title="Archive Client" type="button">
+<span class="material-symbols-outlined text-[18px]">archive</span>
+</button>
+</div>
+</div>
+<!-- Drawer Tabs -->
+<div class="px-space-md bg-surface-container-low/50 flex items-center gap-space-md border-b border-outline-variant/15 select-none overflow-x-auto">
+<button class="tab-trigger py-3 font-label-md text-label-md font-bold text-primary border-b-2 border-primary" data-tab="overview" type="button">
+          Overview & Notes
+        </button>
+<button class="tab-trigger py-3 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-tab="invoices" type="button">
+          Invoices (5)
+        </button>
+<button class="tab-trigger py-3 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-tab="projects" type="button">
+          Projects (3)
+        </button>
+<button class="tab-trigger py-3 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-tab="whatsapp" type="button">
+          WhatsApp History
+        </button>
+</div>
+<!-- Drawer Body Content (Scrollable) -->
+<div class="flex-1 overflow-y-auto p-space-lg flex flex-col gap-space-lg">
+<!-- Tab 1: Overview & Notes (Default Active) -->
+<div class="tab-panel flex flex-col gap-space-lg" id="tab-overview">
+<!-- Summary Key Figures -->
+<div class="grid grid-cols-3 gap-space-xs bg-surface-container-low p-space-sm rounded-xl">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Lifetime Value</span>
+<span class="font-numeric-lg text-numeric-lg text-on-surface font-bold mt-0.5" id="drawer-ltv">$42,000</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Unsettled</span>
+<span class="font-numeric-lg text-numeric-lg text-error font-bold mt-0.5" id="drawer-balance">$1,500</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Workflows</span>
+<span class="font-numeric-lg text-numeric-lg text-primary font-bold mt-0.5" id="drawer-projects">3 Active</span>
+</div>
+</div>
+<!-- Edit Profile Form Fields -->
+<div class="flex flex-col gap-space-md">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Full Name</label>
+<input class="h-10 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary/20" id="drawer-input-name" type="text" value="Elena Rostova"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Company / Brand</label>
+<input class="h-10 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary/20" id="drawer-input-company" type="text" value="Nova HealthTech"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Email Address</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">mail</span>
+<input class="h-10 pl-9 pr-3 w-full rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary/20" id="drawer-input-email" type="email" value="elena@novahealth.ai"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">WhatsApp Number</label>
+<div class="flex items-center gap-1.5">
+<div class="relative flex items-center flex-1">
+<span class="material-symbols-outlined absolute left-3 text-secondary text-[18px]">chat</span>
+<input class="h-10 pl-9 pr-3 w-full rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary/20" id="drawer-input-phone" type="text" value="+1 (555) 432-1098"/>
+</div>
+<a class="h-10 px-3 rounded-lg bg-secondary/15 text-secondary hover:bg-secondary hover:text-on-secondary flex items-center justify-center transition-colors shrink-0" href="https://wa.me/15554321098" id="drawer-whatsapp-btn" target="_blank" title="Open WhatsApp Chat">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Billing Settings -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Default Billing Currency</label>
+<select class="h-10 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
+<option selected="">USD ($) — United States Dollar</option>
+<option>EUR (€) — Euro</option>
+<option>GBP (£) — British Pound</option>
+<option>CAD ($) — Canadian Dollar</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Hourly Rate / Retainer</label>
+<div class="relative flex items-center">
+<span class="absolute left-3 font-numeric-md text-numeric-md text-outline">$</span>
+<input class="h-10 pl-7 pr-12 w-full rounded-lg bg-surface-container-low text-on-surface font-numeric-md text-numeric-md focus:outline-none focus:ring-2 focus:ring-primary/20" type="text" value="165.00"/>
+<span class="absolute right-3 font-label-sm text-label-sm text-on-surface-variant font-medium">/ hr</span>
+</div>
+</div>
+</div>
+<!-- Notes Section -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Internal Notes & Payment Terms</label>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Confidential</span>
+</div>
+<textarea class="p-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary/20 resize-none" id="drawer-input-notes" rows="4">Graduated from WhatsApp group in Feb; prefers billing on the 1st of every month. Needs Net 15 terms.</textarea>
+</div>
+</div>
+<!-- Direct WhatsApp Ping Preview Card -->
+<div class="bg-secondary/5 rounded-xl p-space-sm flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">chat_bubble</span>
+<div class="flex flex-col gap-1 text-on-surface">
+<span class="font-label-md text-label-md font-semibold text-secondary">Quick WhatsApp Dispatch</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Send a pre-formatted message acknowledging payment or invoice generation directly to this client's connected mobile channel.</p>
+<div class="flex items-center gap-space-xs mt-1">
+<button class="text-secondary font-label-sm text-label-sm font-semibold hover:underline flex items-center gap-1" type="button">
+<span>Send "Invoice #1042 Ready"</span>
+<span class="material-symbols-outlined text-[14px]">pixel_4_4xl_4a_5_5a_5g</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab 2: Invoices (Hidden by default) -->
+<div class="tab-panel hidden flex flex-col gap-space-sm" id="tab-invoices">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-bold">Past Invoices & Balances</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">5 total issued</span>
+</div>
+<div class="flex flex-col gap-2">
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-semibold text-on-surface">INV-2024-008</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Due Oct 15, 2024 • Sprint 4 Delivery</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-numeric-md text-numeric-md font-bold text-error">$1,500.00</span>
+<span class="px-2 py-0.5 rounded-full bg-error-container/50 text-error font-label-sm text-label-sm font-semibold">Overdue</span>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-semibold text-on-surface">INV-2024-005</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Paid Sep 01, 2024 • Sprint 3 Delivery</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-numeric-md text-numeric-md font-semibold text-on-surface">$12,000.00</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold">Paid</span>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-semibold text-on-surface">INV-2024-002</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Paid Aug 01, 2024 • Kickoff Deposit</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-numeric-md text-numeric-md font-semibold text-on-surface">$14,250.00</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold">Paid</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab 3: Projects (Hidden by default) -->
+<div class="tab-panel hidden flex flex-col gap-space-sm" id="tab-projects">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-bold">Active Deliverables</span>
+<button class="text-primary font-label-sm text-label-sm font-semibold hover:underline" type="button">+ Link Project</button>
+</div>
+<div class="flex flex-col gap-2">
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-semibold text-on-surface">Nova Patient Portal 2.0</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Frontend React Architecture • In Progress</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">82% Done</span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-semibold text-on-surface">HIPAA Compliance Audit</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Security & Data Vaulting • Under Review</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold">Review</span>
+</div>
+</div>
+</div>
+<!-- Tab 4: WhatsApp History (Hidden by default) -->
+<div class="tab-panel hidden flex flex-col gap-space-sm" id="tab-whatsapp">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-bold">Logged Communication Logs</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Synced via WhatsApp Web</span>
+</div>
+<div class="flex flex-col gap-2.5">
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-secondary">Incoming Message</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Yesterday at 4:12 PM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">"Elena: Hey Alex, just reviewed the staging environment for the portal. Looks sharp! Will release payment on Net 15 cycle."</p>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-primary">Automated Dispatch</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Oct 15 at 9:00 AM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">"ClientFlow Bot: Invoice INV-2024-008 for $1,500.00 was issued with payment link."</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Drawer Bottom Action Tray -->
+<div class="p-space-md bg-surface-container-low border-t border-outline-variant/20 flex items-center justify-between gap-space-sm">
+<button class="px-3 py-2 rounded-xl text-error hover:bg-error-container/30 transition-colors font-label-md text-label-md font-semibold flex items-center gap-1" id="drawer-delete-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+<span>Delete Client</span>
+</button>
+<div class="flex items-center gap-space-xs">
+<button class="px-3.5 py-2 rounded-xl bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md font-medium transition-colors" type="button">
+            Create Invoice
+          </button>
+<button class="px-4 py-2 rounded-xl bg-primary text-on-primary hover:bg-primary-container shadow-sm font-label-md text-label-md font-semibold transition-all" id="drawer-save-btn" type="button">
+            Save Changes
+          </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Drawer & Tab Behavior Logic -->
+<script>
+  // Tab Switching Controller
+  const tabTriggers = document.querySelectorAll('.tab-trigger');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+
+  tabTriggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const targetTab = trigger.getAttribute('data-tab');
+
+      // Update Tab Styles
+      tabTriggers.forEach(btn => {
+        btn.classList.remove('text-primary', 'border-b-2', 'border-primary', 'font-bold');
+        btn.classList.add('text-on-surface-variant');
+      });
+      trigger.classList.add('text-primary', 'border-b-2', 'border-primary', 'font-bold');
+      trigger.classList.remove('text-on-surface-variant');
+
+      // Update Panel Visibility
+      tabPanels.forEach(panel => {
+        panel.classList.add('hidden');
+      });
+      const activePanel = document.getElementById('tab-' + targetTab);
+      if (activePanel) {
+        activePanel.classList.remove('hidden');
+      }
+    });
+  });
+
+  // Slide-over Drawer Open/Close Mechanics
+  const backdrop = document.getElementById('drawer-backdrop');
+  const panel = document.getElementById('drawer-panel');
+  const closeBtn = document.getElementById('close-drawer-btn');
+  const openNewBtn = document.getElementById('open-new-client-btn');
+  const saveBtn = document.getElementById('drawer-save-btn');
+  const deleteBtn = document.getElementById('drawer-delete-btn');
+
+  function closeDrawer() {
+    backdrop.classList.add('opacity-0', 'pointer-events-none');
+    backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+    panel.classList.add('translate-x-full');
+    panel.classList.remove('translate-x-0');
+  }
+
+  function openDrawer(name, company, email, phone, status, ltv, balance, projects, notes) {
+    // Populate Fields
+    document.getElementById('drawer-client-name').innerText = name;
+    document.getElementById('drawer-company-name').innerText = company;
+    document.getElementById('drawer-status-chip').innerText = status;
+    document.getElementById('drawer-ltv').innerText = ltv;
+    document.getElementById('drawer-balance').innerText = balance;
+    document.getElementById('drawer-projects').innerText = projects;
+
+    document.getElementById('drawer-input-name').value = name;
+    document.getElementById('drawer-input-company').value = company;
+    document.getElementById('drawer-input-email').value = email;
+    document.getElementById('drawer-input-phone').value = phone;
+    document.getElementById('drawer-input-notes').value = notes;
+    
+    // Update WhatsApp link
+    const cleanPhone = phone.replace(/\D/g, '');
+    document.getElementById('drawer-whatsapp-btn').href = 'https://wa.me/' + cleanPhone;
+
+    // Show Drawer
+    backdrop.classList.remove('opacity-0', 'pointer-events-none');
+    backdrop.classList.add('opacity-100', 'pointer-events-auto');
+    panel.classList.remove('translate-x-full');
+    panel.classList.add('translate-x-0');
+  }
+
+  closeBtn.addEventListener('click', closeDrawer);
+
+  // Close when clicking outside of panel
+  backdrop.addEventListener('click', (e) => {
+    if (e.target === backdrop) {
+      closeDrawer();
+    }
+  });
+
+  // Open empty state for New Client
+  openNewBtn.addEventListener('click', () => {
+    openDrawer('New Client', 'Account Setup', '', '', 'Draft', '$0.00', '$0.00', '0 Projects', '');
+  });
+
+  // Quick action feedback
+  saveBtn.addEventListener('click', () => {
+    const originalText = saveBtn.innerText;
+    saveBtn.innerText = 'Saved!';
+    saveBtn.classList.add('bg-secondary');
+    setTimeout(() => {
+      saveBtn.innerText = originalText;
+      saveBtn.classList.remove('bg-secondary');
+      closeDrawer();
+    }, 600);
+  });
+
+  deleteBtn.addEventListener('click', () => {
+    if (confirm('Are you sure you want to delete this client record?')) {
+      closeDrawer();
+    }
+  });
+
+  // Listen for Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeDrawer();
+    }
+  });
+</script></main></div></body></html>

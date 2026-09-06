@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{
+  canvas:"#0B0F19",
+  "canvas-card":"#131B2E",
+  "canvas-card-elevated":"#1E293B",
+  "canvas-card-subtle":"#172238",
+  "card-border":"#2A374F",
+  "brand-primary":"#3B82F6",
+  "brand-primary-hover":"#2563EB",
+  "brand-primary-light":"#60A5FA",
+  "text-high":"#F8FAFC",
+  "text-medium":"#94A3B8",
+  "text-muted":"#64748B",
+  "status-emerald":"#10B981",
+  "status-emerald-text":"#34D399",
+  "status-emerald-bg":"rgba(16, 185, 129, 0.18)",
+  "status-red":"#EF4444",
+  "status-red-text":"#F87171",
+  "status-red-bg":"rgba(239, 68, 68, 0.18)",
+  "status-amber":"#F59E0B",
+  "status-amber-text":"#FBBF24",
+  "status-amber-bg":"rgba(245, 158, 11, 0.18)",
+  "status-draft":"#94A3B8",
+  "status-draft-bg":"rgba(148, 163, 184, 0.18)",
+  "status-blue":"#3B82F6",
+  "status-blue-text":"#93C5FD",
+  "status-blue-bg":"rgba(59, 130, 246, 0.18)"
+},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"gutter-desktop":"1.5rem","space-lg":"1.5rem","space-xs":"0.5rem","space-md":"1rem","gutter-mobile":"1rem","space-sm":"0.75rem","margin-tablet":"2rem","margin-mobile":"1rem","space-xl":"2rem","space-2xs":"0.25rem","margin-desktop":"3rem","space-2xl":"3rem","space-3xl":"4rem"},fontFamily:{"body-sm":["Inter"],"display-lg":["Plus Jakarta Sans"],"numeric-lg":["Inter"],"label-md":["Inter"],"label-sm":["Inter"],"title-md":["Inter"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"numeric-md":["Inter"],"body-lg":["Inter"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Inter"]},fontSize:{"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"400"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"numeric-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"600"}],"display-lg-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"600"}],"numeric-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"500"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}]}}}};</script></head><body class="bg-canvas font-body-md text-text-high antialiased min-h-screen"><aside class="fixed left-0 top-0 h-screen w-[240px] bg-[#0d1527] border-r border-card-border/60 z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-xs border-b border-card-border/40"><img alt="ClientFlow Logo" class="h-8 w-auto object-contain brightness-110" src="https://lh3.googleusercontent.com/aida/AEtjO1UETwRPRp58A4vVLhzHnN3Nk9ltLwmx7Eof901EVivgdSv4Ik7IM5KjfI_-MGJYaLou0T2YGb0V-1alyQWlElKRx_Um74zTeHWFKCjNnNrfxN8kRsjhZx6PBFVaV8HuZPY21uZX2C78xdsDsySTAGfYsykpX8zOEqolvV7SAQ80khfl1PtDOLWWCZITsveGQhqzJeXgR2MBIN_XDEG5bz0A4ZfqcStr_0i5rPddKouM7QeY-tL3RfU"/><span class="font-headline-sm text-headline-sm text-text-high tracking-tight font-bold">ClientFlow</span></div><nav class="flex flex-col gap-1 p-space-xs mt-space-xs"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-xl text-text-medium hover:bg-canvas-card-elevated hover:text-text-high font-label-md text-label-md transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span>Dashboard</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-xl text-text-medium hover:bg-canvas-card-elevated hover:text-text-high font-label-md text-label-md transition-colors" data-path="clients" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span>Clients</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-xl text-text-medium hover:bg-canvas-card-elevated hover:text-text-high font-label-md text-label-md transition-colors" data-path="projects" href="#"><span class="material-symbols-outlined text-[20px]">folder_open</span><span>Projects</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 rounded-xl transition-all bg-brand-primary text-white font-title-md shadow-[0_0_15px_rgba(59,130,246,0.35)]" data-path="invoices" href="#"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span>Invoices</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-xl text-text-medium hover:bg-canvas-card-elevated hover:text-text-high font-label-md text-label-md transition-colors" data-path="analytics" href="#"><span class="material-symbols-outlined text-[20px]">bar_chart</span><span>Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-xl text-text-medium hover:bg-canvas-card-elevated hover:text-text-high font-label-md text-label-md transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span>Settings</span></a></nav></div><div class="flex flex-col p-space-xs gap-space-xs border-t border-card-border/40 bg-[#0b1120]"><div class="bg-canvas-card p-space-xs rounded-xl border border-card-border/70 flex flex-col gap-1.5"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-brand-primary-light font-semibold uppercase tracking-wider">Agency Plan</span><span class="font-numeric-md text-numeric-md text-text-medium">24/50</span></div><div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden"><div class="bg-brand-primary h-full rounded-full w-[48%] shadow-[0_0_8px_rgba(59,130,246,0.6)]"></div></div><span class="font-body-sm text-body-sm text-text-muted">Active clients</span></div><div class="flex items-center justify-between p-space-xs rounded-xl hover:bg-canvas-card-elevated transition-colors"><div class="flex items-center gap-space-xs min-w-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0 ring-1 ring-card-border" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdLK2wuUUw6mwzpKH4oyZeZlR936PJ0KdIvhXABjqT90A56APK2pwmnjnbpn2XnMka9cavlJiMQw71IeTRwv5w8m9p9Rfm9TxakMaA8M5SWr4Y6_ibAQVrnMm2qTHGWpZIwmk0IpvZZx4YvPk6u1Pl71XOyntB9ESh-kdD3zeCq7jofOYArO9OL2C8VLxEHhAUv-F70vjKmSkFvUeilfdPw4kAET9AOkvLxDQV3sfxGF1Jfwurhw"/><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-text-high truncate leading-tight">Alex Morgan</span><span class="font-body-sm text-body-sm text-text-muted truncate leading-tight">Agency Owner</span></div></div><button class="p-1 text-text-muted hover:text-status-red-text hover:bg-slate-800 rounded-lg transition-colors" title="Logout" type="button"><span class="material-symbols-outlined text-[18px]">logout</span></button></div></div></aside><div class="pl-[240px]"><header class="fixed top-0 left-[240px] right-0 h-16 bg-canvas/80 backdrop-blur-xl border-b border-card-border/50 z-40 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-md flex-1 max-w-md"><div class="flex items-center gap-space-xs w-full bg-canvas-card border border-card-border rounded-xl px-space-sm py-1.5 shadow-[0_1px_3px_0_rgba(0,0,0,0.3)] focus-within:border-brand-primary focus-within:ring-2 focus-within:ring-brand-primary/20 transition-all"><span class="material-symbols-outlined text-text-muted text-[18px]">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-text-high placeholder:text-text-muted focus:outline-none" placeholder="Search clients, invoices..." type="text"/><kbd class="font-label-sm text-label-sm bg-canvas-card-elevated px-1.5 py-0.5 rounded text-text-medium border border-card-border/80 shrink-0">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-2xs text-text-medium font-numeric-md text-numeric-md"><span class="material-symbols-outlined text-[18px] text-text-muted">calendar_today</span><span>Today, Oct 24</span></div><div class="relative"><button class="p-2 text-text-medium hover:text-text-high hover:bg-canvas-card-elevated rounded-xl transition-colors relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-status-red text-white font-label-sm text-[10px] font-bold shadow-[0_0_8px_rgba(239,68,68,0.5)]">3</span></button></div><button class="flex items-center gap-1.5 bg-brand-primary hover:bg-brand-primary-hover text-white px-space-sm py-1.5 rounded-xl font-label-md text-label-md shadow-[0_0_12px_rgba(59,130,246,0.35)] transition-all font-medium" type="button"><span class="material-symbols-outlined text-[18px]">add</span><span>New</span></button></div></header><main class="relative pt-16 bg-canvas w-full min-h-screen px-space-lg py-space-md"><div class="flex flex-col w-full pb-space-3xl gap-space-xl">
+<!-- Top Title & Primary Call to Action -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-text-high tracking-tight font-bold">Invoices</span>
+<span class="bg-canvas-card-elevated border border-card-border/80 text-brand-primary-light font-label-sm text-label-sm px-2.5 py-0.5 rounded-full">Automated Ledger</span>
+</div>
+<p class="font-body-md text-body-md text-text-medium mt-0.5">Create, track, and automate client billing and payment reconciliation.</p>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-1.5 bg-canvas-card hover:bg-canvas-card-elevated text-text-high px-space-md py-2 rounded-xl font-label-md text-label-md border border-card-border shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-text-muted text-[18px]">file_upload</span>
+<span>Export CSV</span>
+</button>
+<button class="flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-hover text-white px-space-md py-2 rounded-xl font-label-md text-label-md shadow-[0_0_15px_rgba(59,130,246,0.35)] hover:shadow transition-all transform active:scale-[0.98] font-medium" id="openInvoiceDrawerBtn" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Create Invoice</span>
+</button>
+</div>
+</div>
+<!-- Status Metric Cards (Compact Bento Row) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Overdue -->
+<div class="bg-canvas-card border border-card-border p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 left-0 bottom-0 w-1 bg-status-red shadow-[0_0_8px_rgba(239,68,68,0.5)]"></div>
+<div class="flex items-center justify-between pl-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">Overdue Balance</span>
+<span class="material-symbols-outlined text-status-red-text text-[20px]">warning</span>
+</div>
+<div class="mt-space-sm pl-space-xs flex items-baseline justify-between">
+<span class="font-numeric-lg text-numeric-lg font-bold text-status-red-text tracking-tight">$6,200</span>
+<span class="bg-status-red-bg border border-status-red/30 text-status-red-text font-label-sm text-label-sm px-2 py-0.5 rounded-full font-medium">3 invoices</span>
+</div>
+<div class="mt-space-xs pl-space-xs flex items-center gap-1 text-text-muted font-body-sm text-body-sm">
+<span class="text-status-red-text font-medium">Action required</span>
+<span>· Aging &gt; 14 days</span>
+</div>
+</div>
+<!-- Outstanding / Pending -->
+<div class="bg-canvas-card border border-card-border p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 left-0 bottom-0 w-1 bg-status-amber shadow-[0_0_8px_rgba(245,158,11,0.5)]"></div>
+<div class="flex items-center justify-between pl-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">Outstanding</span>
+<span class="material-symbols-outlined text-status-amber-text text-[20px]">schedule</span>
+</div>
+<div class="mt-space-sm pl-space-xs flex items-baseline justify-between">
+<span class="font-numeric-lg text-numeric-lg font-bold text-text-high tracking-tight">$18,450</span>
+<span class="bg-status-amber-bg border border-status-amber/30 text-status-amber-text font-label-sm text-label-sm px-2 py-0.5 rounded-full font-medium">7 invoices</span>
+</div>
+<div class="mt-space-xs pl-space-xs flex items-center gap-1 text-text-muted font-body-sm text-body-sm">
+<span>Due within next 15 days</span>
+</div>
+</div>
+<!-- Paid This Month -->
+<div class="bg-canvas-card border border-card-border p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 left-0 bottom-0 w-1 bg-status-emerald shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+<div class="flex items-center justify-between pl-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">Paid This Month</span>
+<span class="material-symbols-outlined text-status-emerald-text text-[20px]">check_circle</span>
+</div>
+<div class="mt-space-sm pl-space-xs flex items-baseline justify-between">
+<span class="font-numeric-lg text-numeric-lg font-bold text-status-emerald-text tracking-tight">$24,500</span>
+<span class="bg-status-emerald-bg border border-status-emerald/30 text-status-emerald-text font-label-sm text-label-sm px-2 py-0.5 rounded-full font-medium">8 invoices</span>
+</div>
+<div class="mt-space-xs pl-space-xs flex items-center gap-1 text-status-emerald-text font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="font-semibold">+18.2%</span>
+<span class="text-text-muted">vs last month</span>
+</div>
+</div>
+<!-- Drafts -->
+<div class="bg-canvas-card border border-card-border p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 left-0 bottom-0 w-1 bg-text-muted"></div>
+<div class="flex items-center justify-between pl-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">Draft Invoices</span>
+<span class="material-symbols-outlined text-text-muted text-[20px]">edit_note</span>
+</div>
+<div class="mt-space-sm pl-space-xs flex items-baseline justify-between">
+<span class="font-numeric-lg text-numeric-lg font-bold text-text-high tracking-tight">$4,800</span>
+<span class="bg-canvas-card-elevated border border-card-border/80 text-text-medium font-label-sm text-label-sm px-2 py-0.5 rounded-full font-medium">2 drafts</span>
+</div>
+<div class="mt-space-xs pl-space-xs flex items-center gap-1 text-text-muted font-body-sm text-body-sm">
+<span>Ready for review</span>
+</div>
+</div>
+</div>
+<!-- Invoices Section & Data Table Canvas -->
+<div class="bg-canvas-card border border-card-border rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Filter Bar -->
+<div class="p-space-md bg-canvas-card flex flex-col lg:flex-row lg:items-center justify-between gap-space-md border-b border-card-border/50">
+<!-- Search Input -->
+<div class="flex-1 max-w-sm flex items-center gap-space-xs bg-canvas-card-elevated border border-card-border px-space-sm py-2 rounded-xl focus-within:border-brand-primary focus-within:ring-1 focus-within:ring-brand-primary/20 transition-all">
+<span class="material-symbols-outlined text-text-muted text-[18px]">search</span>
+<input class="w-full bg-transparent font-body-sm text-body-sm text-text-high placeholder:text-text-muted focus:outline-none" id="invoiceSearchInput" placeholder="Filter by invoice #, client, or company..." type="text"/>
+</div>
+<!-- Segmented Status Tabs -->
+<div class="flex items-center gap-1 bg-canvas-card-elevated border border-card-border/80 p-1 rounded-xl overflow-x-auto">
+<button class="tab-btn active-tab px-space-sm py-1 rounded-lg font-label-md text-label-md text-white bg-brand-primary shadow-[0_0_12px_rgba(59,130,246,0.35)] transition-all font-medium" data-status="all" type="button">All (20)</button>
+<button class="tab-btn px-space-sm py-1 rounded-lg font-label-md text-label-md text-text-medium hover:text-text-high transition-all" data-status="paid" type="button">Paid</button>
+<button class="tab-btn px-space-sm py-1 rounded-lg font-label-md text-label-md text-text-medium hover:text-text-high transition-all" data-status="pending" type="button">Pending</button>
+<button class="tab-btn px-space-sm py-1 rounded-lg font-label-md text-label-md text-text-medium hover:text-text-high transition-all" data-status="overdue" type="button">Overdue</button>
+<button class="tab-btn px-space-sm py-1 rounded-lg font-label-md text-label-md text-text-medium hover:text-text-high transition-all" data-status="draft" type="button">Drafts</button>
+</div>
+<!-- Date Range Filter Selector -->
+<div class="flex items-center gap-space-xs">
+<div class="flex items-center gap-2 bg-canvas-card-elevated border border-card-border px-space-sm py-2 rounded-xl text-text-high font-label-md text-label-md cursor-pointer hover:bg-slate-700/60 transition-colors">
+<span class="material-symbols-outlined text-brand-primary text-[18px]">calendar_month</span>
+<span>Last 30 Days (Oct 24 - Nov 24)</span>
+<span class="material-symbols-outlined text-text-muted text-[16px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Data Table -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-canvas-card-subtle text-text-muted font-label-sm text-label-sm uppercase tracking-wider border-b border-card-border/50">
+<th class="py-3.5 px-space-md font-semibold">Invoice ID</th>
+<th class="py-3.5 px-space-md font-semibold">Client &amp; Company</th>
+<th class="py-3.5 px-space-md font-semibold">Issue Date</th>
+<th class="py-3.5 px-space-md font-semibold">Due Date</th>
+<th class="py-3.5 px-space-md font-semibold text-right">Total Amount</th>
+<th class="py-3.5 px-space-md font-semibold text-center">Status</th>
+<th class="py-3.5 px-space-md font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md divide-y divide-white/[0.06]" id="invoicesTableBody">
+<!-- Row 1: Overdue -->
+<tr class="hover:bg-canvas-card-elevated/60 transition-colors group" data-row-status="overdue">
+<td class="py-3.5 px-space-md font-numeric-md text-numeric-md font-semibold text-brand-primary-light">
+<span class="cursor-pointer hover:underline">#INV-2024-048</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-xs">
+<img class="w-7 h-7 rounded-full object-cover ring-1 ring-card-border" data-alt="Corporate headshot portrait of Marcus Vance, Founder of Vance Dynamics with smart casual blazer and studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9Zexa9RJK9FfNe-C0uzoYqx1hDG4HSMLnnlfJtWggCuAV1J2k1m2W0bB4Hrz76ste2zdEnUTEVTTir3_MhWcIlDN13-UCAWtbjMAeByeIGz9hNGMA0Lny1mGcPYbfWCx2XjxS6ITPe5fwb7BGx3w9tNTQ7YoAjN--3M_2UqUf3o0S6fdzR8ujJV8VvPklXi3wB00om7U090YcjCuoD5gKdTjhxsFdIYJTPcj_95wf9s2sDwmc8g"/>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-text-high leading-tight truncate">Marcus Vance</span>
+<span class="font-body-sm text-body-sm text-text-medium truncate">Vance Dynamics Inc.</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-text-medium font-numeric-md text-numeric-md">Oct 10, 2024</td>
+<td class="py-3.5 px-space-md text-status-red-text font-numeric-md text-numeric-md font-medium">Nov 09, 2024</td>
+<td class="py-3.5 px-space-md text-right font-numeric-md text-numeric-md font-bold text-text-high">$4,200.00</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-status-red-bg border border-status-red/30 text-status-red-text">
+<span class="w-1.5 h-1.5 rounded-full bg-status-red"></span>
+                Overdue
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1 opacity-90 group-hover:opacity-100">
+<button class="p-1.5 text-status-emerald-text hover:bg-status-emerald-bg rounded-lg transition-colors" title="Send WhatsApp Reminder" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+<button class="p-1.5 text-text-medium hover:text-text-high hover:bg-canvas-card-elevated rounded-lg transition-colors" title="Download PDF" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="p-1.5 text-text-medium hover:text-status-emerald-text hover:bg-canvas-card-elevated rounded-lg transition-colors" title="Mark as Paid" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+<button class="p-1.5 text-text-muted hover:text-text-high hover:bg-canvas-card-elevated rounded-lg transition-colors" title="More options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Pending -->
+<tr class="hover:bg-canvas-card-elevated/60 transition-colors group" data-row-status="pending">
+<td class="py-3.5 px-space-md font-numeric-md text-numeric-md font-semibold text-brand-primary-light">
+<span class="cursor-pointer hover:underline">#INV-2024-047</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-xs">
+<img class="w-7 h-7 rounded-full object-cover ring-1 ring-card-border" data-alt="Portrait photo of Elena Rostova, Vice President of Nova HealthTech with spectacles in modern sunny corporate office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZayCk420qPn3qPcFDXQgoHKGkr9kUBLAWd18yzrVhZ2EiLjU4KIbwNWgU6oFv7rkkCtUj6ZoiEK220Hl55k5RymX9_KUYWWT8vq7InesujJXMmwmTIOpmWy9CsOvGIdRNGtJDntCvQ2MUXPZf0o7or0tAM4Nb6SfPQOEA1a31LeJfrQDp2JnZczDc3K4RfOEjPD90UN3IlamCs3f5xAPj1wDXoa-HiMik8jJ5I94PkuRS7tlsow"/>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-text-high leading-tight truncate">Elena Rostova</span>
+<span class="font-body-sm text-body-sm text-text-medium truncate">Nova HealthTech</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-text-medium font-numeric-md text-numeric-md">Nov 12, 2024</td>
+<td class="py-3.5 px-space-md text-text-high font-numeric-md text-numeric-md">Nov 27, 2024</td>
+<td class="py-3.5 px-space-md text-right font-numeric-md text-numeric-md font-bold text-text-high">$7,378.00</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-status-amber-bg border border-status-amber/30 text-status-amber-text">
+<span class="w-1.5 h-1.5 rounded-full bg-status-amber"></span>
+                Pending
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1 opacity-90 group-hover:opacity-100">
+<button class="p-1.5 text-status-emerald-text hover:bg-status-emerald-bg rounded-lg transition-colors" title="Send WhatsApp Reminder" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+<button class="p-1.5 text-text-medium hover:text-text-high hover:bg-canvas-card-elevated rounded-lg transition-colors" title="Download PDF" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="p-1.5 text-text-medium hover:text-status-emerald-text hover:bg-canvas-card-elevated rounded-lg transition-colors" title="Mark as Paid" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+<button class="p-1.5 text-text-muted hover:text-text-high hover:bg-canvas-card-elevated rounded-lg transition-colors" title="More options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Paid -->
+<tr class="hover:bg-canvas-card-elevated/60 transition-colors group" data-row-status="paid">
+<td class="py-3.5 px-space-md font-numeric-md text-numeric-md font-semibold text-brand-primary-light">
+<span class="cursor-pointer hover:underline">#INV-2024-046</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-xs">
+<img class="w-7 h-7 rounded-full object-cover ring-1 ring-card-border" data-alt="Portrait photography of Kenji Sato, Creative Lead of Studio Sola, warm lighting and studio backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYrUISfGXPEv03fGhJQiYcs1tNu7fVivAFFmMJI7LA3O85sB9uHBJsu8PR9QVzO9c1oDLbO5lL-ILBUXnfSjS_XvG2yIbdmqfM35TYKeXjq1OJ8eVvTuWimZdl3VLTnxFfDW5CIusXe-FsIeH1rof6zVyYZxmiounF5eozBy7-G7uZJbLaU-aMCAoTnmEEynDRDwM66uOiFc15yFMnPdZ6D1HgopFHGXJSHzJcA1rwq5n7GL-C9w"/>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-text-high leading-tight truncate">Kenji Sato</span>
+<span class="font-body-sm text-body-sm text-text-medium truncate">Studio Sola Kyoto</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-text-medium font-numeric-md text-numeric-md">Oct 28, 2024</td>
+<td class="py-3.5 px-space-md text-text-muted font-numeric-md text-numeric-md">Nov 12, 2024</td>
+<td class="py-3.5 px-space-md text-right font-numeric-md text-numeric-md font-bold text-text-high">$12,500.00</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-status-emerald-bg border border-status-emerald/30 text-status-emerald-text">
+<span class="w-1.5 h-1.5 rounded-full bg-status-emerald"></span>
+                Paid
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1 opacity-90 group-hover:opacity-100">
+<button class="p-1.5 text-text-medium hover:text-text-high hover:bg-canvas-card-elevated rounded-lg transition-colors" title="View Receipt" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt</span>
+</button>
+<button class="p-1.5 text-text-medium hover:text-text-high hover:bg-canvas-card-elevated rounded-lg transition-colors" title="Download PDF" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="p-1.5 text-text-muted hover:text-text-high hover:bg-canvas-card-elevated rounded-lg transition-colors" title="More options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Paid -->
+<tr class="hover:bg-canvas-card-elevated/60 transition-colors group" data-row-status="paid">
+<td class="py-3.5 px-space-md font-numeric-md text-numeric-md font-semibold text-brand-primary-light">
+<span class="cursor-pointer hover:underline">#INV-2024-045</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-brand-primary/20 border border-brand-primary/40 flex items-center justify-center text-brand-primary-light font-bold text-xs">SL</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-text-high leading-tight truncate">Sarah Lindqvist</span>
+<span class="font-body-sm text-body-sm text-text-medium truncate">Nordic Retail Tech</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-text-medium font-numeric-md text-numeric-md">Oct 20, 2024</td>
+<td class="py-3.5 px-space-md text-text-muted font-numeric-md text-numeric-md">Nov 04, 2024</td>
+<td class="py-3.5 px-space-md text-right font-numeric-md text-numeric-md font-bold text-text-high">$12,000.00</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-status-emerald-bg border border-status-emerald/30 text-status-emerald-text">
+<span class="w-1.5 h-1.5 rounded-full bg-status-emerald"></span>
+                Paid
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1 opacity-90 group-hover:opacity-100">
+<button class="p-1.5 text-text-medium hover:text-text-high hover:bg-canvas-card-elevated rounded-lg transition-colors" title="View Receipt" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt</span>
+</button>
+<button class="p-1.5 text-text-medium hover:text-text-high hover:bg-canvas-card-elevated rounded-lg transition-colors" title="Download PDF" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="p-1.5 text-text-muted hover:text-text-high hover:bg-canvas-card-elevated rounded-lg transition-colors" title="More options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Draft -->
+<tr class="hover:bg-canvas-card-elevated/60 transition-colors group" data-row-status="draft">
+<td class="py-3.5 px-space-md font-numeric-md text-numeric-md font-semibold text-brand-primary-light">
+<span class="cursor-pointer hover:underline">#INV-2024-044</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-canvas-card-elevated border border-card-border flex items-center justify-center text-text-medium font-bold text-xs">AC</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-text-high leading-tight truncate">Amara Chen</span>
+<span class="font-body-sm text-body-sm text-text-medium truncate">Apex Cloud Systems</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-text-medium font-numeric-md text-numeric-md">Nov 22, 2024</td>
+<td class="py-3.5 px-space-md text-text-muted font-numeric-md text-numeric-md">Dec 07, 2024</td>
+<td class="py-3.5 px-space-md text-right font-numeric-md text-numeric-md font-bold text-text-high">$4,800.00</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-status-draft-bg border border-card-border/80 text-status-draft">
+<span class="w-1.5 h-1.5 rounded-full bg-text-muted"></span>
+                Draft
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1 opacity-90 group-hover:opacity-100">
+<button class="p-1.5 text-brand-primary-light hover:bg-canvas-card-elevated rounded-lg transition-colors" title="Edit Draft" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 text-status-red-text hover:bg-status-red-bg rounded-lg transition-colors" title="Delete Draft" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+<button class="p-1.5 text-text-muted hover:text-text-high hover:bg-canvas-card-elevated rounded-lg transition-colors" title="More options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination & Count Footer -->
+<div class="px-space-md py-3 bg-canvas-card-subtle/70 border-t border-card-border/50 flex items-center justify-between text-text-medium font-body-sm text-body-sm">
+<div class="flex items-center gap-space-xs">
+<span>Showing <strong class="text-text-high">5</strong> of <strong class="text-text-high">20</strong> invoices</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-1.5 rounded-lg text-text-muted opacity-40 cursor-not-allowed hover:bg-canvas-card-elevated" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<span class="px-2.5 py-1 bg-brand-primary text-white rounded-md font-semibold shadow-[0_0_8px_rgba(59,130,246,0.35)]">1</span>
+<button class="px-2.5 py-1 hover:bg-canvas-card-elevated text-text-medium hover:text-text-high rounded-md transition-colors" type="button">2</button>
+<button class="px-2.5 py-1 hover:bg-canvas-card-elevated text-text-medium hover:text-text-high rounded-md transition-colors" type="button">3</button>
+<button class="p-1.5 rounded-lg text-text-medium hover:text-text-high hover:bg-canvas-card-elevated transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Interactive 'Create Invoice' Slide-Over Panel & Modal Backdrop -->
+<div class="fixed inset-0 bg-[#000000]/60 backdrop-blur-md z-50 transition-opacity duration-300 opacity-0 pointer-events-none flex justify-end" id="invoiceDrawerOverlay">
+<!-- Slide-over Content Container -->
+<div class="w-full max-w-3xl bg-canvas-card border-l border-card-border h-full shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-out overflow-hidden" id="invoiceDrawer">
+<!-- Drawer Header -->
+<div class="px-space-xl py-space-md bg-canvas-card-subtle border-b border-card-border/60 flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-xl bg-brand-primary text-white flex items-center justify-center shadow-[0_0_12px_rgba(59,130,246,0.35)]">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-text-high font-bold">New Invoice Builder</h2>
+<p class="font-body-sm text-body-sm text-text-medium">Fill details, customize line items, and generate real-time ledger records</p>
+</div>
+</div>
+<button class="p-2 text-text-medium hover:text-text-high hover:bg-canvas-card-elevated rounded-xl transition-colors" id="closeInvoiceDrawerBtn" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Drawer Scrollable Body -->
+<div class="flex-1 overflow-y-auto p-space-xl space-y-space-xl bg-canvas">
+<!-- Section 1: Meta Details Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Invoice Number -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">Invoice Number</label>
+<div class="flex items-center bg-canvas-card-elevated border border-card-border px-space-sm py-2 rounded-xl">
+<span class="material-symbols-outlined text-text-muted text-[18px] mr-2">tag</span>
+<input class="bg-transparent font-title-md text-title-md font-semibold text-text-high focus:outline-none w-full" readonly="" type="text" value="#INV-2024-049"/>
+<span class="font-label-sm text-label-sm text-status-emerald-text bg-status-emerald-bg border border-status-emerald/30 px-2 py-0.5 rounded-full font-medium">Auto</span>
+</div>
+</div>
+<!-- Currency Selector -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">Currency</label>
+<div class="flex items-center bg-canvas-card-elevated border border-card-border px-space-sm py-2 rounded-xl justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-text-muted text-[18px]">payments</span>
+<span class="font-body-md text-body-md text-text-high font-semibold">USD ($) — United States Dollar</span>
+</div>
+<span class="material-symbols-outlined text-text-muted text-[18px]">expand_more</span>
+</div>
+</div>
+<!-- Client Selector -->
+<div class="md:col-span-2 flex flex-col gap-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">Client / Company</label>
+<div class="flex items-center justify-between bg-canvas-card-elevated border border-card-border px-space-sm py-2.5 rounded-xl cursor-pointer hover:border-brand-primary/50 transition-colors">
+<div class="flex items-center gap-space-xs">
+<img class="w-8 h-8 rounded-full object-cover ring-1 ring-card-border" data-alt="Portrait photo of Elena Rostova, VP of Nova HealthTech with friendly corporate expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOXn1cd5J8eDBiSoOIaRCJ5aVS7bJZTvLAToWi31KiQpJyhDVFgDJ8Iqi-NxZGTHSGKk66tT-OAtwYe6Nlit2PwI2FrwdEEJsxtJUo6rFiyUUVZkabLrpwmc7tgmCb-Ybr5E2xlLQyHDO7rw5TSl-K1D6kc0zCyGX3yljaNixImAjg_uJoQaXB0DGG2W1mDfIqsTbstvJsbS77STbnOBPTEJqXk3NRFJ3QBFtFyowKB-jyXhllqg"/>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-text-high font-semibold leading-tight">Elena Rostova — Nova HealthTech</span>
+<span class="font-body-sm text-body-sm text-text-muted leading-tight">elena.rostova@novahealth.io · Tax ID: US-94820194</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-brand-primary-light font-label-md text-label-md font-semibold">
+<span>Change</span>
+<span class="material-symbols-outlined text-[18px]">unfold_more</span>
+</div>
+</div>
+</div>
+<!-- Issue Date -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">Issue Date</label>
+<div class="flex items-center bg-canvas-card-elevated border border-card-border px-space-sm py-2 rounded-xl">
+<span class="material-symbols-outlined text-text-muted text-[18px] mr-2">calendar_today</span>
+<input class="bg-transparent font-body-md text-body-md text-text-high focus:outline-none w-full font-medium" type="text" value="Nov 24, 2024"/>
+</div>
+</div>
+<!-- Payment Terms / Due Date -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">Terms &amp; Due Date</label>
+<div class="flex items-center justify-between bg-canvas-card-elevated border border-card-border px-space-sm py-2 rounded-xl">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-text-muted text-[18px]">event_available</span>
+<span class="font-body-md text-body-md text-text-high font-medium">Net 15 (Due Dec 09, 2024)</span>
+</div>
+<span class="material-symbols-outlined text-text-muted text-[18px]">arrow_drop_down</span>
+</div>
+</div>
+</div>
+<!-- Section 2: Dynamic Line Items Builder -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">Line Items</span>
+<span class="bg-canvas-card-elevated border border-card-border text-brand-primary-light text-[11px] font-bold px-2 py-0.5 rounded-full" id="itemCountBadge">2 items</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-muted">Unit Rate: Hourly / Fixed</span>
+</div>
+<!-- Header Titles for Line Items -->
+<div class="grid grid-cols-12 gap-2 px-space-sm text-text-muted font-label-sm text-label-sm uppercase tracking-wider">
+<span class="col-span-6 font-semibold">Description / Scope</span>
+<span class="col-span-2 text-center font-semibold">Qty / Hrs</span>
+<span class="col-span-2 text-right font-semibold">Rate ($)</span>
+<span class="col-span-2 text-right font-semibold">Amount</span>
+</div>
+<!-- Line Item List Container -->
+<div class="flex flex-col gap-space-xs" id="lineItemsContainer">
+<!-- Item 1 -->
+<div class="line-item-row grid grid-cols-12 gap-2 items-center bg-canvas-card border border-card-border p-space-xs rounded-xl group transition-colors hover:bg-canvas-card-elevated">
+<div class="col-span-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-text-muted group-hover:text-brand-primary cursor-grab text-[18px]">drag_indicator</span>
+<input class="item-desc w-full bg-transparent font-title-md text-title-md text-text-high font-medium focus:outline-none" type="text" value="Phase 2: Mobile UI/UX Design System"/>
+</div>
+<div class="col-span-2">
+<input class="item-qty w-full bg-canvas-card-elevated border border-card-border px-2 py-1 rounded-lg text-center font-numeric-md text-numeric-md text-text-high focus:outline-none font-semibold" type="number" value="40"/>
+</div>
+<div class="col-span-2">
+<input class="item-rate w-full bg-canvas-card-elevated border border-card-border px-2 py-1 rounded-lg text-right font-numeric-md text-numeric-md text-text-high focus:outline-none font-semibold" type="number" value="125"/>
+</div>
+<div class="col-span-2 flex items-center justify-end gap-2">
+<span class="item-total font-numeric-md text-numeric-md font-bold text-text-high">$5,000.00</span>
+<button class="delete-item-btn opacity-0 group-hover:opacity-100 p-1 text-text-muted hover:text-status-red-text rounded-md transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="line-item-row grid grid-cols-12 gap-2 items-center bg-canvas-card border border-card-border p-space-xs rounded-xl group transition-colors hover:bg-canvas-card-elevated">
+<div class="col-span-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-text-muted group-hover:text-brand-primary cursor-grab text-[18px]">drag_indicator</span>
+<input class="item-desc w-full bg-transparent font-title-md text-title-md text-text-high font-medium focus:outline-none" type="text" value="Interactive Prototyping &amp; User Testing"/>
+</div>
+<div class="col-span-2">
+<input class="item-qty w-full bg-canvas-card-elevated border border-card-border px-2 py-1 rounded-lg text-center font-numeric-md text-numeric-md text-text-high focus:outline-none font-semibold" type="number" value="1"/>
+</div>
+<div class="col-span-2">
+<input class="item-rate w-full bg-canvas-card-elevated border border-card-border px-2 py-1 rounded-lg text-right font-numeric-md text-numeric-md text-text-high focus:outline-none font-semibold" type="number" value="1800"/>
+</div>
+<div class="col-span-2 flex items-center justify-end gap-2">
+<span class="item-total font-numeric-md text-numeric-md font-bold text-text-high">$1,800.00</span>
+<button class="delete-item-btn opacity-0 group-hover:opacity-100 p-1 text-text-muted hover:text-status-red-text rounded-md transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Add Line Item Action -->
+<button class="flex items-center justify-center gap-2 w-full py-2.5 bg-canvas-card hover:bg-canvas-card-elevated border border-dashed border-card-border text-brand-primary-light rounded-xl font-label-md text-label-md font-semibold transition-all" id="addLineItemBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Add Line Item</span>
+</button>
+</div>
+<!-- Section 3: Notes & Live Financial Computation Card -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-lg items-start">
+<!-- Left: Payment Notes & Wire Instructions -->
+<div class="md:col-span-7 flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">Payment Notes &amp; Bank Instructions</label>
+<textarea class="w-full bg-canvas-card border border-card-border p-space-sm rounded-xl font-body-sm text-body-sm text-text-high focus:outline-none resize-none focus:border-brand-primary" rows="4">Payment due within 15 days of invoice date. Direct Wire (FedWire / ACH) or credit card via Stripe payment gateway available in client portal.</textarea>
+<div class="flex items-center gap-space-xs text-text-muted font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-status-emerald-text text-[16px]">lock</span>
+<span>256-bit encrypted invoice link provided automatically to client.</span>
+</div>
+</div>
+<!-- Right: Live Computation Summary Card -->
+<div class="md:col-span-5 bg-canvas-card border border-card-border p-space-md rounded-xl flex flex-col gap-space-xs shadow-sm">
+<div class="flex items-center justify-between text-text-medium font-body-md text-body-md">
+<span>Subtotal</span>
+<span class="font-numeric-md text-numeric-md font-semibold text-text-high" id="calcSubtotal">$6,800.00</span>
+</div>
+<div class="flex items-center justify-between text-text-medium font-body-md text-body-md">
+<div class="flex items-center gap-1">
+<span>Tax Rate</span>
+<span class="bg-canvas-card-elevated border border-card-border px-1.5 py-0.2 rounded font-label-sm text-label-sm font-semibold text-text-high">8.5%</span>
+</div>
+<span class="font-numeric-md text-numeric-md text-text-high" id="calcTax">$578.00</span>
+</div>
+<div class="flex items-center justify-between text-text-medium font-body-md text-body-md">
+<span>Discount</span>
+<span class="font-numeric-md text-numeric-md text-status-emerald-text" id="calcDiscount">-$0.00</span>
+</div>
+<div class="pt-space-xs mt-space-xs flex items-center justify-between bg-canvas-card-elevated border border-card-border p-space-xs rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-bold">Grand Total</span>
+<span class="font-body-sm text-body-sm text-text-muted">USD Due</span>
+</div>
+<span class="font-numeric-lg text-numeric-lg font-bold text-brand-primary-light tracking-tight" id="calcGrandTotal">$7,378.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Drawer Sticky Action Tray Footer -->
+<div class="px-space-xl py-space-md bg-canvas-card-subtle border-t border-card-border/60 flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<button class="w-full sm:w-auto px-space-md py-2 text-text-medium hover:text-text-high hover:bg-canvas-card-elevated font-label-md text-label-md rounded-xl transition-colors" id="saveDraftBtn" type="button">
+          Save as Draft
+        </button>
+<div class="flex items-center gap-space-xs w-full sm:w-auto">
+<button class="w-full sm:w-auto px-space-md py-2 bg-canvas-card-elevated hover:bg-slate-700 text-text-high font-label-md text-label-md rounded-xl border border-card-border shadow-sm transition-all flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+<span>Preview</span>
+</button>
+<button class="w-full sm:w-auto px-space-lg py-2 bg-brand-primary hover:bg-brand-primary-hover text-white font-label-md text-label-md rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.35)] transition-all flex items-center justify-center gap-2 font-medium" id="sendInvoiceBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span>Send via Email &amp; WhatsApp</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Notification Toast Simulation -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 bg-canvas-card-elevated border border-card-border text-text-high px-space-md py-3 rounded-xl shadow-2xl" id="toastNotification">
+<span class="material-symbols-outlined text-status-emerald-text text-[22px]">check_circle</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-semibold" id="toastTitle">Invoice Generated</span>
+<span class="font-body-sm text-body-sm text-text-medium" id="toastMessage">#INV-2024-049 sent to Elena Rostova via Email and WhatsApp.</span>
+</div>
+</div>
+</div>
+<script>
+  (function initInvoiceManager() {
+    const openBtn = document.getElementById('openInvoiceDrawerBtn');
+    const closeBtn = document.getElementById('closeInvoiceDrawerBtn');
+    const drawerOverlay = document.getElementById('invoiceDrawerOverlay');
+    const drawer = document.getElementById('invoiceDrawer');
+    const lineItemsContainer = document.getElementById('lineItemsContainer');
+    const addLineItemBtn = document.getElementById('addLineItemBtn');
+    const sendInvoiceBtn = document.getElementById('sendInvoiceBtn');
+    const saveDraftBtn = document.getElementById('saveDraftBtn');
+    const toast = document.getElementById('toastNotification');
+    const toastTitle = document.getElementById('toastTitle');
+    const toastMessage = document.getElementById('toastMessage');
+
+    // Filter Elements
+    const searchInput = document.getElementById('invoiceSearchInput');
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tableRows = document.querySelectorAll('#invoicesTableBody tr');
+
+    // Drawer Control
+    function openDrawer() {
+      drawerOverlay.classList.remove('opacity-0', 'pointer-events-none');
+      drawerOverlay.classList.add('opacity-100');
+      drawer.classList.remove('translate-x-full');
+      drawer.classList.add('translate-x-0');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawerOverlay.classList.add('opacity-0', 'pointer-events-none');
+      drawerOverlay.classList.remove('opacity-100');
+      drawer.classList.add('translate-x-full');
+      drawer.classList.remove('translate-x-0');
+      document.body.style.overflow = '';
+    }
+
+    if (openBtn) openBtn.addEventListener('click', openDrawer);
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if (drawerOverlay) {
+      drawerOverlay.addEventListener('click', (e) => {
+        if (e.target === drawerOverlay) closeDrawer();
+      });
+    }
+
+    // Calculations
+    function recalculateTotals() {
+      const rows = lineItemsContainer.querySelectorAll('.line-item-row');
+      let subtotal = 0;
+
+      rows.forEach(row => {
+        const qty = parseFloat(row.querySelector('.item-qty').value) || 0;
+        const rate = parseFloat(row.querySelector('.item-rate').value) || 0;
+        const total = qty * rate;
+        row.querySelector('.item-total').textContent = '$' + total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        subtotal += total;
+      });
+
+      const tax = subtotal * 0.085;
+      const grandTotal = subtotal + tax;
+
+      document.getElementById('calcSubtotal').textContent = '$' + subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      document.getElementById('calcTax').textContent = '$' + tax.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      document.getElementById('calcGrandTotal').textContent = '$' + grandTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      
+      const badge = document.getElementById('itemCountBadge');
+      if (badge) badge.textContent = rows.length + ' items';
+    }
+
+    // Line Item Input events delegation
+    lineItemsContainer.addEventListener('input', (e) => {
+      if (e.target.classList.contains('item-qty') || e.target.classList.contains('item-rate')) {
+        recalculateTotals();
+      }
+    });
+
+    // Delete Line Item
+    lineItemsContainer.addEventListener('click', (e) => {
+      const deleteBtn = e.target.closest('.delete-item-btn');
+      if (deleteBtn) {
+        const row = deleteBtn.closest('.line-item-row');
+        if (lineItemsContainer.querySelectorAll('.line-item-row').length > 1) {
+          row.remove();
+          recalculateTotals();
+        } else {
+          showToast('Requirement', 'An invoice must have at least one line item.');
+        }
+      }
+    });
+
+    // Add Line Item
+    if (addLineItemBtn) {
+      addLineItemBtn.addEventListener('click', () => {
+        const newRow = document.createElement('div');
+        newRow.className = 'line-item-row grid grid-cols-12 gap-2 items-center bg-canvas-card border border-card-border p-space-xs rounded-xl group transition-colors hover:bg-canvas-card-elevated';
+        newRow.innerHTML = `
+          <div class="col-span-6 flex items-center gap-2">
+            <span class="material-symbols-outlined text-text-muted group-hover:text-brand-primary cursor-grab text-[18px]">drag_indicator</span>
+            <input type="text" value="New Service Item" class="item-desc w-full bg-transparent font-title-md text-title-md text-text-high font-medium focus:outline-none">
+          </div>
+          <div class="col-span-2">
+            <input type="number" value="1" class="item-qty w-full bg-canvas-card-elevated border border-card-border px-2 py-1 rounded-lg text-center font-numeric-md text-numeric-md text-text-high focus:outline-none font-semibold">
+          </div>
+          <div class="col-span-2">
+            <input type="number" value="500" class="item-rate w-full bg-canvas-card-elevated border border-card-border px-2 py-1 rounded-lg text-right font-numeric-md text-numeric-md text-text-high focus:outline-none font-semibold">
+          </div>
+          <div class="col-span-2 flex items-center justify-end gap-2">
+            <span class="item-total font-numeric-md text-numeric-md font-bold text-text-high">$500.00</span>
+            <button type="button" class="delete-item-btn opacity-0 group-hover:opacity-100 p-1 text-text-muted hover:text-status-red-text rounded-md transition-all">
+              <span class="material-symbols-outlined text-[16px]">delete</span>
+            </button>
+          </div>
+        `;
+        lineItemsContainer.appendChild(newRow);
+        recalculateTotals();
+      });
+    }
+
+    // Toast Trigger
+    function showToast(title, message) {
+      toastTitle.textContent = title;
+      toastMessage.textContent = message;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 4000);
+    }
+
+    if (sendInvoiceBtn) {
+      sendInvoiceBtn.addEventListener('click', () => {
+        closeDrawer();
+        showToast('Invoice Sent Successfully', 'Delivered to Elena Rostova with instant payment links enabled.');
+      });
+    }
+
+    if (saveDraftBtn) {
+      saveDraftBtn.addEventListener('click', () => {
+        closeDrawer();
+        showToast('Draft Stored', 'Invoice #INV-2024-049 saved to drafts.');
+      });
+    }
+
+    // Live Filtering Logic
+    let currentTab = 'all';
+    function filterInvoices() {
+      const query = searchInput.value.toLowerCase().trim();
+      tableRows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        const status = row.getAttribute('data-row-status');
+        const matchesQuery = text.includes(query);
+        const matchesTab = currentTab === 'all' || status === currentTab;
+
+        if (matchesQuery && matchesTab) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', filterInvoices);
+    }
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => {
+          b.classList.remove('bg-brand-primary', 'text-white', 'shadow-[0_0_12px_rgba(59,130,246,0.35)]', 'font-medium');
+          b.classList.add('text-text-medium');
+        });
+        btn.classList.add('bg-brand-primary', 'text-white', 'shadow-[0_0_12px_rgba(59,130,246,0.35)]', 'font-medium');
+        btn.classList.remove('text-text-medium');
+        currentTab = btn.getAttribute('data-status');
+        filterInvoices();
+      });
+    });
+
+  })();
+</script></main></div></body></html>

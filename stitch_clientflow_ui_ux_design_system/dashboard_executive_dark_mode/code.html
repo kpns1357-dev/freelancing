@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{
+  canvas:"#0B0F19",
+  "canvas-card":"#131B2E",
+  "canvas-card-elevated":"#1E293B",
+  "canvas-card-subtle":"#172238",
+  "card-border":"#2A374F",
+  "brand-primary":"#3B82F6",
+  "brand-primary-hover":"#2563EB",
+  "brand-primary-light":"#60A5FA",
+  "text-high":"#F8FAFC",
+  "text-medium":"#94A3B8",
+  "text-muted":"#64748B",
+  "status-emerald":"#10B981",
+  "status-emerald-text":"#34D399",
+  "status-emerald-bg":"rgba(16, 185, 129, 0.15)",
+  "status-red":"#EF4444",
+  "status-red-text":"#F87171",
+  "status-red-bg":"rgba(239, 68, 68, 0.15)",
+  "status-amber":"#F59E0B",
+  "status-amber-text":"#FBBF24",
+  "status-amber-bg":"rgba(245, 158, 11, 0.15)",
+  "status-blue":"#3B82F6",
+  "status-blue-text":"#93C5FD",
+  "status-blue-bg":"rgba(59, 130, 246, 0.15)"
+},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"gutter-desktop":"1.5rem","space-lg":"1.5rem","space-xs":"0.5rem","space-md":"1rem","gutter-mobile":"1rem","space-sm":"0.75rem","margin-tablet":"2rem","margin-mobile":"1rem","space-xl":"2rem","space-2xs":"0.25rem","margin-desktop":"3rem","space-2xl":"3rem","space-3xl":"4rem"},fontFamily:{"body-sm":["Inter"],"display-lg":["Plus Jakarta Sans"],"numeric-lg":["Inter"],"label-md":["Inter"],"label-sm":["Inter"],"title-md":["Inter"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"numeric-md":["Inter"],"body-lg":["Inter"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Inter"]},fontSize:{"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"400"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"numeric-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"600"}],"display-lg-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"600"}],"numeric-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"500"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}]}}}};</script></head><body class="bg-canvas font-body-md text-text-high antialiased min-h-screen"><aside class="fixed left-0 top-0 h-screen w-[240px] bg-[#0d1527] border-r border-card-border/60 z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-xs border-b border-card-border/40"><img alt="ClientFlow Logo" class="h-8 w-auto object-contain brightness-110" src="https://lh3.googleusercontent.com/aida/AEtjO1UETwRPRp58A4vVLhzHnN3Nk9ltLwmx7Eof901EVivgdSv4Ik7IM5KjfI_-MGJYaLou0T2YGb0V-1alyQWlElKRx_Um74zTeHWFKCjNnNrfxN8kRsjhZx6PBFVaV8HuZPY21uZX2C78xdsDsySTAGfYsykpX8zOEqolvV7SAQ80khfl1PtDOLWWCZITsveGQhqzJeXgR2MBIN_XDEG5bz0A4ZfqcStr_0i5rPddKouM7QeY-tL3RfU"/><span class="font-headline-sm text-headline-sm text-text-high tracking-tight font-bold">ClientFlow</span></div><nav class="flex flex-col gap-1 p-space-xs mt-space-xs"><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 rounded-xl transition-all bg-brand-primary text-white font-title-md shadow-[0_0_15px_rgba(59,130,246,0.35)]" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span>Dashboard</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-xl text-text-medium hover:bg-canvas-card-elevated hover:text-text-high font-label-md text-label-md transition-colors" data-path="clients" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span>Clients</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-xl text-text-medium hover:bg-canvas-card-elevated hover:text-text-high font-label-md text-label-md transition-colors" data-path="projects" href="#"><span class="material-symbols-outlined text-[20px]">folder_open</span><span>Projects</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-xl text-text-medium hover:bg-canvas-card-elevated hover:text-text-high font-label-md text-label-md transition-colors" data-path="invoices" href="#"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span>Invoices</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-xl text-text-medium hover:bg-canvas-card-elevated hover:text-text-high font-label-md text-label-md transition-colors" data-path="analytics" href="#"><span class="material-symbols-outlined text-[20px]">bar_chart</span><span>Analytics</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-xl text-text-medium hover:bg-canvas-card-elevated hover:text-text-high font-label-md text-label-md transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span>Settings</span></a></nav></div><div class="flex flex-col p-space-xs gap-space-xs border-t border-card-border/40 bg-[#0b1120]"><div class="bg-canvas-card p-space-xs rounded-xl border border-card-border/70 flex flex-col gap-1.5"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-brand-primary-light font-semibold uppercase tracking-wider">Agency Plan</span><span class="font-numeric-md text-numeric-md text-text-medium">24/50</span></div><div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden"><div class="bg-brand-primary h-full rounded-full w-[48%] shadow-[0_0_8px_rgba(59,130,246,0.6)]"></div></div><span class="font-body-sm text-body-sm text-text-muted">Active clients</span></div><div class="flex items-center justify-between p-space-xs rounded-xl hover:bg-canvas-card-elevated transition-colors"><div class="flex items-center gap-space-xs min-w-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0 ring-1 ring-card-border" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdLK2wuUUw6mwzpKH4oyZeZlR936PJ0KdIvhXABjqT90A56APK2pwmnjnbpn2XnMka9cavlJiMQw71IeTRwv5w8m9p9Rfm9TxakMaA8M5SWr4Y6_ibAQVrnMm2qTHGWpZIwmk0IpvZZx4YvPk6u1Pl71XOyntB9ESh-kdD3zeCq7jofOYArO9OL2C8VLxEHhAUv-F70vjKmSkFvUeilfdPw4kAET9AOkvLxDQV3sfxGF1Jfwurhw"/><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-text-high truncate leading-tight">Alex Morgan</span><span class="font-body-sm text-body-sm text-text-muted truncate leading-tight">Agency Owner</span></div></div><button class="p-1 text-text-muted hover:text-status-red-text hover:bg-slate-800 rounded-lg transition-colors" title="Logout" type="button"><span class="material-symbols-outlined text-[18px]">logout</span></button></div></div></aside><div class="pl-[240px]"><header class="fixed top-0 left-[240px] right-0 h-16 bg-canvas/80 backdrop-blur-xl border-b border-card-border/50 z-40 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-md flex-1 max-w-md"><div class="flex items-center gap-space-xs w-full bg-canvas-card border border-card-border rounded-xl px-space-sm py-1.5 shadow-[0_1px_3px_0_rgba(0,0,0,0.3)] focus-within:border-brand-primary focus-within:ring-2 focus-within:ring-brand-primary/20 transition-all"><span class="material-symbols-outlined text-text-muted text-[18px]">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-text-high placeholder:text-text-muted focus:outline-none" placeholder="Search clients, invoices..." type="text"/><kbd class="font-label-sm text-label-sm bg-canvas-card-elevated px-1.5 py-0.5 rounded text-text-medium border border-card-border/80 shrink-0">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-2xs text-text-medium font-numeric-md text-numeric-md"><span class="material-symbols-outlined text-[18px] text-text-muted">calendar_today</span><span>Today, Oct 24</span></div><div class="relative"><button class="p-2 text-text-medium hover:text-text-high hover:bg-canvas-card-elevated rounded-xl transition-colors relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-status-red text-white font-label-sm text-[10px] font-bold shadow-[0_0_8px_rgba(239,68,68,0.5)]">3</span></button></div><button class="flex items-center gap-1.5 bg-brand-primary hover:bg-brand-primary-hover text-white px-space-sm py-1.5 rounded-xl font-label-md text-label-md shadow-[0_0_12px_rgba(59,130,246,0.35)] transition-all font-medium" type="button"><span class="material-symbols-outlined text-[18px]">add</span><span>New</span></button></div></header><main class="relative pt-16 bg-canvas w-full min-h-screen px-space-lg py-space-md"><div class="flex flex-col w-full">
+<!-- Executive Greeting & Action Toolbar -->
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-md mb-space-xl">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-text-high tracking-tight">Executive Dashboard</span>
+<span class="bg-status-emerald-bg border border-status-emerald/30 text-status-emerald-text px-2.5 py-0.5 rounded-full font-label-sm text-label-sm flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-status-emerald animate-pulse"></span>Live Feed</span>
+</div>
+<p class="font-body-md text-body-md text-text-medium mt-1">
+        Welcome back, Alex! Here is what is happening across your 28 active clients today.
+      </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs shrink-0">
+<div class="relative inline-flex items-center">
+<button class="flex items-center gap-space-xs bg-canvas-card hover:bg-canvas-card-elevated text-text-high font-label-md text-label-md px-space-sm py-2 rounded-xl border border-card-border shadow-sm transition-all" id="dateRangeBtn" type="button">
+<span class="material-symbols-outlined text-brand-primary text-[18px]">calendar_month</span>
+<span id="dateRangeText">Last 30 Days</span>
+<span class="material-symbols-outlined text-text-muted text-[18px]">expand_more</span>
+</button>
+<div class="hidden absolute right-0 top-full mt-2 w-48 bg-canvas-card-elevated border border-card-border rounded-xl shadow-2xl z-30 p-1.5 flex flex-col gap-1 backdrop-blur-md" id="dateRangeDropdown">
+<button class="text-left px-space-sm py-1.5 rounded-lg text-text-medium hover:text-text-high hover:bg-slate-700/60 font-body-sm text-body-sm transition-colors date-option" data-val="Today" type="button">Today</button>
+<button class="text-left px-space-sm py-1.5 rounded-lg text-text-medium hover:text-text-high hover:bg-slate-700/60 font-body-sm text-body-sm transition-colors date-option" data-val="Last 7 Days" type="button">Last 7 Days</button>
+<button class="text-left px-space-sm py-1.5 rounded-lg bg-brand-primary text-white font-label-md text-label-md transition-colors date-option" data-val="Last 30 Days" type="button">Last 30 Days</button>
+<button class="text-left px-space-sm py-1.5 rounded-lg text-text-medium hover:text-text-high hover:bg-slate-700/60 font-body-sm text-body-sm transition-colors date-option" data-val="This Quarter" type="button">This Quarter</button>
+</div>
+</div>
+<button class="flex items-center gap-space-xs bg-canvas-card hover:bg-canvas-card-elevated text-text-high font-label-md text-label-md px-space-sm py-2 rounded-xl border border-card-border shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-text-muted text-[18px]">file_download</span>
+<span>Export Summary</span>
+</button>
+<button class="flex items-center gap-space-2xs bg-brand-primary hover:bg-brand-primary-hover text-white font-label-md text-label-md px-space-sm py-2 rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.35)] hover:shadow transition-all font-medium" type="button">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span>Quick Invoice</span>
+</button>
+</div>
+</div>
+<!-- 4 Top Key KPI Metric Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md mb-space-xl">
+<!-- KPI 1: Total Clients -->
+<div class="bg-canvas-card border border-card-border rounded-xl p-space-lg shadow-sm hover:border-card-border/90 hover:shadow-md transition-all relative overflow-hidden flex flex-col justify-between">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-brand-primary/5 rounded-full pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-10 rounded-xl bg-canvas-card-elevated border border-card-border/60 flex items-center justify-center text-brand-primary shrink-0">
+<span class="material-symbols-outlined text-[22px]">group</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">Total Clients</span>
+<span class="font-numeric-lg text-numeric-lg font-bold text-text-high">28</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-0.5 bg-status-emerald-bg border border-status-emerald/30 text-status-emerald-text px-2 py-0.5 rounded-full font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+          +12%
+        </span>
+</div>
+<div class="mt-space-md flex items-center justify-between font-body-sm text-body-sm text-text-medium">
+<span>3 onboarding this week</span>
+<span class="font-label-sm text-label-sm text-text-muted font-medium">Cap: 50</span>
+</div>
+</div>
+<!-- KPI 2: Active Projects -->
+<div class="bg-canvas-card border border-card-border rounded-xl p-space-lg shadow-sm hover:border-card-border/90 hover:shadow-md transition-all relative overflow-hidden flex flex-col justify-between">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-blue-500/5 rounded-full pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-10 rounded-xl bg-canvas-card-elevated border border-card-border/60 flex items-center justify-center text-brand-primary-light shrink-0">
+<span class="material-symbols-outlined text-[22px]">business_center</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">Active Projects</span>
+<span class="font-numeric-lg text-numeric-lg font-bold text-text-high">14</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-0.5 bg-canvas-card-elevated border border-card-border/80 text-text-medium px-2 py-0.5 rounded-full font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">pause_circle</span>
+          2 on hold
+        </span>
+</div>
+<div class="mt-space-md flex items-center justify-between font-body-sm text-body-sm text-text-medium">
+<span class="text-status-amber-text font-medium">4 reaching deadline this week</span>
+<span class="font-label-sm text-label-sm text-text-muted">87% on-track</span>
+</div>
+</div>
+<!-- KPI 3: Pending Payments -->
+<div class="bg-canvas-card border border-card-border rounded-xl p-space-lg shadow-sm hover:border-card-border/90 hover:shadow-md transition-all relative overflow-hidden flex flex-col justify-between">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-status-red/10 rounded-full pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-10 rounded-xl bg-status-red-bg border border-status-red/30 flex items-center justify-center text-status-red-text shrink-0">
+<span class="material-symbols-outlined text-[22px]">warning</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">Pending Invoices</span>
+<span class="font-numeric-lg text-numeric-lg font-bold text-text-high">$18,450</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-0.5 bg-status-red-bg border border-status-red/30 text-status-red-text px-2 py-0.5 rounded-full font-label-sm text-label-sm font-semibold">
+          5 Overdue
+        </span>
+</div>
+<div class="mt-space-md flex items-center justify-between font-body-sm text-body-sm text-text-medium">
+<span class="text-status-red-text font-medium">$6,200 overdue</span>
+<span class="text-text-muted">7 due soon</span>
+</div>
+</div>
+<!-- KPI 4: Total Revenue (YTD) -->
+<div class="bg-canvas-card border border-card-border rounded-xl p-space-lg shadow-sm hover:border-card-border/90 hover:shadow-md transition-all relative overflow-hidden flex flex-col justify-between">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-status-emerald/10 rounded-full pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-10 rounded-xl bg-status-emerald-bg border border-status-emerald/30 flex items-center justify-center text-status-emerald-text shrink-0">
+<span class="material-symbols-outlined text-[22px]">payments</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">Revenue (YTD)</span>
+<span class="font-numeric-lg text-numeric-lg font-bold text-text-high">$142,800</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-0.5 bg-status-emerald-bg border border-status-emerald/30 text-status-emerald-text px-2 py-0.5 rounded-full font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+          +18.4% YoY
+        </span>
+</div>
+<div class="mt-space-md flex items-center justify-between font-body-sm text-body-sm text-text-medium">
+<span class="text-status-emerald-text font-semibold">+$24,500 this month</span>
+<span class="font-label-sm text-label-sm text-text-muted">Target: $180k</span>
+</div>
+</div>
+</div>
+<!-- Main Content Split Grid: 7 Cols Left, 5 Cols Right -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN (7 COLS) -->
+<div class="xl:col-span-7 flex flex-col gap-space-lg">
+<!-- Revenue & Invoice Health Chart Card -->
+<div class="bg-canvas-card border border-card-border rounded-xl p-space-lg shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-high">Revenue &amp; Invoice Health</span>
+<span class="font-body-sm text-body-sm text-text-medium">Weekly cash realization vs billed volumes</span>
+</div>
+<div class="flex items-center bg-canvas-card-elevated p-1 rounded-xl border border-card-border/60 shrink-0">
+<button class="px-space-sm py-1 rounded-lg bg-brand-primary text-white font-label-md text-label-md shadow-sm transition-all font-medium" id="tabCashFlow" type="button">Cash Flow</button>
+<button class="px-space-sm py-1 rounded-lg text-text-medium hover:text-text-high font-label-md text-label-md transition-all" id="tabInvoicedCollected" type="button">Invoiced vs Collected</button>
+</div>
+</div>
+<!-- Metric Callout Row -->
+<div class="grid grid-cols-3 gap-space-sm p-space-sm bg-canvas-card-subtle border border-card-border/50 rounded-xl mb-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-text-muted">Realized Inflow</span>
+<span class="font-numeric-lg text-numeric-lg font-bold text-text-high">$24,500</span>
+<span class="font-body-sm text-body-sm text-status-emerald-text flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">north_east</span> +8.2% vs target
+            </span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-text-muted">Avg. Days to Pay</span>
+<span class="font-numeric-lg text-numeric-lg font-bold text-text-high">14.2d</span>
+<span class="font-body-sm text-body-sm text-status-emerald-text flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">south_west</span> 2.8d faster
+            </span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-text-muted">Collection Rate</span>
+<span class="font-numeric-lg text-numeric-lg font-bold text-text-high">94.1%</span>
+<span class="font-body-sm text-body-sm text-text-medium">Optimal tier</span>
+</div>
+</div>
+<!-- Inline SVG Visualization Chart -->
+<div class="relative w-full h-56 pt-2">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 540 180">
+<defs>
+<lineargradient id="areaGradientDark" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#3B82F6" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#3B82F6" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Grid Lines in subtle translucent line -->
+<line opacity="0.08" stroke="#FFFFFF" stroke-dasharray="3 3" x1="0" x2="540" y1="30" y2="30"></line>
+<line opacity="0.08" stroke="#FFFFFF" stroke-dasharray="3 3" x1="0" x2="540" y1="75" y2="75"></line>
+<line opacity="0.08" stroke="#FFFFFF" stroke-dasharray="3 3" x1="0" x2="540" y1="120" y2="120"></line>
+<line opacity="0.15" stroke="#FFFFFF" x1="0" x2="540" y1="160" y2="160"></line>
+<!-- Comparison Invoiced bars with subtle glowing fill -->
+<rect fill="#1E293B" height="100" rx="4" stroke="#2A374F" stroke-width="1" width="16" x="25" y="60"></rect>
+<rect fill="#1E293B" height="115" rx="4" stroke="#2A374F" stroke-width="1" width="16" x="105" y="45"></rect>
+<rect fill="#1E293B" height="125" rx="4" stroke="#2A374F" stroke-width="1" width="16" x="185" y="35"></rect>
+<rect fill="#1E293B" height="105" rx="4" stroke="#2A374F" stroke-width="1" width="16" x="265" y="55"></rect>
+<rect fill="#1E293B" height="130" rx="4" stroke="#2A374F" stroke-width="1" width="16" x="345" y="30"></rect>
+<rect fill="#1E293B" height="140" rx="4" stroke="#2A374F" stroke-width="1" width="16" x="425" y="20"></rect>
+<rect fill="#1E293B" height="120" rx="4" stroke="#2A374F" stroke-width="1" width="16" x="505" y="40"></rect>
+<!-- Collected Cash Line & Shading -->
+<path d="M 33 90 Q 113 70 193 50 T 353 45 T 433 30 T 513 52 L 513 160 L 33 160 Z" fill="url(#areaGradientDark)"></path>
+<path d="M 33 90 Q 113 70 193 50 T 353 45 T 433 30 T 513 52" fill="none" stroke="#3B82F6" stroke-linecap="round" stroke-width="3.5" style="filter: drop-shadow(0 0 6px rgba(59,130,246,0.6));"></path>
+<!-- Highlight Data points -->
+<circle cx="193" cy="50" fill="#3B82F6" r="4.5" stroke="#131B2E" stroke-width="2.5"></circle>
+<circle cx="353" cy="45" fill="#3B82F6" r="4.5" stroke="#131B2E" stroke-width="2.5"></circle>
+<circle cx="433" cy="30" fill="#10B981" r="5.5" stroke="#131B2E" stroke-width="2.5" style="filter: drop-shadow(0 0 4px rgba(16,185,129,0.7));"></circle>
+</svg>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-text-muted px-space-xs mt-1">
+<span>Sep 28</span>
+<span>Oct 05</span>
+<span>Oct 12</span>
+<span>Oct 19</span>
+<span>Oct 24 (Today)</span>
+</div>
+<div class="flex items-center justify-center gap-space-lg mt-space-md pt-space-xs">
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-text-medium">
+<span class="w-3 h-3 rounded-sm bg-canvas-card-elevated border border-card-border"></span>
+<span>Total Invoiced</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-text-medium">
+<span class="w-3 h-1 bg-brand-primary rounded-full shadow-[0_0_6px_rgba(59,130,246,0.6)]"></span>
+<span>Collected Cash</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-status-emerald-text font-medium">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>No unverified drafts</span>
+</div>
+</div>
+</div>
+<!-- Priority Invoices Awaiting Payment Widget Table -->
+<div class="bg-canvas-card border border-card-border rounded-xl p-space-lg shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-high">Priority Invoices Awaiting Payment</span>
+<span class="font-body-sm text-body-sm text-text-medium">5 accounts require immediate operator follow-up</span>
+</div>
+<a class="font-label-md text-label-md text-brand-primary-light hover:text-white font-semibold flex items-center gap-0.5 transition-colors" href="#">
+<span>View all 12</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="overflow-x-auto -mx-space-lg px-space-lg">
+<table class="w-full min-w-[560px] text-left">
+<thead>
+<tr class="bg-canvas-card-subtle text-text-muted font-label-sm text-label-sm uppercase tracking-wider h-9">
+<th class="px-space-sm rounded-l-lg">Client &amp; Invoice</th>
+<th class="px-space-sm">Due Date</th>
+<th class="px-space-sm text-right">Amount</th>
+<th class="px-space-sm text-center">Status</th>
+<th class="px-space-sm text-right rounded-r-lg">Remind Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-card-border/40">
+<!-- Row 1 -->
+<tr class="h-14 hover:bg-canvas-card-elevated/50 transition-colors group">
+<td class="px-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-canvas-card-elevated border border-card-border flex items-center justify-center font-bold text-brand-primary-light text-[12px]">
+                      AL
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-text-high truncate">Apex Linear Inc.</span>
+<span class="font-body-sm text-body-sm text-text-muted">#INV-2024-031</span>
+</div>
+</div>
+</td>
+<td class="px-space-sm font-body-sm text-body-sm text-status-red-text font-medium">
+                  Oct 14 (10d overdue)
+                </td>
+<td class="px-space-sm font-numeric-md text-numeric-md font-semibold text-right text-text-high">
+                  $3,400.00
+                </td>
+<td class="px-space-sm text-center">
+<span class="inline-flex items-center gap-1.5 bg-status-red-bg border border-status-red/30 text-status-red-text px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-status-red"></span> Overdue
+                  </span>
+</td>
+<td class="px-space-sm text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 text-status-emerald-text hover:bg-status-emerald-bg rounded-lg transition-colors" title="Send WhatsApp Ping" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+<button class="p-1.5 text-brand-primary-light hover:bg-canvas-card-elevated rounded-lg transition-colors" title="Resend Invoice Email" type="button">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="h-14 hover:bg-canvas-card-elevated/50 transition-colors group">
+<td class="px-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-canvas-card-elevated border border-card-border flex items-center justify-center font-bold text-brand-primary-light text-[12px]">
+                      VL
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-text-high truncate">Vanguard Labs</span>
+<span class="font-body-sm text-body-sm text-text-muted">#INV-2024-035</span>
+</div>
+</div>
+</td>
+<td class="px-space-sm font-body-sm text-body-sm text-status-red-text font-medium">
+                  Oct 20 (4d overdue)
+                </td>
+<td class="px-space-sm font-numeric-md text-numeric-md font-semibold text-right text-text-high">
+                  $2,800.00
+                </td>
+<td class="px-space-sm text-center">
+<span class="inline-flex items-center gap-1.5 bg-status-red-bg border border-status-red/30 text-status-red-text px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-status-red"></span> Overdue
+                  </span>
+</td>
+<td class="px-space-sm text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 text-status-emerald-text hover:bg-status-emerald-bg rounded-lg transition-colors" title="Send WhatsApp Ping" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+<button class="p-1.5 text-brand-primary-light hover:bg-canvas-card-elevated rounded-lg transition-colors" title="Resend Invoice Email" type="button">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="h-14 hover:bg-canvas-card-elevated/50 transition-colors group">
+<td class="px-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-canvas-card-elevated border border-card-border flex items-center justify-center font-bold text-brand-primary-light text-[12px]">
+                      KC
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-text-high truncate">Kinetic Cloud LLC</span>
+<span class="font-body-sm text-body-sm text-text-muted">#INV-2024-041</span>
+</div>
+</div>
+</td>
+<td class="px-space-sm font-body-sm text-body-sm text-status-amber-text font-medium">
+                  Tomorrow, Oct 25
+                </td>
+<td class="px-space-sm font-numeric-md text-numeric-md font-semibold text-right text-text-high">
+                  $5,250.00
+                </td>
+<td class="px-space-sm text-center">
+<span class="inline-flex items-center gap-1.5 bg-status-amber-bg border border-status-amber/30 text-status-amber-text px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-status-amber"></span> Due Soon
+                  </span>
+</td>
+<td class="px-space-sm text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 text-status-emerald-text hover:bg-status-emerald-bg rounded-lg transition-colors" title="Send WhatsApp Ping" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+<button class="p-1.5 text-brand-primary-light hover:bg-canvas-card-elevated rounded-lg transition-colors" title="Resend Invoice Email" type="button">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="h-14 hover:bg-canvas-card-elevated/50 transition-colors group">
+<td class="px-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-canvas-card-elevated border border-card-border flex items-center justify-center font-bold text-brand-primary-light text-[12px]">
+                      SC
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-text-high truncate">Solaris Craft</span>
+<span class="font-body-sm text-body-sm text-text-muted">#INV-2024-044</span>
+</div>
+</div>
+</td>
+<td class="px-space-sm font-body-sm text-body-sm text-text-medium">
+                  Oct 28 (4 days left)
+                </td>
+<td class="px-space-sm font-numeric-md text-numeric-md font-semibold text-right text-text-high">
+                  $1,950.00
+                </td>
+<td class="px-space-sm text-center">
+<span class="inline-flex items-center gap-1.5 bg-status-blue-bg border border-status-blue/30 text-status-blue-text px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span> Pending
+                  </span>
+</td>
+<td class="px-space-sm text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 text-status-emerald-text hover:bg-status-emerald-bg rounded-lg transition-colors" title="Send WhatsApp Ping" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+<button class="p-1.5 text-brand-primary-light hover:bg-canvas-card-elevated rounded-lg transition-colors" title="Resend Invoice Email" type="button">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="h-14 hover:bg-canvas-card-elevated/50 transition-colors group">
+<td class="px-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-canvas-card-elevated border border-card-border flex items-center justify-center font-bold text-brand-primary-light text-[12px]">
+                      BP
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-text-high truncate">Beacon Partners</span>
+<span class="font-body-sm text-body-sm text-text-muted">#INV-2024-047</span>
+</div>
+</div>
+</td>
+<td class="px-space-sm font-body-sm text-body-sm text-text-medium">
+                  Nov 02 (9 days left)
+                </td>
+<td class="px-space-sm font-numeric-md text-numeric-md font-semibold text-right text-text-high">
+                  $5,050.00
+                </td>
+<td class="px-space-sm text-center">
+<span class="inline-flex items-center gap-1.5 bg-status-blue-bg border border-status-blue/30 text-status-blue-text px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span> Pending
+                  </span>
+</td>
+<td class="px-space-sm text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 text-status-emerald-text hover:bg-status-emerald-bg rounded-lg transition-colors" title="Send WhatsApp Ping" type="button">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+<button class="p-1.5 text-brand-primary-light hover:bg-canvas-card-elevated rounded-lg transition-colors" title="Resend Invoice Email" type="button">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN (5 COLS) -->
+<div class="xl:col-span-5 flex flex-col gap-space-lg">
+<!-- Quick Action Shortcuts -->
+<div class="bg-canvas-card border border-card-border rounded-xl p-space-lg shadow-sm">
+<span class="font-headline-sm text-headline-sm text-text-high block mb-space-xs">Quick Actions</span>
+<span class="font-body-sm text-body-sm text-text-medium block mb-space-md">Frequently dispatched operational flows</span>
+<div class="grid grid-cols-2 gap-space-sm">
+<button class="flex flex-col items-start p-space-sm rounded-xl bg-canvas-card-subtle border border-card-border hover:bg-canvas-card-elevated hover:border-brand-primary/40 transition-all group text-left" type="button">
+<div class="w-9 h-9 rounded-lg bg-brand-primary text-white flex items-center justify-center mb-2 group-hover:scale-105 transition-transform shadow-[0_0_10px_rgba(59,130,246,0.35)]">
+<span class="material-symbols-outlined text-[20px]">post_add</span>
+</div>
+<span class="font-title-md text-title-md text-text-high font-semibold leading-tight">Send Invoice</span>
+<span class="font-body-sm text-body-sm text-text-muted mt-0.5">Draft and issue</span>
+</button>
+<button class="flex flex-col items-start p-space-sm rounded-xl bg-canvas-card-subtle border border-card-border hover:bg-canvas-card-elevated hover:border-status-emerald/40 transition-all group text-left" type="button">
+<div class="w-9 h-9 rounded-lg bg-status-emerald text-white flex items-center justify-center mb-2 group-hover:scale-105 transition-transform shadow-[0_0_10px_rgba(16,185,129,0.35)]">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+</div>
+<span class="font-title-md text-title-md text-text-high font-semibold leading-tight">Add Client</span>
+<span class="font-body-sm text-body-sm text-text-muted mt-0.5">Onboard agency</span>
+</button>
+<button class="flex flex-col items-start p-space-sm rounded-xl bg-canvas-card-subtle border border-card-border hover:bg-canvas-card-elevated hover:border-blue-400/40 transition-all group text-left" type="button">
+<div class="w-9 h-9 rounded-lg bg-blue-600 text-white flex items-center justify-center mb-2 group-hover:scale-105 transition-transform shadow-[0_0_10px_rgba(37,99,235,0.35)]">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+</div>
+<span class="font-title-md text-title-md text-text-high font-semibold leading-tight">Log Billable Time</span>
+<span class="font-body-sm text-body-sm text-text-muted mt-0.5">Track project hrs</span>
+</button>
+<button class="flex flex-col items-start p-space-sm rounded-xl bg-canvas-card-subtle border border-card-border hover:bg-canvas-card-elevated hover:border-amber-400/40 transition-all group text-left" type="button">
+<div class="w-9 h-9 rounded-lg bg-status-amber text-white flex items-center justify-center mb-2 group-hover:scale-105 transition-transform shadow-[0_0_10px_rgba(245,158,11,0.35)]">
+<span class="material-symbols-outlined text-[20px]">send_to_mobile</span>
+</div>
+<span class="font-title-md text-title-md text-text-high font-semibold leading-tight">WhatsApp Ping</span>
+<span class="font-body-sm text-body-sm text-text-muted mt-0.5">Direct reminder</span>
+</button>
+</div>
+</div>
+<!-- Recent Activity Feed Stream -->
+<div class="bg-canvas-card border border-card-border rounded-xl p-space-lg shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-text-high">Recent Activity Feed</span>
+<span class="font-body-sm text-body-sm text-text-medium">Real-time ledger events &amp; client milestones</span>
+</div>
+<span class="material-symbols-outlined text-text-muted text-[20px] hover:text-text-high cursor-pointer transition-colors">tune</span>
+</div>
+<div class="relative flex flex-col gap-space-md">
+<!-- Activity Item 1 -->
+<div class="flex gap-space-sm items-start relative">
+<div class="w-9 h-9 rounded-full bg-status-emerald-bg border border-status-emerald/30 text-status-emerald-text flex items-center justify-center shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.25)]">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<p class="font-body-md text-body-md text-text-high">
+<span class="font-semibold text-brand-primary-light">Acme Studios</span> paid Invoice <span class="font-numeric-md font-semibold text-white">#INV-2024-042</span> ($4,500) via Stripe.
+              </p>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-sm text-label-sm text-text-muted font-medium">12m ago</span>
+<span class="w-1 h-1 rounded-full bg-text-muted"></span>
+<span class="font-label-sm text-label-sm text-status-emerald-text font-medium">Payment settled</span>
+</div>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="flex gap-space-sm items-start relative">
+<div class="w-9 h-9 rounded-full bg-canvas-card-elevated border border-card-border text-brand-primary-light flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">forum</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<p class="font-body-md text-body-md text-text-high">
+<span class="font-semibold text-text-high">Nexus Health</span> commented on <span class="font-medium text-text-high">Brand Identity milestone</span>.
+              </p>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-sm text-label-sm text-text-muted font-medium">1h ago</span>
+<span class="w-1 h-1 rounded-full bg-text-muted"></span>
+<span class="font-label-sm text-label-sm text-text-medium">“Approved palette revisions!”</span>
+</div>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="flex gap-space-sm items-start relative">
+<div class="w-9 h-9 rounded-full bg-brand-primary text-white flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(59,130,246,0.35)]">
+<span class="material-symbols-outlined text-[18px]">handshake</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<p class="font-body-md text-body-md text-text-high">
+                New client <span class="font-semibold text-brand-primary-light">Verve Logistics</span> contract signed &amp; onboarded.
+              </p>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-sm text-label-sm text-text-muted font-medium">3h ago</span>
+<span class="w-1 h-1 rounded-full bg-text-muted"></span>
+<span class="font-label-sm text-label-sm text-text-medium">Retainer: $4,000/mo</span>
+</div>
+</div>
+</div>
+<!-- Activity Item 4 -->
+<div class="flex gap-space-sm items-start relative">
+<div class="w-9 h-9 rounded-full bg-canvas-card-elevated border border-card-border text-text-medium flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">receipt</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<p class="font-body-md text-body-md text-text-high">
+                Invoice <span class="font-numeric-md font-semibold text-white">#INV-2024-039</span> sent to <span class="font-semibold text-text-high">Horizon Labs</span> ($2,800).
+              </p>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-sm text-label-sm text-text-muted font-medium">5h ago</span>
+<span class="w-1 h-1 rounded-full bg-text-muted"></span>
+<span class="font-label-sm text-label-sm text-text-medium">Due in 14 days</span>
+</div>
+</div>
+</div>
+<!-- Activity Item 5 -->
+<div class="flex gap-space-sm items-start relative">
+<div class="w-9 h-9 rounded-full bg-status-emerald-bg border border-status-emerald/30 text-status-emerald-text flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<p class="font-body-md text-body-md text-text-high">
+                Automated payment reminder sent via WhatsApp to <span class="font-semibold text-text-high">Zenith Co</span>.
+              </p>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-sm text-label-sm text-text-muted font-medium">Yesterday</span>
+<span class="w-1 h-1 rounded-full bg-text-muted"></span>
+<span class="font-label-sm text-label-sm text-text-medium">Delivered &amp; Read</span>
+</div>
+</div>
+</div>
+</div>
+<button class="mt-space-md py-2 w-full text-center bg-canvas-card-subtle hover:bg-canvas-card-elevated text-text-high font-label-md text-label-md rounded-xl border border-card-border transition-colors font-medium" type="button">
+          Load Earlier Activity
+        </button>
+</div>
+<!-- Live Client Roster Mini Spotlight -->
+<div class="bg-canvas-card border border-card-border rounded-xl p-space-lg shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-headline-sm text-headline-sm text-text-high">Active Client Spotlight</span>
+<span class="font-label-sm text-label-sm text-status-emerald-text font-semibold uppercase tracking-wider">Retainer Healthy</span>
+</div>
+<div class="flex items-center gap-space-sm p-space-sm bg-canvas-card-subtle border border-card-border/60 rounded-xl">
+<img class="w-12 h-12 rounded-xl object-cover shrink-0 ring-1 ring-card-border" data-alt="Close up professional portrait of a tech design director in a modern architectural office with soft daylight and clean slate blue aesthetic tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjLcsiFppFPet-lf5kuCz4Z7D7xW66yCwdGt8jq1UtqqfWrlo7Ve0CYB-Yxya3cF2Wb-0ZquIVsgb76xUfw1ekVdTcU4yii3zNPX9t5Sm4oygEO44vnidUfMTcWGbV9pLTjybMlqN_Ja7Ve9I0n4uwJJh2OMzhWwmuFXorvbLUkHnYp6zpMVED6jZpVSiXhMmXJ-kB0vFRwpMKCA4khk9h8psJpI7IEEXilMpzo_5MWCvpoUGE7Q"/>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-text-high truncate font-semibold">Nexus Health HQ</span>
+<span class="font-body-sm text-body-sm text-text-medium truncate">SaaS Design Sprint • Phase 2 Delivered</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interactions for date range dropdown and tabs
+  (function() {
+    const btn = document.getElementById('dateRangeBtn');
+    const dropdown = document.getElementById('dateRangeDropdown');
+    const rangeText = document.getElementById('dateRangeText');
+
+    if (btn && dropdown) {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle('hidden');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target) && e.target !== btn) {
+          dropdown.classList.add('hidden');
+        }
+      });
+
+      document.querySelectorAll('.date-option').forEach(opt => {
+        opt.addEventListener('click', (e) => {
+          const val = e.target.getAttribute('data-val');
+          if (rangeText && val) rangeText.textContent = val;
+          dropdown.classList.add('hidden');
+        });
+      });
+    }
+
+    // Tabs toggle styling
+    const tab1 = document.getElementById('tabCashFlow');
+    const tab2 = document.getElementById('tabInvoicedCollected');
+
+    if (tab1 && tab2) {
+      tab1.addEventListener('click', () => {
+        tab1.className = 'px-space-sm py-1 rounded-lg bg-brand-primary text-white font-label-md text-label-md shadow-sm transition-all font-medium';
+        tab2.className = 'px-space-sm py-1 rounded-lg text-text-medium hover:text-text-high font-label-md text-label-md transition-all';
+      });
+
+      tab2.addEventListener('click', () => {
+        tab2.className = 'px-space-sm py-1 rounded-lg bg-brand-primary text-white font-label-md text-label-md shadow-sm transition-all font-medium';
+        tab1.className = 'px-space-sm py-1 rounded-lg text-text-medium hover:text-text-high font-label-md text-label-md transition-all';
+      });
+    }
+  })();
+</script></main></div></body></html>

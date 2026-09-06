@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "error-container": "#ffdad6", "surface-bright": "#f8f9ff", "on-surface": "#0b1c30", "tertiary-fixed-dim": "#ffb95f", "surface-variant": "#d3e4fe", "outline": "#737686", "on-error-container": "#93000a", "surface-container-highest": "#d3e4fe", "inverse-surface": "#213145", "surface-container-lowest": "#ffffff", "tertiary": "#784b00", "background": "#f8f9ff", "on-background": "#0b1c30", "secondary-fixed-dim": "#4edea3", "on-secondary": "#ffffff", "inverse-on-surface": "#eaf1ff", "on-secondary-fixed-variant": "#005236", "primary": "#004ac6", "primary-fixed-dim": "#b4c5ff", "on-tertiary-container": "#ffeedd", "surface-container-high": "#dce9ff", "secondary-container": "#6cf8bb", "tertiary-fixed": "#ffddb8", "on-secondary-container": "#00714d", "primary-container": "#2563eb", "surface": "#f8f9ff", "outline-variant": "#c3c6d7", "on-surface-variant": "#434655", "on-error": "#ffffff", "on-tertiary-fixed-variant": "#653e00", "error": "#ba1a1a", "inverse-primary": "#b4c5ff", "on-secondary-fixed": "#002113", "surface-container": "#e5eeff", "on-primary-fixed": "#00174b", "secondary": "#006c49", "on-tertiary-fixed": "#2a1700", "surface-tint": "#0053db", "surface-dim": "#cbdbf5", "on-primary": "#ffffff", "tertiary-container": "#996100", "primary-fixed": "dbe1ff", "surface-container-low": "#eff4ff", "on-primary-container": "#eeefff", "on-tertiary": "#ffffff", "on-primary-fixed-variant": "#003ea8", "secondary-fixed": "#6ffbbe" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-2xl": "3rem", "margin-tablet": "2rem", "space-lg": "1.5rem", "gutter-mobile": "1rem", "gutter-desktop": "1.5rem", "space-sm": "0.75rem", "space-xl": "2rem", "space-2xs": "0.25rem", "margin-mobile": "1rem", "space-3xl": "4rem", "space-xs": "0.5rem", "margin-desktop": "3rem", "space-md": "1rem" }, "fontFamily": { "label-sm": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "display-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "display-lg": ["Plus Jakarta Sans"], "numeric-md": ["Inter"], "body-sm": ["Inter"], "title-md": ["Inter"], "numeric-lg": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "body-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "label-md": ["Inter"] }, "fontSize": { "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "display-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "numeric-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "500" }], "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }], "numeric-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500" }] } } } };</script><style>@layer base { html, body { margin: 0; padding: 0; min-height: 100%; } body { overscroll-behavior-y: none; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style></head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-xs"><img alt="Brand logo. - Primary color: #2563eb - Font: plusJakartaSans - Mode: light - Roundness: rounded-sm" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UETwRPRp58A4vVLhzHnN3Nk9ltLwmx7Eof901EVivgdSv4Ik7IM5KjfI_-MGJYaLou0T2YGb0V-1alyQWlElKRx_Um74zTeHWFKCjNnNrfxN8kRsjhZx6PBFVaV8HuZPY21uZX2C78xdsDsySTAGfYsykpX8zOEqolvV7SAQ80khfl1PtDOLWWCZITsveGQhqzJeXgR2MBIN_XDEG5bz0A4ZfqcStr_0i5rPddKouM7QeY-tL3RfU"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight tracking-tight">ClientFlow</span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Clients</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Notifications" class="relative w-11 h-11 flex items-center justify-center rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></button><button aria-label="User Profile" class="w-11 h-11 flex items-center justify-center rounded-full hover:opacity-90 transition-opacity"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XeYr1DSaLMSKoQN7DIknHzorcLQD0BxJNoWdUlp7jDP_FBHekKTp1G-2bMCx7TBn99NTZfeVxyxc0-32mVNPnSpDpxACIV92KNOxLLjGykvyvJ4HwAiEE_2V51jjEGVdawHtjO1-T698aBpeadHcI52V98MpRdWwbL9ziTJ0B2SDZigCaZabswqtwtxgTnIjjj2TIwQjUEOSnuewTe7HtxRJV_khPN4sJlSZ3UJj-jJo35B4lLyMjc"/></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-28 bg-surface px-space-md"><div class="flex flex-col w-full gap-space-md">
+<!-- Search & Filter Controls -->
+<div class="flex flex-col gap-space-xs">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px] pointer-events-none">search</span>
+<input class="w-full h-11 pl-10 pr-10 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-outline shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all" id="clientSearchInput" placeholder="Search 28 partners, tags, or domain..." type="text"/>
+<button aria-label="Clear search" class="hidden absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-surface-container text-on-surface-variant items-center justify-center text-[16px] hover:bg-surface-container-high transition-colors" id="clearSearchBtn">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+<!-- Scrollable Filter Chips -->
+<div class="flex items-center gap-space-xs overflow-x-auto py-1 no-scrollbar -mx-space-md px-space-md">
+<button class="filter-pill active flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm shadow-sm transition-all flex-shrink-0" data-filter="all">
+<span>All</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container-lowest/20 font-label-sm text-label-sm leading-none">28</span>
+</button>
+<button class="filter-pill flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm shadow-sm hover:bg-surface-container transition-all flex-shrink-0" data-filter="active">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Active</span>
+<span class="text-outline font-label-sm text-label-sm">22</span>
+</button>
+<button class="filter-pill flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm shadow-sm hover:bg-surface-container transition-all flex-shrink-0" data-filter="overdue">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span>Overdue</span>
+<span class="px-1.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm leading-none">4</span>
+</button>
+<button class="filter-pill flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm shadow-sm hover:bg-surface-container transition-all flex-shrink-0" data-filter="retainer">
+<span class="material-symbols-outlined text-[14px] text-tertiary">autorenew</span>
+<span>Retainer</span>
+<span class="text-outline font-label-sm text-label-sm">12</span>
+</button>
+</div>
+</div>
+<!-- Real-time Financial Momentum Track (KPIs) -->
+<div class="grid grid-cols-3 gap-space-xs">
+<div class="bg-surface-container-lowest p-3 rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Active</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+</div>
+<div class="mt-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">22</span>
+<span class="font-body-sm text-body-sm text-secondary block leading-none mt-0.5">+3 this mo</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pipeline</span>
+<span class="material-symbols-outlined text-[16px] text-primary">trending_up</span>
+</div>
+<div class="mt-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate block">$126.4k</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block leading-none mt-0.5">8 In-flight</span>
+</div>
+</div>
+<div class="bg-error-container/40 p-3 rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-error">Overdue</span>
+<span class="material-symbols-outlined text-[16px] text-error">priority_high</span>
+</div>
+<div class="mt-2">
+<span class="font-headline-sm text-headline-sm text-error font-semibold">4 Bills</span>
+<span class="font-body-sm text-body-sm text-error/80 block leading-none mt-0.5">$6,840 pending</span>
+</div>
+</div>
+</div>
+<!-- Section Title & Quick Add Row -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<h2 class="font-title-md text-title-md text-on-surface">Client Directory</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">28 Total</span>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-primary hover:bg-primary/10 transition-colors font-label-md text-label-md shadow-sm active:scale-95" id="openAddClientModal">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+<span>Add Partner</span>
+</button>
+</div>
+<!-- Client Cards Mobile Stream -->
+<div class="flex flex-col gap-space-sm" id="clientsList">
+<!-- Card 1: Elena Rostova (HealthTech) -->
+<div class="client-card bg-surface-container-lowest rounded-xl shadow-sm p-4 flex flex-col gap-3 transition-all hover:shadow-md cursor-pointer relative overflow-hidden" data-company="Nova HealthTech" data-name="Elena Rostova" data-status="active" onclick="openClientTeaser('elena')">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary rounded-l-xl"></div>
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="relative w-12 h-12 flex-shrink-0">
+<img class="w-12 h-12 rounded-xl object-cover shadow-sm" data-alt="Editorial portrait of Elena Rostova, creative tech director with modern styled haircut, natural soft lighting, warm professional expression, clean studio backdrop matching blue and emerald tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqVMjghvMuFztEHvU8Fd-gy-GnbRi-nT3VZ0MTx7izA-50Erb7DjI93spXCVIdKokA6cSz3u6cbWkFVrB_xP9tmWBLPinYO2hqNl7quSylAwT8RkgoKaUae93u-cNu4ReZ23tlSrXZ6eQRtWmo7kE9bTA5TFCUZQ7epU7kdX6yk08Sb4rfV_-YmOm5BJP8VgmoMJ4IvhS5PDM-kaGDwZTuKLyeDWSGH6dhEvky6dIpQujFS-Wnkg"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface truncate">Elena Rostova</span>
+<span class="material-symbols-outlined text-[16px] text-primary" title="Verified Enterprise">check_circle</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Nova HealthTech • Medical AI</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0">
+<span class="font-numeric-md text-numeric-md text-on-surface font-semibold">$42,000</span>
+<span class="font-label-sm text-label-sm text-outline">Lifetime</span>
+</div>
+</div>
+<!-- Financial Snapshot Bar -->
+<div class="bg-surface-container-low p-2.5 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-medium">3 Active SOWs</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">Sprint #4 Delivery</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface font-label-sm text-label-sm">
+<span class="text-outline font-normal">Pending:</span>
+<span class="text-tertiary font-semibold">$1,500</span>
+</div>
+</div>
+<!-- Quick Action Buttons Tray -->
+<div class="flex items-center justify-between gap-2 pt-1">
+<div class="flex items-center gap-1.5">
+<a class="h-9 px-3 rounded-lg bg-surface-container text-secondary hover:bg-secondary-container transition-colors flex items-center gap-1.5 font-label-sm text-label-sm" href="https://wa.me/14155550192?text=Hi%20Elena%2C%20quick%20update%20on%20Nova%20HealthTech%20deliverables" onclick="event.stopPropagation()" rel="noopener" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>WhatsApp</span>
+</a>
+<a aria-label="Call Elena Rostova" class="w-9 h-9 rounded-lg bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors flex items-center justify-center" href="tel:+14155550192" onclick="event.stopPropagation()">
+<span class="material-symbols-outlined text-[18px]">call</span>
+</a>
+</div>
+<button class="h-9 px-3 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-label-sm text-label-sm flex items-center gap-1 shadow-sm active:scale-95 transition-all" onclick="event.stopPropagation(); triggerInstantInvoice('Nova HealthTech', 'Elena Rostova', 1500)">
+<span class="material-symbols-outlined text-[16px]">add_task</span>
+<span>+ Invoice</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Marcus Vance (Overdue Alert) -->
+<div class="client-card bg-surface-container-lowest rounded-xl shadow-sm p-4 flex flex-col gap-3 transition-all hover:shadow-md cursor-pointer relative overflow-hidden" data-company="Vance Dynamics Inc." data-name="Marcus Vance" data-status="overdue" onclick="openClientTeaser('marcus')">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-error rounded-l-xl"></div>
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="relative w-12 h-12 flex-shrink-0">
+<img class="w-12 h-12 rounded-xl object-cover shadow-sm" data-alt="Charismatic corporate executive Marcus Vance in a charcoal tailored blazer against an architectural glass office interior, confident posture, subtle shadow lighting with high contrast business tone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIn_op5KuOzb5U8OJpUZthqDNsHSwdhHwhnVGhLESIfyrYJzBGf1lLe8i2gy0LXEi2HKZwfuvAJsZdCUzvnEiWCqEeXllmhWdQhfcs8NJu3tc4DtJN4XkLiTXMoPwY14l1Nh2vSARVMk5y0b1PyI1O_57iGzzb7tQJEguL_eug0rgMzygFRifgwpUaIrnUBSXxdv1l5b7L7KUfNUsgirka-7nYcxI-fW9UtcFukVc7d-V09THrmQ"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-error ring-2 ring-surface-container-lowest flex items-center justify-center text-on-error font-bold text-[8px]">!</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface truncate">Marcus Vance</span>
+<span class="px-1.5 py-0.2 rounded bg-error-container text-on-error-container font-label-sm text-label-sm uppercase">14d Late</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Vance Dynamics Inc.</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0">
+<span class="font-numeric-md text-numeric-md text-error font-semibold">$4,200</span>
+<span class="font-label-sm text-label-sm text-error/80">Overdue #1039</span>
+</div>
+</div>
+<!-- Critical Notice Card -->
+<div class="bg-error-container/30 p-2.5 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-error">warning</span>
+<span class="text-on-error-container font-body-sm text-body-sm font-medium">Inv #1039: Reminded 2d ago</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Total LTV: $34.8k</span>
+</div>
+<!-- Quick Action: Instant Overdue Resolution -->
+<div class="flex items-center justify-between gap-2 pt-1">
+<a class="flex-1 h-9 px-3 rounded-lg bg-error text-on-error hover:bg-error/90 font-label-sm text-label-sm flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all" href="https://wa.me/13125550188?text=Hi%20Marcus%2C%20following%20up%20on%20Invoice%20%231039%20(%244%2C200)%20which%20is%20past%20grace%20period.%20Can%20I%20resend%20the%20Stripe%20link%3F" onclick="event.stopPropagation()" rel="noopener" target="_blank">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span>WhatsApp Urgent Ping</span>
+</a>
+<button class="h-9 px-3 rounded-lg bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-label-sm text-label-sm flex items-center gap-1 transition-colors" onclick="event.stopPropagation(); triggerStripeResend('Marcus Vance', 4200)">
+<span class="material-symbols-outlined text-[18px]">cached</span>
+<span>Resend Link</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Kenji Sato (Healthy Retainer) -->
+<div class="client-card bg-surface-container-lowest rounded-xl shadow-sm p-4 flex flex-col gap-3 transition-all hover:shadow-md cursor-pointer relative overflow-hidden" data-company="Studio Sola Kyoto" data-name="Kenji Sato" data-status="retainer" onclick="openClientTeaser('kenji')">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary-fixed-dim rounded-l-xl"></div>
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="relative w-12 h-12 flex-shrink-0">
+<img class="w-12 h-12 rounded-xl object-cover shadow-sm" data-alt="Japanese creative producer Kenji Sato wearing dark minimalist spectacles and a structured black mock neck, calm ambient studio light with cedarwood and warm paper aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-_8WN9n6zIqLy-lFXZYW-qarn5MRaD4jpad6Y3W3ZKficZqviqqI9viZHEMKB7dYS2ijnxgTuPAzmWXGG6Qp_z-w919Puw3ju0Y4kf15jnqQPWKKzdnGBbB8lqtKh8FM6FK1iUBbC0q37LU6AGCxzJwjDddaBTA7ZL3PA5osFww5L8DFZGZaSih2occJWFyuHkWCSLBF77DDNpAL7PPMbc0auUeLUus0qJGNKlZ-LK4TYjn9o7Q"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface truncate">Kenji Sato</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Monthly</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Studio Sola Kyoto • Design Ops</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0">
+<span class="font-numeric-md text-numeric-md text-secondary font-semibold">$4,850/mo</span>
+<span class="font-label-sm text-label-sm text-outline">Auto-debit 1st</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold">Healthy</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">All invoices settled on-time</span>
+</div>
+<span class="font-numeric-md text-numeric-md text-on-surface-variant font-medium">$28.5k Total</span>
+</div>
+<div class="flex items-center justify-between gap-2 pt-1">
+<div class="flex items-center gap-1.5">
+<a class="h-9 px-3 rounded-lg bg-surface-container text-secondary hover:bg-secondary-container transition-colors flex items-center gap-1.5 font-label-sm text-label-sm" href="https://wa.me/81755550143" onclick="event.stopPropagation()" rel="noopener" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Chat</span>
+</a>
+<button class="h-9 px-3 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm flex items-center gap-1.5" onclick="event.stopPropagation(); logTimeTrack('Kenji Sato')">
+<span class="material-symbols-outlined text-[18px] text-tertiary">timer</span>
+<span>Track Hours</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Next: Nov 1</span>
+</div>
+</div>
+<!-- Card 4: Sarah Lindqvist -->
+<div class="client-card bg-surface-container-lowest rounded-xl shadow-sm p-4 flex flex-col gap-3 transition-all hover:shadow-md cursor-pointer relative overflow-hidden" data-company="Nordic Retail Tech" data-name="Sarah Lindqvist" data-status="active" onclick="openClientTeaser('sarah')">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary rounded-l-xl"></div>
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="relative w-12 h-12 flex-shrink-0">
+<img class="w-12 h-12 rounded-xl object-cover shadow-sm" data-alt="Scandinavian female tech founder Sarah Lindqvist with blonde hair tied back, wearing a navy wool sweater in a sunlit airy Stockholm studio, welcoming relaxed expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChm04xVSuO9FaLTubmUMCzsjVxt46dHPyUTqPlJfZ39QA1OXiYcY-mSLY-o5d9X11R34HIqdg8kY3L2o_c4clJi7pFLux8knp8Fll4KBAeUnlMXVxzn-r_3_tLS36-oziDCpyMpGy_Udf7AizLfH0E6dsgiAsr2V-tscwHDMt7BRLYUvRIyiAhF8cXChINsh6gXb0YyxAs_hfKHqtHgNBq32eL9HbkT85_6BLHffWsn1pRd-35NQ"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface truncate">Sarah Lindqvist</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Nordic Retail Tech</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0">
+<span class="font-numeric-md text-numeric-md text-on-surface font-semibold">$19,200</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Active</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-medium">Q4 Architecture</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">Milestone 2/4</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Hourly: $175/hr</span>
+</div>
+<div class="flex items-center justify-between gap-2 pt-1">
+<a class="h-9 px-3 rounded-lg bg-surface-container text-secondary hover:bg-secondary-container transition-colors flex items-center gap-1.5 font-label-sm text-label-sm" href="https://wa.me/46855550211" onclick="event.stopPropagation()" rel="noopener" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>WhatsApp</span>
+</a>
+<button class="h-9 px-3 rounded-lg bg-surface-container text-primary hover:bg-surface-container-high font-label-sm text-label-sm flex items-center gap-1" onclick="event.stopPropagation(); triggerInstantInvoice('Nordic Retail Tech', 'Sarah Lindqvist', 3200)">
+<span class="material-symbols-outlined text-[16px]">receipt</span>
+<span>New Invoice</span>
+</button>
+</div>
+</div>
+<!-- Card 5: Amara Chen (Draft Proposal) -->
+<div class="client-card bg-surface-container-lowest rounded-xl shadow-sm p-4 flex flex-col gap-3 transition-all hover:shadow-md cursor-pointer relative overflow-hidden" data-company="Apex Cloud Systems" data-name="Amara Chen" data-status="active" onclick="openClientTeaser('amara')">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-outline-variant rounded-l-xl"></div>
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="relative w-12 h-12 flex-shrink-0">
+<img class="w-12 h-12 rounded-xl object-cover shadow-sm" data-alt="Portrait of Asian product VP Amara Chen with sleek dark hair in front of a modern architectural glass and steel office atrium, bright midday natural lighting, professional and approachable" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChNsCntI4NBJH-rXPYDbIheS3P4KonpFCt5PGAm5nMRc4mPUJb2kXXT42B7Aw0eoACbuktNJ5ncYxqRQRWRte8gR7aBxYV9wE-9g3Lx6Ez1kUQ4gyGy4kfeQ98JJNGKp-0FEfZueo5jkKfAj5c4KNzIWXbz_PRkwINSbkGaFxSWGSs2yOeMhDl3z57G_uh_iHcnFprImLAkqOp_92gzusNXzC6Ms6gu0UQ6mH3SCPRK0YS1jWoQg"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-tertiary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface truncate">Amara Chen</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Lead</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Apex Cloud Systems</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0">
+<span class="font-numeric-md text-numeric-md text-on-surface font-semibold">$14,800</span>
+<span class="font-label-sm text-label-sm text-outline">Proposed</span>
+</div>
+</div>
+<div class="bg-tertiary-fixed/30 p-2.5 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary">draft</span>
+<span class="text-on-tertiary-fixed font-body-sm text-body-sm font-medium">Proposal v2.4 Pending Signoff</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold">Sent today</span>
+</div>
+<div class="flex items-center justify-between gap-2 pt-1">
+<a class="h-9 px-3 rounded-lg bg-surface-container text-secondary hover:bg-secondary-container transition-colors flex items-center gap-1.5 font-label-sm text-label-sm" href="https://wa.me/16505550176" onclick="event.stopPropagation()" rel="noopener" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>WhatsApp</span>
+</a>
+<button class="h-9 px-3 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm flex items-center gap-1" onclick="event.stopPropagation(); triggerSendProposal('Amara Chen')">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>View Draft</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Micro Delight Toast Notification (Interactive feedback) -->
+<div class="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-inverse-surface text-inverse-on-surface px-4 py-2.5 rounded-full shadow-xl flex items-center gap-2 font-body-sm text-body-sm pointer-events-none transition-all duration-300 opacity-0 -translate-y-4" id="quickToast">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[18px]">check_circle</span>
+<span id="toastMessage">Action completed successfully</span>
+</div>
+<!-- Bottom Sheet / Slide-Over Preview Teaser for Active Client (Elena Rostova) -->
+<div class="fixed inset-0 z-50 bg-on-surface/40 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none" id="sheetBackdrop" onclick="closeClientTeaser()"></div>
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-surface-container-lowest rounded-t-2xl shadow-2xl p-space-md flex flex-col gap-space-md transition-transform duration-300 transform translate-y-full max-h-[85vh] overflow-y-auto" id="clientDetailsSheet">
+<!-- Grabber Handle -->
+<div class="w-12 h-1.5 rounded-full bg-outline-variant/60 self-center -mt-1 cursor-grab" onclick="closeClientTeaser()"></div>
+<!-- Sheet Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14">
+<img class="w-14 h-14 rounded-xl object-cover shadow-md" data-alt="Close up high-resolution profile portrait of client Elena Rostova, warm smile, modern eyewear, natural office ambience with blue undertones" id="sheetClientAvatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2W6suLSbt8sRKyawziO-KTJzs1EelG_tqX1diNL3zWOteMcWPgBjWlJm3bQ2ovxDuBpJVuNXUDeqWJBdeg6vuArG9skh4Lw-Aq4p6SI5qrTGzev7rrptpDDz4L61KAnPGjfcVkmndO1obhKrBanqXaDI7tGJW0SLJRd76jbrBn5brJdHJt513jSy1HxEdu_7FkcR4wlSjjhdBDMWW3bll74M5AWx-tP-wL38d2Nxl5bpBuyHNLA"/>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-secondary ring-2 ring-surface-container-lowest flex items-center justify-center text-[10px] text-on-secondary">✓</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface" id="sheetClientName">Elena Rostova</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="sheetClientCompany">VP Engineering • Nova HealthTech</span>
+<span class="font-label-sm text-label-sm text-secondary mt-0.5">San Francisco, CA (PST)</span>
+</div>
+</div>
+<button aria-label="Close sheet" class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high flex items-center justify-center transition-colors" onclick="closeClientTeaser()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Financial Matrix Strip -->
+<div class="grid grid-cols-3 gap-2 bg-surface-container-low p-3 rounded-xl">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Hourly Rate</span>
+<span class="font-numeric-md text-numeric-md text-on-surface font-bold mt-0.5">$165 / hr</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Time &amp; Mat</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Total Paid</span>
+<span class="font-numeric-md text-numeric-md text-secondary font-bold mt-0.5">$42,000</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">14 Invoices</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Avg Turnaround</span>
+<span class="font-numeric-md text-numeric-md text-on-surface font-bold mt-0.5">3.2 Days</span>
+<span class="font-body-sm text-body-sm text-secondary">Prompt</span>
+</div>
+</div>
+<!-- Direct Dispatch Action Banner -->
+<div class="bg-primary-container p-3.5 rounded-xl text-on-primary flex items-center justify-between shadow-md">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary/90">Invoice #1042 Ready</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-semibold">$1,500.00 Due</span>
+<span class="font-body-sm text-body-sm text-on-primary/80">Milestone: Clinical Dashboard Beta</span>
+</div>
+<a class="h-10 px-3.5 rounded-lg bg-surface-container-lowest text-primary hover:bg-surface-bright font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all flex-shrink-0" href="https://wa.me/14155550192?text=Hello%20Elena%2C%20your%20milestone%20invoice%20%231042%20(%241%2C500)%20for%20Nova%20HealthTech%20is%20ready%20for%20review%3A%20https%3A%2F%2Fclientflow.app%2Finv%2F1042" rel="noopener" target="_blank">
+<span class="material-symbols-outlined text-[20px] text-secondary">send</span>
+<span>WhatsApp Send</span>
+</a>
+</div>
+<!-- Contact & Workspace Fast Links -->
+<div class="flex flex-col gap-2">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Direct Channels</span>
+<div class="grid grid-cols-2 gap-2">
+<a class="flex items-center gap-2.5 p-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors text-on-surface" href="mailto:elena@novahealth.ai">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-outline">Email</span>
+<span class="font-body-sm text-body-sm text-on-surface truncate">elena@novahealth.ai</span>
+</div>
+</a>
+<a class="flex items-center gap-2.5 p-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors text-on-surface" href="tel:+14155550192">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-secondary shadow-xs">
+<span class="material-symbols-outlined text-[18px]">call</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-outline">Direct</span>
+<span class="font-body-sm text-body-sm text-on-surface truncate">+1 (415) 555-0192</span>
+</div>
+</a>
+</div>
+</div>
+<!-- Active Projects & Documents list -->
+<div class="flex flex-col gap-2 pb-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Active Deliverables (3)</span>
+<button class="font-label-sm text-label-sm text-primary hover:underline">Full History</button>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px]">dataset</span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">HIPAA Telemetry Engine</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Branch release v1.4</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">90% Done</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-tertiary text-[20px]">draw</span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">Patient Intake Redesign</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Figma Hand-off</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">In Review</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Add Client Slide-over Modal Dialog -->
+<div class="fixed inset-0 z-50 bg-on-surface/40 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none" id="addClientBackdrop" onclick="closeAddClientModal()"></div>
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-surface-container-lowest rounded-t-2xl shadow-2xl p-space-md flex flex-col gap-space-md transition-transform duration-300 transform translate-y-full max-h-[90vh] overflow-y-auto" id="addClientModal">
+<div class="w-12 h-1.5 rounded-full bg-outline-variant/60 self-center -mt-1 cursor-grab" onclick="closeAddClientModal()"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">New Partner Account</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Create client profile &amp; billing cadence</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center" onclick="closeAddClientModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<form class="flex flex-col gap-space-sm" id="newClientForm" onsubmit="handleCreateClient(event)">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface">Full Name *</label>
+<input class="h-10 px-3 rounded-lg bg-surface text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/30" id="clientNameField" placeholder="e.g. Maya Lin" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface">Company / Studio *</label>
+<input class="h-10 px-3 rounded-lg bg-surface text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/30" id="companyNameField" placeholder="e.g. Lumina Labs" required="" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface">Hourly Rate ($)</label>
+<input class="h-10 px-3 rounded-lg bg-surface text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/30" id="rateField" placeholder="150" type="number"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface">Billing Model</label>
+<select class="h-10 px-3 rounded-lg bg-surface text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/30" id="billingCadenceField">
+<option value="retainer">Monthly Retainer</option>
+<option selected="" value="hourly">Time &amp; Material</option>
+<option value="milestone">Fixed Milestone</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface">WhatsApp / Mobile Phone</label>
+<input class="h-10 px-3 rounded-lg bg-surface text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/30" id="phoneField" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+<div class="flex items-center gap-2 pt-2">
+<button class="flex-1 h-11 rounded-xl bg-surface-container text-on-surface-variant font-label-md text-label-md" onclick="closeAddClientModal()" type="button">
+          Cancel
+        </button>
+<button class="flex-1 h-11 rounded-xl bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md font-semibold shadow-md active:scale-95 transition-all" type="submit">
+          Save &amp; Launch
+        </button>
+</div>
+</form>
+</div>
+</div>
+<script>
+  // Filter chips interaction logic
+  const filterPills = document.querySelectorAll('.filter-pill');
+  const clientCards = document.querySelectorAll('.client-card');
+  const searchInput = document.getElementById('clientSearchInput');
+  const clearSearchBtn = document.getElementById('clearSearchBtn');
+
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      filterPills.forEach(p => {
+        p.classList.remove('active', 'bg-primary-container', 'text-on-primary');
+        p.classList.add('bg-surface-container-lowest', 'text-on-surface-variant');
+      });
+      pill.classList.add('active', 'bg-primary-container', 'text-on-primary');
+      pill.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant');
+
+      const filterValue = pill.getAttribute('data-filter');
+      applyFilters(filterValue, searchInput.value.toLowerCase());
+    });
+  });
+
+  searchInput.addEventListener('input', (e) => {
+    const term = e.target.value.toLowerCase();
+    clearSearchBtn.classList.toggle('hidden', term.length === 0);
+    clearSearchBtn.classList.toggle('flex', term.length > 0);
+    const currentFilter = document.querySelector('.filter-pill.active')?.getAttribute('data-filter') || 'all';
+    applyFilters(currentFilter, term);
+  });
+
+  clearSearchBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    clearSearchBtn.classList.add('hidden');
+    clearSearchBtn.classList.remove('flex');
+    const currentFilter = document.querySelector('.filter-pill.active')?.getAttribute('data-filter') || 'all';
+    applyFilters(currentFilter, '');
+  });
+
+  function applyFilters(filter, term) {
+    clientCards.forEach(card => {
+      const status = card.getAttribute('data-status');
+      const name = card.getAttribute('data-name').toLowerCase();
+      const company = card.getAttribute('data-company').toLowerCase();
+      
+      const matchesFilter = (filter === 'all') || (status === filter);
+      const matchesSearch = name.includes(term) || company.includes(term);
+
+      if (matchesFilter && matchesSearch) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Toast feedback micro-interaction
+  function showToast(message) {
+    const toast = document.getElementById('quickToast');
+    const toastMessage = document.getElementById('toastMessage');
+    toastMessage.textContent = message;
+    toast.classList.remove('opacity-0', '-translate-y-4');
+    toast.classList.add('opacity-100', 'translate-y-0');
+
+    setTimeout(() => {
+      toast.classList.remove('opacity-100', 'translate-y-0');
+      toast.classList.add('opacity-0', '-translate-y-4');
+    }, 3200);
+  }
+
+  function triggerInstantInvoice(company, name, amount) {
+    showToast(`Drafted Invoice for ${company} ($${amount})`);
+  }
+
+  function triggerStripeResend(name, amount) {
+    showToast(`Payment portal resent to ${name} ($${amount})`);
+  }
+
+  function logTimeTrack(name) {
+    showToast(`Active timer started for ${name}`);
+  }
+
+  function triggerSendProposal(name) {
+    showToast(`Opening proposal preview for ${name}`);
+  }
+
+  // Client Details Bottom Sheet
+  function openClientTeaser(clientId) {
+    const sheet = document.getElementById('clientDetailsSheet');
+    const backdrop = document.getElementById('sheetBackdrop');
+    backdrop.classList.remove('pointer-events-none', 'opacity-0');
+    backdrop.classList.add('opacity-100');
+    sheet.classList.remove('translate-y-full');
+    sheet.classList.add('translate-y-0');
+  }
+
+  function closeClientTeaser() {
+    const sheet = document.getElementById('clientDetailsSheet');
+    const backdrop = document.getElementById('sheetBackdrop');
+    backdrop.classList.add('pointer-events-none', 'opacity-0');
+    backdrop.classList.remove('opacity-100');
+    sheet.classList.add('translate-y-full');
+    sheet.classList.remove('translate-y-0');
+  }
+
+  // Add Client Modal
+  const openAddClientBtn = document.getElementById('openAddClientModal');
+  const addClientModal = document.getElementById('addClientModal');
+  const addClientBackdrop = document.getElementById('addClientBackdrop');
+
+  openAddClientBtn.addEventListener('click', () => {
+    addClientBackdrop.classList.remove('pointer-events-none', 'opacity-0');
+    addClientBackdrop.classList.add('opacity-100');
+    addClientModal.classList.remove('translate-y-full');
+    addClientModal.classList.add('translate-y-0');
+  });
+
+  function closeAddClientModal() {
+    addClientBackdrop.classList.add('pointer-events-none', 'opacity-0');
+    addClientBackdrop.classList.remove('opacity-100');
+    addClientModal.classList.add('translate-y-full');
+    addClientModal.classList.remove('translate-y-0');
+  }
+
+  function handleCreateClient(e) {
+    e.preventDefault();
+    const name = document.getElementById('clientNameField').value;
+    const company = document.getElementById('companyNameField').value;
+    closeAddClientModal();
+    showToast(`Partner account created for ${name} (${company})`);
+    document.getElementById('newClientForm').reset();
+  }
+</script></main><div class="fixed bottom-24 right-space-md z-40 pb-safe"><a class="w-14 h-14 rounded-full bg-primary-container text-on-primary shadow-lg shadow-primary/25 flex items-center justify-center transition-transform active:scale-95 hover:bg-primary" data-path="new-invoice" href="#"><span class="material-symbols-outlined text-[28px]">add</span></a></div><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(11,28,48,0.05)]" data-active-classes="text-primary font-semibold"><div class="flex items-center justify-around h-16 px-space-xs"><a class="flex flex-col items-center justify-center w-16 h-12 gap-0.5 text-on-surface-variant transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="font-label-sm text-label-sm">Dashboard</span></a><a aria-current="page" class="flex flex-col items-center justify-center w-16 h-12 gap-0.5 transition-colors text-primary font-semibold" data-path="clients" href="#"><span class="material-symbols-outlined text-[22px]">group</span><span class="font-label-sm text-label-sm">Clients</span></a><a class="flex flex-col items-center justify-center w-16 h-12 gap-0.5 text-on-surface-variant transition-colors" data-path="projects" href="#"><span class="material-symbols-outlined text-[22px]">folder_open</span><span class="font-label-sm text-label-sm">Projects</span></a><a class="flex flex-col items-center justify-center w-16 h-12 gap-0.5 text-on-surface-variant transition-colors" data-path="invoices" href="#"><span class="material-symbols-outlined text-[22px]">receipt_long</span><span class="font-label-sm text-label-sm">Invoices</span></a></div></nav></body></html>

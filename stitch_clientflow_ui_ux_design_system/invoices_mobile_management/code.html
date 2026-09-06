@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "error-container": "#ffdad6", "surface-bright": "#f8f9ff", "on-surface": "#0b1c30", "tertiary-fixed-dim": "#ffb95f", "surface-variant": "#d3e4fe", "outline": "#737686", "on-error-container": "#93000a", "surface-container-highest": "#d3e4fe", "inverse-surface": "#213145", "surface-container-lowest": "#ffffff", "tertiary": "#784b00", "background": "#f8f9ff", "on-background": "#0b1c30", "secondary-fixed-dim": "#4edea3", "on-secondary": "#ffffff", "inverse-on-surface": "#eaf1ff", "on-secondary-fixed-variant": "#005236", "primary": "#004ac6", "primary-fixed-dim": "#b4c5ff", "on-tertiary-container": "#ffeedd", "surface-container-high": "#dce9ff", "secondary-container": "#6cf8bb", "tertiary-fixed": "#ffddb8", "on-secondary-container": "#00714d", "primary-container": "#2563eb", "surface": "#f8f9ff", "outline-variant": "#c3c6d7", "on-surface-variant": "#434655", "on-error": "#ffffff", "on-tertiary-fixed-variant": "#653e00", "error": "#ba1a1a", "inverse-primary": "#b4c5ff", "on-secondary-fixed": "#002113", "surface-container": "#e5eeff", "on-primary-fixed": "#00174b", "secondary": "#006c49", "on-tertiary-fixed": "#2a1700", "surface-tint": "#0053db", "surface-dim": "#cbdbf5", "on-primary": "#ffffff", "tertiary-container": "#996100", "primary-fixed": "dbe1ff", "surface-container-low": "#eff4ff", "on-primary-container": "#eeefff", "on-tertiary": "#ffffff", "on-primary-fixed-variant": "#003ea8", "secondary-fixed": "#6ffbbe" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-2xl": "3rem", "margin-tablet": "2rem", "space-lg": "1.5rem", "gutter-mobile": "1rem", "gutter-desktop": "1.5rem", "space-sm": "0.75rem", "space-xl": "2rem", "space-2xs": "0.25rem", "margin-mobile": "1rem", "space-3xl": "4rem", "space-xs": "0.5rem", "margin-desktop": "3rem", "space-md": "1rem" }, "fontFamily": { "label-sm": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "display-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "display-lg": ["Plus Jakarta Sans"], "numeric-md": ["Inter"], "body-sm": ["Inter"], "title-md": ["Inter"], "numeric-lg": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "body-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "label-md": ["Inter"] }, "fontSize": { "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "display-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "numeric-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "500" }], "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }], "numeric-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500" }] } } } };</script><style>@layer base { html, body { margin: 0; padding: 0; min-height: 100%; } body { overscroll-behavior-y: none; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-xs"><img alt="Brand logo. - Primary color: #2563eb - Font: plusJakartaSans - Mode: light - Roundness: rounded-sm" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UETwRPRp58A4vVLhzHnN3Nk9ltLwmx7Eof901EVivgdSv4Ik7IM5KjfI_-MGJYaLou0T2YGb0V-1alyQWlElKRx_Um74zTeHWFKCjNnNrfxN8kRsjhZx6PBFVaV8HuZPY21uZX2C78xdsDsySTAGfYsykpX8zOEqolvV7SAQ80khfl1PtDOLWWCZITsveGQhqzJeXgR2MBIN_XDEG5bz0A4ZfqcStr_0i5rPddKouM7QeY-tL3RfU"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight tracking-tight">ClientFlow</span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Invoices</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Notifications" class="relative w-11 h-11 flex items-center justify-center rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></button><button aria-label="User Profile" class="w-11 h-11 flex items-center justify-center rounded-full hover:opacity-90 transition-opacity"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XeYr1DSaLMSKoQN7DIknHzorcLQD0BxJNoWdUlp7jDP_FBHekKTp1G-2bMCx7TBn99NTZfeVxyxc0-32mVNPnSpDpxACIV92KNOxLLjGykvyvJ4HwAiEE_2V51jjEGVdawHtjO1-T698aBpeadHcI52V98MpRdWwbL9ziTJ0B2SDZigCaZabswqtwtxgTnIjjj2TIwQjUEOSnuewTe7HtxRJV_khPN4sJlSZ3UJj-jJo35B4lLyMjc"/></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-28 bg-surface px-space-md"><div class="flex flex-col w-full space-y-space-md">
+<!-- Dynamic Cashflow Pulse Sparkline -->
+<section class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">account_balance_wallet</span>
+<h2 class="font-title-md text-title-md text-on-surface">Cash Flow Health</h2>
+</div>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary bg-secondary-container/40 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +18.2%
+      </span>
+</div>
+<div class="flex items-baseline justify-between mb-space-xs">
+<div>
+<p class="font-numeric-lg text-numeric-lg text-on-surface font-bold tracking-tight">$49,150.00</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Total active billable volume</p>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Realized (Nov)</span>
+<p class="font-numeric-md text-numeric-md text-secondary font-semibold">$24,500.00</p>
+</div>
+</div>
+<!-- Mini SVG Trend Projection -->
+<div class="w-full h-8 pt-1">
+<svg class="w-full h-full overflow-visible" fill="none" preserveaspectratio="none" viewbox="0 0 320 28">
+<path d="M0 24 Q 40 18, 80 20 T 160 12 T 240 16 T 320 4" fill="none" stroke="#2563eb" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M0 24 Q 40 18, 80 20 T 160 12 T 240 16 T 320 4 L 320 28 L 0 28 Z" fill="url(#blue-gradient)" opacity="0.15"></path>
+<circle class="fill-primary" cx="320" cy="4" r="3.5"></circle>
+<defs>
+<lineargradient id="blue-gradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#2563eb"></stop>
+<stop offset="100%" stop-color="#2563eb" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+</section>
+<!-- Financial Metrics Grid -->
+<section class="grid grid-cols-2 gap-space-xs">
+<!-- Overdue Card -->
+<div class="bg-error-container/50 rounded-xl p-space-sm flex flex-col justify-between relative overflow-hidden transition-transform active:scale-[0.98]">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-error-container font-semibold">Overdue</span>
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+</div>
+<div>
+<p class="font-numeric-lg text-numeric-lg font-bold text-on-error-container">$6,200</p>
+<div class="flex items-center justify-between mt-1">
+<span class="font-body-sm text-body-sm text-on-error-container/80">3 invoices</span>
+<span class="font-label-sm text-label-sm text-error font-medium underline underline-offset-2">Action</span>
+</div>
+</div>
+</div>
+<!-- Outstanding Card -->
+<div class="bg-surface-container-high rounded-xl p-space-sm flex flex-col justify-between transition-transform active:scale-[0.98]">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Outstanding</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary">schedule</span>
+</div>
+<div>
+<p class="font-numeric-lg text-numeric-lg font-bold text-on-surface">$18,450</p>
+<div class="flex items-center justify-between mt-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">7 invoices</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Due 15d</span>
+</div>
+</div>
+</div>
+<!-- Paid Card -->
+<div class="bg-surface-container-low rounded-xl p-space-sm flex flex-col justify-between transition-transform active:scale-[0.98]">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Paid (Nov)</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+</div>
+<div>
+<p class="font-numeric-lg text-numeric-lg font-bold text-on-surface">$24,500</p>
+<div class="flex items-center justify-between mt-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">8 settled</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">+18.2%</span>
+</div>
+</div>
+</div>
+<!-- Drafts Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-sm flex flex-col justify-between shadow-sm transition-transform active:scale-[0.98]">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Drafts</span>
+<span class="material-symbols-outlined text-[16px] text-outline">edit_note</span>
+</div>
+<div>
+<p class="font-numeric-lg text-numeric-lg font-bold text-on-surface">$4,800</p>
+<div class="flex items-center justify-between mt-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">2 ready</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">Review</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Search & Segmented Filter Bar -->
+<section class="space-y-space-xs">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full h-11 pl-10 pr-10 rounded-xl bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary-container/40 shadow-sm" id="invoice-search-input" placeholder="Search invoice #, client, or company..." type="text"/>
+<button aria-label="Clear or filter parameters" class="absolute right-2.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+</button>
+</div>
+<!-- Status Tabs (Horizontally scrollable) -->
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
+<button class="filter-tab active-tab whitespace-nowrap px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary font-label-md text-label-md transition-colors" data-filter="all">
+        All <span class="ml-1 opacity-80 font-normal">20</span>
+</button>
+<button class="filter-tab whitespace-nowrap px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors shadow-sm" data-filter="overdue">
+        Overdue <span class="ml-1 text-error font-semibold">3</span>
+</button>
+<button class="filter-tab whitespace-nowrap px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors shadow-sm" data-filter="pending">
+        Pending <span class="ml-1 opacity-80 font-normal">5</span>
+</button>
+<button class="filter-tab whitespace-nowrap px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors shadow-sm" data-filter="paid">
+        Paid <span class="ml-1 opacity-80 font-normal">10</span>
+</button>
+<button class="filter-tab whitespace-nowrap px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors shadow-sm" data-filter="draft">
+        Drafts <span class="ml-1 opacity-80 font-normal">2</span>
+</button>
+</div>
+</section>
+<!-- Interactive Feed / Cards List -->
+<section class="space-y-space-xs" id="invoice-cards-container">
+<!-- CARD 1: OVERDUE -->
+<article class="invoice-item bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all duration-200 active:scale-[0.99] space-y-3" data-status="overdue">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-space-xs min-w-0">
+<img class="w-10 h-10 rounded-full object-cover shrink-0" data-alt="Modern corporate portrait of Marcus Vance, senior design executive in charcoal suit, soft cinematic lighting, neutral slate studio background, high detail commercial photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUz-ZEGHwk0ck3xt4QscFT4e8NYqbAobTxXxIEzF44UAtTXW6_pBiOWYz8PKLQ4mrqGjz-_V0oxA7yY_NJuLN_z3JQbT4ZUbV4YRdHKgQ95vVdpxEitTyAkpAo_YH-9X57fgGoP4vmfoqZym5jjTZDmis47WvaRLXk7EvAIJ9rzwM86S3gxwgd8qcCnvjtZLb7ydjjzO5Uk8ij03cBhLKPXcSETDqTA-yzbSQW_UTvF71Fga5fiQ"/>
+<div class="min-w-0">
+<h3 class="font-title-md text-title-md text-on-surface truncate leading-tight">Marcus Vance</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Vance Dynamics</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-numeric-lg text-numeric-lg font-bold text-on-surface leading-none block">$4,200.00</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5 inline-block">#INV-2024-048</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+          Overdue (Nov 09, 2024)
+        </span>
+<span class="font-body-sm text-body-sm text-error font-medium">9 days late</span>
+</div>
+<!-- Micro Actions Tray -->
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 h-9 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[18px] text-secondary">chat</span>
+          WhatsApp Remind
+        </button>
+<button aria-label="Download PDF Invoice" class="w-9 h-9 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button aria-label="More Options" class="w-9 h-9 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</article>
+<!-- CARD 2: PENDING -->
+<article class="invoice-item bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all duration-200 active:scale-[0.99] space-y-3" data-status="pending">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-space-xs min-w-0">
+<img class="w-10 h-10 rounded-full object-cover shrink-0" data-alt="Professional headshot of Elena Rostova, founder of Nova HealthTech, smiling warmly with modern bright medical laboratory backdrop, clean blue and white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsX_feyMNetqGlMBjTC2nzveqBVj20HSgtGK2K8ziuFL_7k0sMmT7GC7EyUM1IikStDeHNlmnQqjlxC6wfWgORgDXcQMuTDmm84tqEjOwWzJ3dnCbNVKBCDCt3J8lsSDzwy-faiZdq2PH5yZsBjYLw1EaJzQ_ZVcSpKmwiGEG16zk8Cm59gBv_sMc12TQ-aBT7DsBofjwD6neFHloWVH5Zkb3Ha1yD_A6T3vgMRVdtNmQ-k1MC0A"/>
+<div class="min-w-0">
+<h3 class="font-title-md text-title-md text-on-surface truncate leading-tight">Elena Rostova</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Nova HealthTech</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-numeric-lg text-numeric-lg font-bold text-on-surface leading-none block">$7,378.00</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5 inline-block">#INV-2024-047</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+          Pending (Nov 27, 2024)
+        </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Due in 9 days</span>
+</div>
+<!-- Micro Actions Tray -->
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 h-9 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[18px] text-secondary">chat</span>
+          WhatsApp Link
+        </button>
+<button aria-label="Download PDF" class="w-9 h-9 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>
+</button>
+<button aria-label="More Options" class="w-9 h-9 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</article>
+<!-- CARD 3: PAID -->
+<article class="invoice-item bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all duration-200 active:scale-[0.99] space-y-3" data-status="paid">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-space-xs min-w-0">
+<img class="w-10 h-10 rounded-full object-cover shrink-0" data-alt="Editorial close portrait of Kenji Sato in minimalist architectural studio Kyoto, warm afternoon sun rays, natural wood textures, serene creative atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzZhx4GwcC02Ha6FqYuI8TwUnZymHr0IPRf9B8pdN6-wGC-BYxVEhmzjFvBbX57dSFtewGYYTrARLAOYrHSjqupxI0QsohRZAkUzm9fRyzi6gQy4F30L65n_o5_mcg_E_fvvh149oVqdXY5EhgP9g0eP_Zt6f3pvpIzV6Yo-wLaQLUkRNCoqa_9rZFKhxHDBGwRXxw-B1jMOStNzdH6hDq0iC9pnbaTCRJurwvLrQpASQ1lEidQg"/>
+<div class="min-w-0">
+<h3 class="font-title-md text-title-md text-on-surface truncate leading-tight">Kenji Sato</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Studio Sola Kyoto</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-numeric-lg text-numeric-lg font-bold text-secondary leading-none block">$12,500.00</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5 inline-block">#INV-2024-046</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+          Paid (Nov 12, 2024)
+        </span>
+<span class="font-body-sm text-body-sm text-secondary font-medium">Direct Deposit</span>
+</div>
+<!-- Micro Actions Tray -->
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 h-9 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[18px]">receipt</span>
+          View Receipt
+        </button>
+<button aria-label="Download PDF Invoice" class="w-9 h-9 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</div>
+</article>
+<!-- CARD 4: PAID -->
+<article class="invoice-item bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all duration-200 active:scale-[0.99] space-y-3" data-status="paid">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-space-xs min-w-0">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-bold text-title-md shrink-0">
+            SL
+          </div>
+<div class="min-w-0">
+<h3 class="font-title-md text-title-md text-on-surface truncate leading-tight">Sarah Lindqvist</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Nordic Retail Tech</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-numeric-lg text-numeric-lg font-bold text-secondary leading-none block">$12,000.00</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5 inline-block">#INV-2024-045</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+          Paid (Nov 04, 2024)
+        </span>
+<button class="font-label-sm text-label-sm text-primary font-medium hover:underline">
+          View Details
+        </button>
+</div>
+</article>
+<!-- CARD 5: DRAFT -->
+<article class="invoice-item bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all duration-200 active:scale-[0.99] space-y-3" data-status="draft">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-space-xs min-w-0">
+<div class="w-10 h-10 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-bold text-title-md shrink-0">
+            AC
+          </div>
+<div class="min-w-0">
+<h3 class="font-title-md text-title-md text-on-surface truncate leading-tight">Amara Chen</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Apex Cloud Systems</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-numeric-lg text-numeric-lg font-bold text-on-surface-variant leading-none block">$4,800.00</span>
+<span class="font-label-sm text-label-sm text-outline mt-0.5 inline-block">#INV-2024-044</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+          Draft (Unsent)
+        </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Updated 2h ago</span>
+</div>
+<!-- Micro Actions Tray -->
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 h-9 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center gap-1.5 hover:bg-primary transition-colors active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">send</span>
+          Send Invoice
+        </button>
+<button aria-label="Edit Draft" class="h-9 px-3 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center gap-1 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+          Edit
+        </button>
+<button aria-label="Delete Draft" class="w-9 h-9 rounded-lg bg-error-container/40 text-error flex items-center justify-center hover:bg-error-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</article>
+</section>
+<!-- Ledger Pagination & Quick Status -->
+<footer class="flex flex-col items-center justify-center gap-space-xs pt-space-xs pb-space-sm">
+<div class="flex items-center justify-between w-full px-space-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Showing 5 of 20 invoices</span>
+<div class="flex items-center gap-1">
+<button aria-label="Previous Page" class="w-8 h-8 rounded-lg bg-surface-container-lowest text-outline flex items-center justify-center shadow-sm disabled:opacity-40" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<span class="w-8 h-8 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center font-bold">1</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest text-on-surface font-label-sm text-label-sm flex items-center justify-center shadow-sm hover:bg-surface-container">2</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest text-on-surface font-label-sm text-label-sm flex items-center justify-center shadow-sm hover:bg-surface-container">3</button>
+<button aria-label="Next Page" class="w-8 h-8 rounded-lg bg-surface-container-lowest text-on-surface flex items-center justify-center shadow-sm hover:bg-surface-container">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-1 text-center font-body-sm text-body-sm text-outline">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+      Bank sync active · Next reconcile in 4h
+    </div>
+</footer>
+</div>
+<script>
+  // Simple reactive filter handling for status pills
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.filter-tab');
+    const cards = document.querySelectorAll('.invoice-item');
+    const searchInput = document.getElementById('invoice-search-input');
+
+    function applyFilters() {
+      const activeTab = document.querySelector('.filter-tab.active-tab');
+      const selectedFilter = activeTab ? activeTab.dataset.filter : 'all';
+      const query = (searchInput?.value || '').toLowerCase().trim();
+
+      cards.forEach(card => {
+        const cardStatus = card.dataset.status;
+        const cardText = card.innerText.toLowerCase();
+
+        const matchesStatus = (selectedFilter === 'all') || (cardStatus === selectedFilter);
+        const matchesQuery = !query || cardText.includes(query);
+
+        if (matchesStatus && matchesQuery) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.remove('active-tab', 'bg-primary-container', 'text-on-primary');
+          t.classList.add('bg-surface-container-lowest', 'text-on-surface-variant');
+        });
+        tab.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant');
+        tab.classList.add('active-tab', 'bg-primary-container', 'text-on-primary');
+        applyFilters();
+      });
+    });
+
+    searchInput?.addEventListener('input', applyFilters);
+  });
+</script></main><div class="fixed bottom-24 right-space-md z-40 pb-safe"><a class="w-14 h-14 rounded-full bg-primary-container text-on-primary shadow-lg shadow-primary/25 flex items-center justify-center transition-transform active:scale-95 hover:bg-primary" data-path="new-invoice" href="#"><span class="material-symbols-outlined text-[28px]">add</span></a></div><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(11,28,48,0.05)]" data-active-classes="text-primary font-semibold"><div class="flex items-center justify-around h-16 px-space-xs"><a class="flex flex-col items-center justify-center w-16 h-12 gap-0.5 text-on-surface-variant transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="font-label-sm text-label-sm">Dashboard</span></a><a class="flex flex-col items-center justify-center w-16 h-12 gap-0.5 text-on-surface-variant transition-colors" data-path="clients" href="#"><span class="material-symbols-outlined text-[22px]">group</span><span class="font-label-sm text-label-sm">Clients</span></a><a class="flex flex-col items-center justify-center w-16 h-12 gap-0.5 text-on-surface-variant transition-colors" data-path="projects" href="#"><span class="material-symbols-outlined text-[22px]">folder_open</span><span class="font-label-sm text-label-sm">Projects</span></a><a aria-current="page" class="flex flex-col items-center justify-center w-16 h-12 gap-0.5 transition-colors text-primary font-semibold" data-path="invoices" href="#"><span class="material-symbols-outlined text-[22px]">receipt_long</span><span class="font-label-sm text-label-sm">Invoices</span></a></div></nav></body></html>
