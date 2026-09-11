@@ -2,6 +2,7 @@ import React from 'react';
 import { useApp } from '../../context/AppContext';
 import { useAuth } from '../../context/AuthContext';
 import { NavPath } from '../../types';
+import { ClientFlowLogo } from '../common/ClientFlowLogo';
 
 export const Sidebar: React.FC = () => {
   const { currentRoute, setCurrentRoute, metrics, clearWorkspace, showToast } = useApp();
@@ -35,17 +36,18 @@ export const Sidebar: React.FC = () => {
   return (
     <aside className="hidden md:flex fixed left-0 top-0 h-screen w-[240px] bg-surface-container-low dark:bg-[#0d1527] border-r border-outline-variant/30 dark:border-card-border/60 z-50 flex-col justify-between select-none">
       <div className="flex flex-col">
-        {/* Brand Header */}
-        <div className="h-16 px-space-md flex items-center gap-space-xs border-b border-outline-variant/20 dark:border-card-border/40">
-          <img
-            alt="ClientFlow Logo"
-            className="h-8 w-auto object-contain dark:brightness-110"
-            src="https://lh3.googleusercontent.com/aida/AEtjO1UETwRPRp58A4vVLhzHnN3Nk9ltLwmx7Eof901EVivgdSv4Ik7IM5KjfI_-MGJYaLou0T2YGb0V-1alyQWlElKRx_Um74zTeHWFKCjNnNrfxN8kRsjhZx6PBFVaV8HuZPY21uZX2C78xdsDsySTAGfYsykpX8zOEqolvV7SAQ80khfl1PtDOLWWCZITsveGQhqzJeXgR2MBIN_XDEG5bz0A4ZfqcStr_0i5rPddKouM7QeY-tL3RfU"
-          />
-          <span className="font-headline-sm text-headline-sm text-on-surface dark:text-text-high tracking-tight font-bold">
+        {/* Brand Header - Click to shift to Dashboard */}
+        <button
+          type="button"
+          onClick={() => setCurrentRoute('dashboard')}
+          className="h-16 px-space-md flex items-center gap-2.5 border-b border-outline-variant/20 dark:border-card-border/40 hover:bg-surface-container-high/60 dark:hover:bg-canvas-card/60 transition-colors text-left w-full group focus:outline-none cursor-pointer"
+          title="Go to Dashboard"
+        >
+          <ClientFlowLogo size="md" />
+          <span className="font-headline-sm text-headline-sm text-on-surface dark:text-text-high tracking-tight font-bold group-hover:text-primary dark:group-hover:text-brand-primary transition-colors">
             ClientFlow
           </span>
-        </div>
+        </button>
 
         {/* Navigation Items */}
         <nav className="flex flex-col gap-1 p-space-xs mt-space-xs">

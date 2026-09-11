@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
+import { ClientFlowLogo } from '../common/ClientFlowLogo';
 
 export const Header: React.FC = () => {
   const { metrics, darkMode, toggleDarkMode, openInvoiceDrawer, openClientDrawer, openProjectModal, setCurrentRoute } = useApp();
@@ -25,16 +26,12 @@ export const Header: React.FC = () => {
         {/* Mobile brand mark */}
         <button
           onClick={() => setCurrentRoute('dashboard')}
-          className="flex md:hidden items-center gap-1.5 shrink-0 focus:outline-none"
+          className="flex md:hidden items-center gap-2 shrink-0 focus:outline-none group"
           type="button"
           title="Go to Dashboard"
         >
-          <img
-            alt="ClientFlow"
-            className="h-7 w-auto object-contain dark:brightness-110"
-            src="https://lh3.googleusercontent.com/aida/AEtjO1UETwRPRp58A4vVLhzHnN3Nk9ltLwmx7Eof901EVivgdSv4Ik7IM5KjfI_-MGJYaLou0T2YGb0V-1alyQWlElKRx_Um74zTeHWFKCjNnNrfxN8kRsjhZx6PBFVaV8HuZPY21uZX2C78xdsDsySTAGfYsykpX8zOEqolvV7SAQ80khfl1PtDOLWWCZITsveGQhqzJeXgR2MBIN_XDEG5bz0A4ZfqcStr_0i5rPddKouM7QeY-tL3RfU"
-          />
-          <span className="font-headline-sm text-base text-on-surface dark:text-text-high font-bold tracking-tight">
+          <ClientFlowLogo size="sm" />
+          <span className="font-headline-sm text-base text-on-surface dark:text-text-high font-bold tracking-tight group-hover:text-primary dark:group-hover:text-brand-primary transition-colors">
             ClientFlow
           </span>
         </button>

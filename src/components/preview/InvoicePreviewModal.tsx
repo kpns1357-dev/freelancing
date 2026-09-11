@@ -1,5 +1,6 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext';
+import { ClientFlowLogo } from '../common/ClientFlowLogo';
 
 export const InvoicePreviewModal: React.FC = () => {
   const {
@@ -178,11 +179,7 @@ export const InvoicePreviewModal: React.FC = () => {
             {/* Agency Profile */}
             <div className="flex flex-col max-w-sm">
               <div className="flex items-center gap-3 mb-3">
-                <img
-                  alt="ClientFlow Logo"
-                  className="h-9 w-auto object-contain dark:brightness-110"
-                  src="https://lh3.googleusercontent.com/aida/AEtjO1UETwRPRp58A4vVLhzHnN3Nk9ltLwmx7Eof901EVivgdSv4Ik7IM5KjfI_-MGJYaLou0T2YGb0V-1alyQWlElKRx_Um74zTeHWFKCjNnNrfxN8kRsjhZx6PBFVaV8HuZPY21uZX2C78xdsDsySTAGfYsykpX8zOEqolvV7SAQ80khfl1PtDOLWWCZITsveGQhqzJeXgR2MBIN_XDEG5bz0A4ZfqcStr_0i5rPddKouM7QeY-tL3RfU"
-                />
+                <ClientFlowLogo size="md" animated={false} />
                 <span className="h-5 w-[1px] bg-outline-variant/50 dark:bg-card-border"></span>
                 <span className="font-headline-sm text-headline-sm tracking-tight text-on-surface dark:text-text-high font-bold">
                   Studio Craft
