@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../../context/AppContext';
 import { LineItem, InvoiceStatus } from '../../types';
+import { handleFormKeyDown } from '../../utils/formNavigation';
 
 export const InvoiceDrawer: React.FC = () => {
   const {
@@ -233,7 +234,10 @@ export const InvoiceDrawer: React.FC = () => {
       ></div>
 
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
-        <div className="w-screen max-w-full sm:max-w-3xl bg-surface-container-lowest dark:bg-canvas-card shadow-2xl flex flex-col border-l border-outline-variant/30 dark:border-card-border transform transition-all duration-300">
+        <div 
+          onKeyDown={handleFormKeyDown}
+          className="w-screen max-w-full sm:max-w-3xl bg-surface-container-lowest dark:bg-canvas-card shadow-2xl flex flex-col border-l border-outline-variant/30 dark:border-card-border transform transition-all duration-300"
+        >
           {/* Top Bar Header */}
           <div className="p-space-md sm:p-space-lg bg-surface-container-low dark:bg-canvas-card-elevated border-b border-outline-variant/20 dark:border-card-border/60 flex items-center justify-between">
             <div className="flex items-center gap-space-xs">

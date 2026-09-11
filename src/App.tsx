@@ -1,6 +1,7 @@
 import React from 'react';
 import { useApp } from './context/AppContext';
 import { useAuth } from './context/AuthContext';
+import { useFormKeyboardNavigation } from './utils/formNavigation';
 import { AuthView } from './components/auth/AuthView';
 import { Sidebar } from './components/layout/Sidebar';
 import { Header } from './components/layout/Header';
@@ -20,6 +21,9 @@ import { ToastContainer } from './components/common/Toast';
 export const App: React.FC = () => {
   const { currentRoute } = useApp();
   const { user, loading } = useAuth();
+
+  // Enable Enter, Down Arrow, and Up Arrow navigation between form inputs across all modals and pages
+  useFormKeyboardNavigation();
 
   if (loading) {
     return (

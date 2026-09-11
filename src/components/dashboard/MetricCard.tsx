@@ -31,8 +31,6 @@ export const MetricCard: React.FC<MetricCardProps> = ({
 }) => {
   return (
     <div className="bg-surface-container-lowest dark:bg-canvas-card border border-outline-variant/20 dark:border-card-border rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all relative overflow-hidden flex flex-col justify-between">
-      <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-surface-container-low dark:bg-brand-primary/5 rounded-full pointer-events-none opacity-60"></div>
-      
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-space-xs">
           <div className={`w-10 h-10 rounded-xl ${iconBgColor} flex items-center justify-center ${iconColor} shrink-0 border border-outline-variant/30 dark:border-card-border/60`}>

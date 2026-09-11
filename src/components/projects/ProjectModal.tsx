@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../../context/AppContext';
 import { ProjectStatus } from '../../types';
+import { handleFormKeyDown } from '../../utils/formNavigation';
 
 export const ProjectModal: React.FC = () => {
   const {
@@ -117,7 +118,10 @@ export const ProjectModal: React.FC = () => {
         className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity"
       ></div>
 
-      <div className="relative bg-surface-container-lowest dark:bg-canvas-card border border-outline-variant/30 dark:border-card-border rounded-2xl shadow-2xl max-w-lg w-full p-space-lg flex flex-col gap-space-md z-10">
+      <div 
+        onKeyDown={handleFormKeyDown}
+        className="relative bg-surface-container-lowest dark:bg-canvas-card border border-outline-variant/30 dark:border-card-border rounded-2xl shadow-2xl max-w-lg w-full p-space-lg flex flex-col gap-space-md z-10"
+      >
         <div className="flex items-center justify-between pb-space-xs border-b border-outline-variant/20 dark:border-card-border/60">
           <div className="flex items-center gap-space-xs">
             <span className="material-symbols-outlined text-primary dark:text-brand-primary text-[24px]">

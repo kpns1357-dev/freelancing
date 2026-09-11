@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useApp } from '../../context/AppContext';
+import { ClientFlowLogo } from '../common/ClientFlowLogo';
+import { handleFormKeyDown } from '../../utils/formNavigation';
 
 export const AuthView: React.FC = () => {
   const { isConfigured, logIn, signUp } = useAuth();
@@ -86,12 +88,8 @@ export const AuthView: React.FC = () => {
 
       <div className="relative w-full max-w-md">
         {/* Brand Header */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-blue-600 shadow-lg shadow-blue-500/30 text-white font-bold text-2xl mb-4">
-            <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-            </svg>
-          </div>
+        <div className="text-center mb-8 flex flex-col items-center">
+          <ClientFlowLogo size="lg" className="mb-4 scale-125" />
           <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-display">
             ClientFlow
           </h1>
@@ -152,7 +150,7 @@ export const AuthView: React.FC = () => {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} onKeyDown={handleFormKeyDown} className="space-y-4">
             {mode === 'signup' && (
               <div>
                 <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5">
