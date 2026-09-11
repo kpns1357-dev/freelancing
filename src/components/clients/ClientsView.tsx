@@ -51,9 +51,9 @@ export const ClientsView: React.FC = () => {
         // Search filter
         if (searchQuery.trim()) {
           const q = searchQuery.toLowerCase();
-          const matchName = client.name.toLowerCase().includes(q);
-          const matchCompany = client.company.toLowerCase().includes(q);
-          const matchEmail = client.email.toLowerCase().includes(q);
+          const matchName = (client.name || '').toLowerCase().includes(q);
+          const matchCompany = (client.company || '').toLowerCase().includes(q);
+          const matchEmail = (client.email || '').toLowerCase().includes(q);
           if (!matchName && !matchCompany && !matchEmail) return false;
         }
 
@@ -61,7 +61,7 @@ export const ClientsView: React.FC = () => {
       })
       .sort((a, b) => {
         if (sortBy === 'name_asc') {
-          return a.name.localeCompare(b.name);
+          return (a.name || '').localeCompare(b.name || '');
         }
         if (sortBy === 'revenue_desc') {
           return b.totalPaid - a.totalPaid;
@@ -70,7 +70,7 @@ export const ClientsView: React.FC = () => {
           return b.totalOutstanding - a.totalOutstanding;
         }
         // default: last active (creation / id)
-        return b.id.localeCompare(a.id);
+        return (b.id || '').localeCompare(a.id || '');
       });
   }, [clientDataWithTotals, statusFilter, searchQuery, sortBy]);
 
@@ -78,11 +78,11 @@ export const ClientsView: React.FC = () => {
     const csvRows = [
       ['Name', 'Company', 'Email', 'Phone', 'Status', 'Paid', 'Outstanding'],
       ...filteredClients.map(c => [
-        `"${c.name}"`,
-        `"${c.company}"`,
-        `"${c.email}"`,
-        `"${c.phone}"`,
-        `"${c.status}"`,
+        `"${c.name || ''}"`,
+        `"${c.company || ''}"`,
+        `"${c.email || ''}"`,
+        `"${c.phone || ''}"`,
+        `"${c.status || 'Active'}"`,
         c.totalPaid,
         c.totalOutstanding
       ])
@@ -277,17 +277,25 @@ export const ClientsView: React.FC = () => {
       {/* Client Data Table Card */}
       {filteredClients.length === 0 ? (
         <EmptyState
-          type="no-results"
-          title={`No clients match “${searchQuery}”`}
-          description="Try checking for typos, exploring archived directories, or clearing your active filters to expand search bounds."
+          type={clients.length === 0 ? 'no-data' : 'no-results'}
+          title={
+            clients.length === 0
+              ? 'No clients in directory yet'
+              : `No clients match “${searchQuery}”`
+          }
+          description={
+            clients.length === 0
+              ? 'Add your first client partner to start organizing projects, billable hours, and invoices.'
+              : 'Try checking for typos, exploring archived directories, or clearing your active filters to expand search bounds.'
+          }
           query={searchQuery}
           primaryActionText="Add As New Client"
           onPrimaryAction={() => openClientDrawer()}
-          secondaryActionText="Clear All Filters"
-          onSecondaryAction={() => {
+          secondaryActionText={clients.length > 0 ? "Clear All Filters" : undefined}
+          onSecondaryAction={clients.length > 0 ? () => {
             setSearchQuery('');
             setStatusFilter('All');
-          }}
+          } : undefined}
         />
       ) : (
         <div className="bg-surface-container-lowest dark:bg-canvas-card border border-outline-variant/20 dark:border-card-border rounded-xl shadow-sm overflow-hidden flex flex-col">
@@ -307,12 +315,13 @@ export const ClientsView: React.FC = () => {
               </thead>
               <tbody className="divide-y divide-outline-variant/20 dark:divide-card-border/40 font-body-md text-body-md text-on-surface dark:text-text-high">
                 {filteredClients.map(client => {
-                  const clientInitials = client.name
+                  const clientInitials = (client.name || 'Client')
                     .split(' ')
+                    .filter(Boolean)
                     .map(n => n[0])
                     .join('')
                     .slice(0, 2)
-                    .toUpperCase();
+                    .toUpperCase() || 'CF';
 
                   return (
                     <tr
@@ -327,7 +336,7 @@ export const ClientsView: React.FC = () => {
                             <img
                               className="w-9 h-9 rounded-full object-cover shrink-0 shadow-sm ring-1 ring-outline-variant/40"
                               src={client.avatarUrl}
-                              alt={client.name}
+                              alt={client.name || 'Client'}
                             />
                           ) : (
                             <div className="w-9 h-9 rounded-full bg-primary/10 dark:bg-brand-primary/20 text-primary dark:text-brand-primary font-bold flex items-center justify-center shrink-0 text-sm">
@@ -336,10 +345,10 @@ export const ClientsView: React.FC = () => {
                           )}
                           <div className="flex flex-col min-w-0">
                             <span className="font-title-md text-title-md text-on-surface dark:text-text-high font-semibold group-hover:text-primary dark:group-hover:text-brand-primary transition-colors">
-                              {client.name}
+                              {client.name || 'Unnamed Client'}
                             </span>
                             <span className="font-body-sm text-body-sm text-on-surface-variant dark:text-text-medium">
-                              {client.company}
+                              {client.company || 'Individual Client'}
                             </span>
                           </div>
                         </div>
@@ -350,11 +359,11 @@ export const ClientsView: React.FC = () => {
                         <div className="flex flex-col text-on-surface-variant dark:text-text-medium">
                           <span className="font-body-sm text-body-sm text-on-surface dark:text-text-high flex items-center gap-1">
                             <span className="material-symbols-outlined text-[14px] text-outline">mail</span>
-                            {client.email}
+                            {client.email || '—'}
                           </span>
                           <div className="flex items-center gap-1.5 mt-0.5">
                             <span className="font-numeric-md text-numeric-md text-on-surface-variant dark:text-text-muted">
-                              {client.phone}
+                              {client.phone || '—'}
                             </span>
                             {client.phone && (
                               <a

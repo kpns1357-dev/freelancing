@@ -2,6 +2,7 @@ import React from 'react';
 import { useApp } from './context/AppContext';
 import { useAuth } from './context/AuthContext';
 import { useFormKeyboardNavigation } from './utils/formNavigation';
+import { ErrorBoundary } from './components/common/ErrorBoundary';
 import { AuthView } from './components/auth/AuthView';
 import { Sidebar } from './components/layout/Sidebar';
 import { Header } from './components/layout/Header';
@@ -52,33 +53,35 @@ export const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-surface dark:bg-canvas font-body-md text-on-surface dark:text-text-high antialiased flex flex-col selection:bg-primary/20">
-      {/* Desktop & Tablet Sidebar */}
-      <Sidebar />
+    <ErrorBoundary>
+      <div className="min-h-screen bg-surface dark:bg-canvas font-body-md text-on-surface dark:text-text-high antialiased flex flex-col selection:bg-primary/20">
+        {/* Desktop & Tablet Sidebar */}
+        <Sidebar />
 
-      {/* Main Container Area offset by 240px on md+ */}
-      <div className="md:pl-[240px] flex flex-col flex-1 min-h-screen">
-        <Header />
+        {/* Main Container Area offset by 240px on md+ */}
+        <div className="md:pl-[240px] flex flex-col flex-1 min-h-screen">
+          <Header />
 
-        <main className="relative pt-16 bg-surface dark:bg-canvas w-full min-h-screen px-3 sm:px-space-md md:px-space-lg py-space-md pb-24 md:pb-8">
-          {currentRoute === 'dashboard' && <DashboardView />}
-          {currentRoute === 'clients' && <ClientsView />}
-          {currentRoute === 'projects' && <ProjectsView />}
-          {currentRoute === 'invoices' && <InvoicesView />}
-          {currentRoute === 'analytics' && <AnalyticsView />}
-          {currentRoute === 'settings' && <SettingsView />}
-        </main>
+          <main className="relative pt-16 bg-surface dark:bg-canvas w-full min-h-screen px-3 sm:px-space-md md:px-space-lg py-space-md pb-24 md:pb-8">
+            {currentRoute === 'dashboard' && <DashboardView />}
+            {currentRoute === 'clients' && <ClientsView />}
+            {currentRoute === 'projects' && <ProjectsView />}
+            {currentRoute === 'invoices' && <InvoicesView />}
+            {currentRoute === 'analytics' && <AnalyticsView />}
+            {currentRoute === 'settings' && <SettingsView />}
+          </main>
+        </div>
+
+        {/* Mobile Sticky Navigation Dock & FAB */}
+        <MobileNav />
+
+        {/* Global Interactive Overlays */}
+        <ClientDrawer />
+        <InvoiceDrawer />
+        <ProjectModal />
+        <InvoicePreviewModal />
+        <ToastContainer />
       </div>
-
-      {/* Mobile Sticky Navigation Dock & FAB */}
-      <MobileNav />
-
-      {/* Global Interactive Overlays */}
-      <ClientDrawer />
-      <InvoiceDrawer />
-      <ProjectModal />
-      <InvoicePreviewModal />
-      <ToastContainer />
-    </div>
+    </ErrorBoundary>
   );
 };
