@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../../context/AppContext';
-import { ClientStatus } from '../../types';
+import { Client, ClientStatus } from '../../types';
 import { handleFormKeyDown } from '../../utils/formNavigation';
+import { COUNTRY_CODES, normalizePhoneNumber, parsePhoneNumber } from '../../utils/countryCodes';
 
 export const ClientDrawer: React.FC = () => {
   const {
@@ -25,12 +26,17 @@ export const ClientDrawer: React.FC = () => {
   const [name, setName] = useState('');
   const [company, setCompany] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+  const [countryCode, setCountryCode] = useState('+91');
+  const [phoneLocal, setPhoneLocal] = useState('');
   const [currency, setCurrency] = useState('USD');
   const [hourlyRate, setHourlyRate] = useState(150);
   const [notes, setNotes] = useState('');
   const [status, setStatus] = useState<ClientStatus>('Active');
   const [address, setAddress] = useState('');
+
+  // Duplicate phone warning modal state
+  const [isSamePhoneModalOpen, setIsSamePhoneModalOpen] = useState(false);
+  const [samePhoneWarningClient, setSamePhoneWarningClient] = useState<Client | null>(null);
 
   // Form validation errors
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -43,25 +49,32 @@ export const ClientDrawer: React.FC = () => {
       setName(currentClient.name || '');
       setCompany(currentClient.company || '');
       setEmail(currentClient.email || '');
-      setPhone(currentClient.phone || '');
+      const parsed = parsePhoneNumber(currentClient.phone || '');
+      setCountryCode(parsed.countryCode);
+      setPhoneLocal(parsed.localNumber);
       setCurrency(currentClient.currency || 'USD');
       setHourlyRate(currentClient.hourlyRate || 150);
       setNotes(currentClient.notes || '');
       setStatus(currentClient.status || 'Active');
       setAddress(currentClient.address || '');
       setErrors({});
+      setIsSamePhoneModalOpen(false);
+      setSamePhoneWarningClient(null);
     } else {
       // New Client Defaults
       setName('');
       setCompany('');
       setEmail('');
-      setPhone('');
+      setCountryCode('+91');
+      setPhoneLocal('');
       setCurrency('USD');
       setHourlyRate(150);
       setNotes('');
       setStatus('Active');
       setAddress('');
       setErrors({});
+      setIsSamePhoneModalOpen(false);
+      setSamePhoneWarningClient(null);
     }
   }, [currentClient, isClientDrawerOpen]);
 
@@ -73,27 +86,73 @@ export const ClientDrawer: React.FC = () => {
 
   const validate = (): boolean => {
     const errs: { [key: string]: string } = {};
-    if (!name.trim()) errs.name = 'Client name is required';
-    if (!email.trim()) {
+    const trimmedName = name.trim();
+    const trimmedCompany = company.trim();
+    const trimmedEmail = email.trim();
+
+    if (!trimmedName) errs.name = 'Client name is required';
+    if (!trimmedEmail) {
       errs.email = 'Email address is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
       errs.email = 'Please enter a valid business email (e.g. name@company.com)';
     }
-    if (!company.trim()) errs.company = 'Company name is required';
+    if (!trimmedCompany) errs.company = 'Company name is required';
+
+    // Duplicate Check: ensure same name & company or same email does not already exist in database
+    const otherClients = clients.filter(c => c.id !== selectedClientIdForDrawer);
+    const existingDuplicate = otherClients.find(
+      c =>
+        (c.name.trim().toLowerCase() === trimmedName.toLowerCase() &&
+         c.company.trim().toLowerCase() === trimmedCompany.toLowerCase()) ||
+        (c.email.trim().toLowerCase() === trimmedEmail.toLowerCase())
+    );
+
+    if (existingDuplicate) {
+      errs.general = `Duplicate Record: A client with this name & company ("${existingDuplicate.name}" - ${existingDuplicate.company}) or email (${existingDuplicate.email}) already exists in your directory.`;
+    }
 
     setErrors(errs);
     return Object.keys(errs).length === 0;
   };
 
-  const handleSave = () => {
+  const getFullPhoneNumber = () => {
+    return phoneLocal.trim() ? `${countryCode} ${phoneLocal.trim()}` : '';
+  };
+
+  const handleSave = (bypassPhoneWarning = false) => {
     if (!validate()) return;
+
+    const fullPhone = getFullPhoneNumber();
+    const normPhone = normalizePhoneNumber(fullPhone);
+
+    // If phone number is provided and not yet acknowledged, check for matching numbers in other clients
+    if (normPhone && !bypassPhoneWarning) {
+      const otherClients = clients.filter(c => c.id !== selectedClientIdForDrawer);
+      const existingWithSamePhone = otherClients.find(c => {
+        const existingNorm = normalizePhoneNumber(c.phone);
+        return existingNorm && (existingNorm === normPhone || existingNorm.endsWith(normPhone) || normPhone.endsWith(existingNorm));
+      });
+
+      if (existingWithSamePhone) {
+        setSamePhoneWarningClient(existingWithSamePhone);
+        setIsSamePhoneModalOpen(true);
+        return;
+      }
+    }
+
+    executeSave(fullPhone);
+  };
+
+  const executeSave = (savedPhone: string) => {
+    setIsSamePhoneModalOpen(false);
+    setSamePhoneWarningClient(null);
 
     if (isEditing && selectedClientIdForDrawer) {
       updateClient(selectedClientIdForDrawer, {
-        name,
-        company,
-        email,
-        phone,
+        name: name.trim(),
+        company: company.trim(),
+        email: email.trim(),
+        phone: savedPhone,
         currency,
         hourlyRate: Number(hourlyRate),
         notes,
@@ -103,10 +162,10 @@ export const ClientDrawer: React.FC = () => {
       closeClientDrawer();
     } else {
       addClient({
-        name,
-        company,
-        email,
-        phone,
+        name: name.trim(),
+        company: company.trim(),
+        email: email.trim(),
+        phone: savedPhone,
         currency,
         hourlyRate: Number(hourlyRate),
         notes,
@@ -135,10 +194,11 @@ export const ClientDrawer: React.FC = () => {
   };
 
   const handleSendWhatsAppPing = () => {
+    const fullPhone = getFullPhoneNumber();
     showToast({
       type: 'success',
       title: 'WhatsApp Dispatch',
-      message: `Message sent to ${name} (${phone || 'connected number'}).`,
+      message: `Message sent to ${name} (${fullPhone || 'connected number'}).`,
       liveTag: 'Sent'
     });
   };
@@ -262,6 +322,19 @@ export const ClientDrawer: React.FC = () => {
           <div className="flex-1 overflow-y-auto p-space-lg flex flex-col gap-space-lg">
             {activeTab === 'general' && (
               <div className="flex flex-col gap-space-md">
+                {/* General Duplicate Warning Alert */}
+                {errors.general && (
+                  <div className="p-3.5 rounded-xl bg-error-container/80 dark:bg-status-red-bg border border-error/50 dark:border-status-red text-on-error-container dark:text-status-red-text text-body-sm flex items-start gap-2.5 shadow-sm">
+                    <span className="material-symbols-outlined text-[20px] shrink-0 mt-0.5 text-error dark:text-status-red">
+                      error
+                    </span>
+                    <div className="flex flex-col">
+                      <span className="font-semibold text-xs uppercase tracking-wider">Duplicate Record Prevented</span>
+                      <span className="font-medium text-xs mt-0.5">{errors.general}</span>
+                    </div>
+                  </div>
+                )}
+
                 {/* Name & Company */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
                   <div className="flex flex-col gap-1.5">
@@ -307,7 +380,7 @@ export const ClientDrawer: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Email & Phone */}
+                {/* Email & Phone with Country Code */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
                   <div className="flex flex-col gap-1.5">
                     <label className="font-label-md text-label-md text-on-surface dark:text-text-high font-semibold">
@@ -331,16 +404,38 @@ export const ClientDrawer: React.FC = () => {
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label className="font-label-md text-label-md text-on-surface dark:text-text-high font-semibold">
-                      WhatsApp / Phone
+                    <label className="font-label-md text-label-md text-on-surface dark:text-text-high font-semibold flex items-center justify-between">
+                      <span>WhatsApp / Phone</span>
+                      <span className="text-[11px] font-normal text-on-surface-variant dark:text-text-muted">Direct messaging</span>
                     </label>
-                    <input
-                      className="h-10 px-3 rounded-lg bg-surface-container-low dark:bg-canvas-card-elevated text-on-surface dark:text-text-high font-body-md text-body-md border border-outline-variant/30 dark:border-card-border focus:outline-none focus:ring-2 focus:ring-primary/20"
-                      placeholder="+1 (555) 234-5678"
-                      type="text"
-                      value={phone}
-                      onChange={e => setPhone(e.target.value)}
-                    />
+                    <div className="flex items-center gap-2">
+                      {/* Country Code Select */}
+                      <div className="relative w-36 shrink-0">
+                        <select
+                          value={countryCode}
+                          onChange={e => setCountryCode(e.target.value)}
+                          className="w-full h-10 pl-2.5 pr-6 rounded-lg bg-surface-container-low dark:bg-canvas-card-elevated text-on-surface dark:text-text-high font-body-sm text-body-sm border border-outline-variant/30 dark:border-card-border focus:outline-none focus:ring-2 focus:ring-primary/20 appearance-none cursor-pointer font-medium"
+                        >
+                          {COUNTRY_CODES.map(c => (
+                            <option key={c.code + c.country} value={c.code}>
+                              {c.flag} {c.code} ({c.iso})
+                            </option>
+                          ))}
+                        </select>
+                        <span className="material-symbols-outlined text-[16px] text-outline dark:text-text-muted absolute right-1.5 top-1/2 -translate-y-1/2 pointer-events-none">
+                          expand_more
+                        </span>
+                      </div>
+
+                      {/* Phone Local Number */}
+                      <input
+                        className="flex-1 h-10 px-3 rounded-lg bg-surface-container-low dark:bg-canvas-card-elevated text-on-surface dark:text-text-high font-body-md text-body-md border border-outline-variant/30 dark:border-card-border focus:outline-none focus:ring-2 focus:ring-primary/20"
+                        placeholder="e.g. 98765 43210"
+                        type="tel"
+                        value={phoneLocal}
+                        onChange={e => setPhoneLocal(e.target.value)}
+                      />
+                    </div>
                   </div>
                 </div>
 
@@ -607,7 +702,7 @@ export const ClientDrawer: React.FC = () => {
                 </button>
               )}
               <button
-                onClick={handleSave}
+                onClick={() => handleSave(false)}
                 className="px-4 py-2 rounded-xl bg-primary dark:bg-brand-primary text-on-primary hover:bg-primary-container dark:hover:bg-brand-primary-hover shadow-sm font-label-md text-label-md font-semibold transition-all"
                 type="button"
               >
@@ -617,6 +712,70 @@ export const ClientDrawer: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Same Phone Number Warning Modal */}
+      {isSamePhoneModalOpen && samePhoneWarningClient && (
+        <div className="fixed inset-0 z-60 overflow-y-auto flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-xs animate-in fade-in duration-200">
+          <div className="relative bg-surface-container-lowest dark:bg-canvas-card border border-amber-500/40 rounded-2xl shadow-2xl max-w-md w-full p-6 flex flex-col gap-4 text-on-surface dark:text-text-high">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 border border-amber-200 dark:border-amber-800">
+                <span className="material-symbols-outlined text-[24px]">contact_phone</span>
+              </div>
+              <div>
+                <h3 className="font-title-lg text-base font-bold text-on-surface dark:text-text-high">
+                  Duplicate Number Alert
+                </h3>
+                <p className="text-xs text-on-surface-variant dark:text-text-muted">
+                  Phone number matches an existing client
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 bg-amber-50/80 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 rounded-xl text-xs space-y-2.5">
+              <p className="font-semibold text-amber-900 dark:text-amber-200 text-sm leading-snug">
+                Number is same. Do you mean that this is the same person, but with a different account?
+              </p>
+              <div className="pt-2 border-t border-amber-200/60 dark:border-amber-800/40 text-amber-800 dark:text-amber-300 space-y-1">
+                <div><span className="font-semibold">Existing Client:</span> {samePhoneWarningClient.name} ({samePhoneWarningClient.company})</div>
+                <div><span className="font-semibold">Phone:</span> {samePhoneWarningClient.phone}</div>
+                <div><span className="font-semibold">Email:</span> {samePhoneWarningClient.email}</div>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center gap-2 pt-1">
+              <button
+                type="button"
+                onClick={() => handleSave(true)}
+                className="w-full sm:w-auto flex-1 py-2.5 px-3 rounded-xl bg-primary dark:bg-brand-primary text-on-primary font-label-md text-xs font-semibold hover:bg-primary-container shadow-sm transition-all text-center"
+              >
+                Yes, Different Account (Proceed)
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setIsSamePhoneModalOpen(false);
+                  setSamePhoneWarningClient(null);
+                  closeClientDrawer();
+                  openClientDrawer(samePhoneWarningClient.id);
+                }}
+                className="w-full sm:w-auto py-2.5 px-3 rounded-xl bg-surface-container dark:bg-canvas-card-elevated text-on-surface dark:text-text-high hover:bg-surface-container-high font-label-md text-xs font-semibold border border-outline-variant/30 dark:border-card-border transition-colors text-center"
+              >
+                No, View Existing Client
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setIsSamePhoneModalOpen(false);
+                  setSamePhoneWarningClient(null);
+                }}
+                className="w-full sm:w-auto py-2 px-2.5 rounded-xl text-on-surface-variant dark:text-text-muted hover:text-on-surface dark:hover:text-text-high text-xs font-medium text-center"
+              >
+                Edit Number
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
