@@ -45,6 +45,7 @@ export const ClientDrawer: React.FC = () => {
   const currentClient = clients.find(c => c.id === selectedClientIdForDrawer);
 
   useEffect(() => {
+    setActiveTab('general');
     if (currentClient) {
       setName(currentClient.name || '');
       setCompany(currentClient.company || '');
@@ -96,19 +97,20 @@ export const ClientDrawer: React.FC = () => {
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
       errs.email = 'Please enter a valid business email (e.g. name@company.com)';
     }
-    if (!trimmedCompany) errs.company = 'Company name is required';
 
     // Duplicate Check: ensure same name & company or same email does not already exist in database
     const otherClients = clients.filter(c => c.id !== selectedClientIdForDrawer);
-    const existingDuplicate = otherClients.find(
-      c =>
-        (c.name.trim().toLowerCase() === trimmedName.toLowerCase() &&
-         c.company.trim().toLowerCase() === trimmedCompany.toLowerCase()) ||
-        (c.email.trim().toLowerCase() === trimmedEmail.toLowerCase())
-    );
+    const existingDuplicate = otherClients.find(c => {
+      const matchEmail = trimmedEmail && c.email.trim().toLowerCase() === trimmedEmail.toLowerCase();
+      const matchNameAndCompany =
+        trimmedName &&
+        c.name.trim().toLowerCase() === trimmedName.toLowerCase() &&
+        (trimmedCompany ? c.company.trim().toLowerCase() === trimmedCompany.toLowerCase() : true);
+      return matchEmail || matchNameAndCompany;
+    });
 
     if (existingDuplicate) {
-      errs.general = `Duplicate Record: A client with this name & company ("${existingDuplicate.name}" - ${existingDuplicate.company}) or email (${existingDuplicate.email}) already exists in your directory.`;
+      errs.general = `Duplicate Record: A client with this name ("${existingDuplicate.name}"${existingDuplicate.company ? ` - ${existingDuplicate.company}` : ''}) or email (${existingDuplicate.email}) already exists in your directory.`;
     }
 
     setErrors(errs);
@@ -320,7 +322,7 @@ export const ClientDrawer: React.FC = () => {
 
           {/* Drawer Body Canvas */}
           <div className="flex-1 overflow-y-auto p-space-lg flex flex-col gap-space-lg">
-            {activeTab === 'general' && (
+            {(!isEditing || activeTab === 'general') && (
               <div className="flex flex-col gap-space-md">
                 {/* General Duplicate Warning Alert */}
                 {errors.general && (
