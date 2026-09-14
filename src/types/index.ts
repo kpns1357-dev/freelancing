@@ -89,4 +89,19 @@ export interface ToastNotification {
   undoAction?: () => void;
 }
 
+export type MarketplaceProvider = 'freelancer' | 'fiverr';
+export type MarketplaceConnectionStatus = 'not_connected' | 'manual' | 'ready';
+
+/**
+ * Public, user-owned marketplace metadata. OAuth credentials are deliberately
+ * excluded: they must be stored only by a server-side integration service.
+ */
+export interface MarketplaceConnection {
+  provider: MarketplaceProvider;
+  status: MarketplaceConnectionStatus;
+  profileUrl?: string;
+  gigUrl?: string;
+  lastUpdatedAt?: string;
+}
+
 export type NavPath = 'dashboard' | 'clients' | 'projects' | 'invoices' | 'analytics' | 'settings';

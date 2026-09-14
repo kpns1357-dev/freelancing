@@ -1,12 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { useAuth } from '../../context/AuthContext';
+import { firestoreService } from '../../services/firestore';
+import { MarketplaceConnection } from '../../types';
+import { MarketplaceOrderForm } from '../marketplace/MarketplaceOrderForm';
 
 export const SettingsView: React.FC = () => {
   const { darkMode, toggleDarkMode, clearWorkspace, showToast } = useApp();
   const { user, logOut, updateDisplayName } = useAuth();
   const [profileName, setProfileName] = useState(user?.displayName || '');
   const [isUpdatingProfile, setIsUpdatingProfile] = useState(false);
+  const [fiverrConnection, setFiverrConnection] = useState<MarketplaceConnection | null>(null);
+  const [fiverrProfileUrl, setFiverrProfileUrl] = useState('');
+  const [fiverrGigUrl, setFiverrGigUrl] = useState('');
+  const [isSavingFiverr, setIsSavingFiverr] = useState(false);
+
+  useEffect(() => {
+    if (!user) return;
+    return firestoreService.subscribeMarketplaceConnection(user.uid, 'fiverr', connection => {
+      setFiverrConnection(connection);
+      setFiverrProfileUrl(connection?.profileUrl || '');
+      setFiverrGigUrl(connection?.gigUrl || '');
+    });
+  }, [user]);
 
   const handleUpdateProfile = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,6 +52,38 @@ export const SettingsView: React.FC = () => {
       title: 'Preferences Saved',
       message: 'Agency preferences and defaults updated.'
     });
+  };
+
+  const isValidUrl = (value: string) => {
+    if (!value) return true;
+    try {
+      return ['http:', 'https:'].includes(new URL(value).protocol);
+    } catch {
+      return false;
+    }
+  };
+
+  const handleSaveFiverrLinks = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!user) return;
+    if (!isValidUrl(fiverrProfileUrl) || !isValidUrl(fiverrGigUrl)) {
+      showToast({ type: 'error', title: 'Check the links', message: 'Use complete https:// links for your Fiverr profile or Gig.' });
+      return;
+    }
+    setIsSavingFiverr(true);
+    try {
+      await firestoreService.saveMarketplaceConnection(user.uid, {
+        provider: 'fiverr',
+        status: fiverrProfileUrl || fiverrGigUrl ? 'manual' : 'not_connected',
+        profileUrl: fiverrProfileUrl.trim(),
+        gigUrl: fiverrGigUrl.trim()
+      });
+      showToast({ type: 'success', title: 'Fiverr links saved', message: 'Your public marketplace links are now stored in your private workspace.' });
+    } catch (error) {
+      showToast({ type: 'error', title: 'Could not save Fiverr links', message: 'Please try again.' });
+    } finally {
+      setIsSavingFiverr(false);
+    }
   };
 
   return (
@@ -214,6 +262,64 @@ export const SettingsView: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {/* Marketplace Connections */}
+      <div className="bg-surface-container-lowest dark:bg-canvas-card border border-outline-variant/20 dark:border-card-border rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+        <div className="flex flex-col gap-1">
+          <h3 className="font-title-md text-title-md font-bold text-on-surface dark:text-text-high flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-[20px]">hub</span>
+            <span>Marketplace Connections</span>
+          </h3>
+          <p className="font-body-sm text-body-sm text-on-surface-variant dark:text-text-medium">
+            Keep marketplace references with your private ClientFlow workspace. Login credentials are never requested or stored here.
+          </p>
+        </div>
+
+        <div className="rounded-xl border border-outline-variant/25 dark:border-card-border p-space-md flex flex-col gap-3">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <div className="font-semibold text-on-surface dark:text-text-high">Freelancer.com</div>
+              <p className="font-body-sm text-body-sm text-on-surface-variant dark:text-text-muted mt-1">
+                Direct project and milestone sync is ready for server-side setup. It requires your approved Freelancer developer credentials.
+              </p>
+            </div>
+            <span className="shrink-0 px-2.5 py-1 rounded-full bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 text-xs font-semibold">Setup required</span>
+          </div>
+          <div className="text-xs text-on-surface-variant dark:text-text-muted">
+            Add the secure backend and OAuth credentials described in <code>MARKETPLACE_INTEGRATION_PLAN.md</code>; never add them to this frontend's environment variables.
+          </div>
+        </div>
+
+        <form onSubmit={handleSaveFiverrLinks} className="rounded-xl border border-outline-variant/25 dark:border-card-border p-space-md flex flex-col gap-3">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <div className="font-semibold text-on-surface dark:text-text-high">Fiverr</div>
+              <p className="font-body-sm text-body-sm text-on-surface-variant dark:text-text-muted mt-1">
+                Save public profile and Gig links. Automatic order synchronization is intentionally unavailable without approved Fiverr partner access.
+              </p>
+            </div>
+            <span className={`shrink-0 px-2.5 py-1 rounded-full text-xs font-semibold ${fiverrConnection?.status === 'manual' ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300' : 'bg-surface-container-high dark:bg-canvas-card-elevated text-on-surface-variant dark:text-text-muted'}`}>
+              {fiverrConnection?.status === 'manual' ? 'Links saved' : 'Not connected'}
+            </span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+            <div className="flex flex-col gap-1">
+              <label className="font-label-md text-label-md text-on-surface dark:text-text-high font-semibold">Fiverr profile URL</label>
+              <input value={fiverrProfileUrl} onChange={event => setFiverrProfileUrl(event.target.value)} placeholder="https://www.fiverr.com/your-name" type="url" className="h-10 px-3 rounded-lg bg-surface-container-low dark:bg-canvas-card-elevated text-on-surface dark:text-text-high font-body-md text-body-md border border-outline-variant/30 dark:border-card-border focus:outline-none focus:ring-1 focus:ring-primary" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="font-label-md text-label-md text-on-surface dark:text-text-high font-semibold">Primary Gig URL</label>
+              <input value={fiverrGigUrl} onChange={event => setFiverrGigUrl(event.target.value)} placeholder="https://www.fiverr.com/s/…" type="url" className="h-10 px-3 rounded-lg bg-surface-container-low dark:bg-canvas-card-elevated text-on-surface dark:text-text-high font-body-md text-body-md border border-outline-variant/30 dark:border-card-border focus:outline-none focus:ring-1 focus:ring-primary" />
+            </div>
+          </div>
+          <div className="flex items-center justify-between gap-3 pt-1">
+            <span className="text-xs text-on-surface-variant dark:text-text-muted">Last updated: {fiverrConnection?.lastUpdatedAt ? new Date(fiverrConnection.lastUpdatedAt).toLocaleString() : 'Not yet saved'}</span>
+            <button type="submit" disabled={isSavingFiverr} className="px-4 py-2 rounded-xl bg-primary dark:bg-brand-primary text-on-primary hover:bg-primary-container disabled:opacity-50 font-label-md text-label-md font-semibold transition-colors">{isSavingFiverr ? 'Saving...' : 'Save Fiverr links'}</button>
+          </div>
+        </form>
+      </div>
+
+      <MarketplaceOrderForm />
 
       {/* Data Management Card */}
       <div className="bg-surface-container-lowest dark:bg-canvas-card border border-outline-variant/20 dark:border-card-border rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">

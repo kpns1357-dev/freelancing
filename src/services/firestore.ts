@@ -13,7 +13,7 @@ import {
   Unsubscribe
 } from 'firebase/firestore';
 import { db } from './firebase';
-import { Client, Project, Invoice, ActivityItem } from '../types';
+import { Client, Project, Invoice, ActivityItem, MarketplaceConnection } from '../types';
 
 export const firestoreService = {
   // ----------------------------------------------------
@@ -104,6 +104,27 @@ export const firestoreService = {
         console.error('Firestore subscribeUserSettings error:', error);
       }
     );
+  },
+
+  subscribeMarketplaceConnection: (
+    uid: string,
+    provider: MarketplaceConnection['provider'],
+    onUpdate: (connection: MarketplaceConnection | null) => void
+  ): Unsubscribe => {
+    const connectionRef = doc(db, 'users', uid, 'integrations', provider);
+    return onSnapshot(
+      connectionRef,
+      snapshot => onUpdate(snapshot.exists() ? (snapshot.data() as MarketplaceConnection) : null),
+      error => console.error('Firestore subscribeMarketplaceConnection error:', error)
+    );
+  },
+
+  saveMarketplaceConnection: async (
+    uid: string,
+    connection: MarketplaceConnection
+  ): Promise<void> => {
+    const connectionRef = doc(db, 'users', uid, 'integrations', connection.provider);
+    await setDoc(connectionRef, { ...connection, lastUpdatedAt: new Date().toISOString() }, { merge: true });
   },
 
   // ----------------------------------------------------
@@ -235,7 +256,7 @@ export const firestoreService = {
       const colRef = collection(db, 'users', uid, col);
       const snap = await getDocs(colRef);
       snap.forEach(docSnap => {
-        batch.delete(docSnap.ref);
+        batch.delete(doc(db, 'users', uid, col, docSnap.id));
       });
     }
     await batch.commit();
